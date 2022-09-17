@@ -16,15 +16,6 @@ namespace GBJam.Player
 		}
 
 		override
-		public void Update()
-        {
-			if (Input.GetButtonDown("Primary"))
-			{
-				Debug.Log("TODO Attack");
-			}
-		}
-
-		override
 		public void FixedUpdate()
 		{
 			stateMachine.horizontalMove = Input.GetAxisRaw("Horizontal") * stateMachine.moveSpeed;

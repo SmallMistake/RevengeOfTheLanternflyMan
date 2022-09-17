@@ -47,5 +47,11 @@ namespace GBJam.Player
             SetState(new RegularState(this));
         }
 
+        public void Die()
+        {
+            FindObjectOfType<GameOverScript>().Activate();
+            SetState(new DieState(this));
+        }
+
     }
 }

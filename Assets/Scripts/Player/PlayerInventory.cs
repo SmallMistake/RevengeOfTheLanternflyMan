@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int numberOfAcorns;
-    // Start is called before the first frame update
-    void Start()
+    private int numberOfAcorns;
+
+    public static event Action<int> acornsChanged;
+
+    private void Start()
     {
-        
+        acornsChanged.Invoke(numberOfAcorns);
     }
 
     public void AddAcorn(int amount)
     {
         numberOfAcorns += amount;
+        acornsChanged.Invoke(numberOfAcorns);
     }
 }

@@ -9,8 +9,11 @@ public class AcornScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerInventory inventory = collision.gameObject.GetComponent<PlayerInventory>();
-            inventory.AddAcorn(1);
-            Destroy(transform.parent.gameObject);
+            if (inventory)
+            {
+                inventory.AddAcorn(1);
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 }
