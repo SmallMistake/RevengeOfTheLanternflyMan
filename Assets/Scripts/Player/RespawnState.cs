@@ -10,7 +10,7 @@ namespace GBJam.Player
 		override
 		public IEnumerator Start()
 		{
-			stateMachine.transform.localScale = new Vector3(0.7f, 0.7f, 1);
+			stateMachine.transform.localScale = new Vector3(1f, 1f, 1);
 			stateMachine.transform.position = stateMachine.lastPositionOnSolidGround;
 			stateMachine.setToRegularState();
 			yield break;

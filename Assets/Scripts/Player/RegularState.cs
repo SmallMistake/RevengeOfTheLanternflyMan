@@ -18,7 +18,7 @@ namespace GBJam.Player
 		override
 		public void Update()
         {
-			if (Input.GetButtonDown("Attack"))
+			if (Input.GetButtonDown("Primary"))
 			{
 				Debug.Log("TODO Attack");
 			}
