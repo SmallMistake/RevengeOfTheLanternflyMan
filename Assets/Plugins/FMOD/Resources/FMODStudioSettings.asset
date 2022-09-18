@@ -283,8 +283,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../Documents/FMOD Studio/GBJAM_Project/GBJAM_Project.fspro
-  sourceBankPath: ../../Documents/FMOD Studio/GBJAM_Project/Build
+  sourceProjectPath: Assets/FMOD/GBJAM_Project/GBJAM_Project.fspro
+  sourceBankPath: Assets/FMOD/GBJAM_Project/Build
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

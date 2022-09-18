@@ -29,4 +29,9 @@ public class PlayerInventory : MonoBehaviour
         numberOfKeys += amount;
         keysChanged.Invoke(numberOfKeys);
     }
+
+    public int GetKeys()
+    {
+        return numberOfKeys;
+    }
 }
