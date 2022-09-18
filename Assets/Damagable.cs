@@ -6,9 +6,9 @@ public class Damagable : MonoBehaviour
 {
     public int health;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        DamageDealer damageDealer = collision.otherCollider.gameObject.GetComponent<DamageDealer>();
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         if (damageDealer)
         {
             health -= damageDealer.damage;
