@@ -10,9 +10,11 @@ public class NPCTalkScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        PlayerInteractionController interactionController = collision.GetComponent<PlayerInteractionController>();
+        if (interactionController)
         {
             inRange = true;
+            interactionController.AddDialougeTriggerEntered(dialogueTrigger);
             dialogueBubbleAnimator.SetBool("InRange", true);
         }
     }
@@ -21,14 +23,17 @@ public class NPCTalkScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Primary") && inRange)
         {
-            dialogueTrigger.TriggerDialogue();
+            print("Working On Dialogue");
+            //dialogueTrigger.TriggerDialogue();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        PlayerInteractionController interactionController = collision.GetComponent<PlayerInteractionController>();
+        if (interactionController)
         {
+            interactionController.DialougeTriggerExited(dialogueTrigger);
             inRange = false;
             dialogueBubbleAnimator.SetBool("InRange", false);
         }

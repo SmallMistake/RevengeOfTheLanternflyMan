@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
         playerHealthChanged.Invoke(health);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         if (damageDealer)

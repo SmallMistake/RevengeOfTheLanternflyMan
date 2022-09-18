@@ -6,17 +6,18 @@ TagManager:
   tags:
   - Ground
   - RoomBounds
+  - Bouncer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - PlayerProjectile
+  - EnemyProjectile
   - 
   - 
   - 
