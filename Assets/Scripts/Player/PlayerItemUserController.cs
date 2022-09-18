@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class PlayerItemUserController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
     // Update is called once per frame
     void Update()
     {

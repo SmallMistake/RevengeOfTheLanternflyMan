@@ -11,15 +11,14 @@ namespace GBJam.Player
         public float moveSpeed = 40f;
         internal FallScript fallScript;
         internal SpriteRenderer spriteRenderer;
-        internal Animator animator;
+        public Animator animator;
 
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            fallScript = GetComponentInChildren<FallScript>();
+            fallScript = transform.parent.GetComponentInChildren<FallScript>();
             playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             SetState(new RegularState(this));
-            animator = GetComponent<Animator>();
         }
 
         void Update()

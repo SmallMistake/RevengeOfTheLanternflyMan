@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
             playerHealthChanged.Invoke(health);
             if (health <= 0)
             {
-                PlayerStateMachine playerStateMachine = transform.parent.GetComponent<PlayerStateMachine>();
+                PlayerStateMachine playerStateMachine = GetComponent<PlayerStateMachine>();
                 playerStateMachine.Die();
             }
         }
