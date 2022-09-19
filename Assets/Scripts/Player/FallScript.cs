@@ -5,7 +5,7 @@ using GBJam.Player;
 
 public class FallScript : MonoBehaviour
 {
-    private List<string> groundTags = new List<string>() {"Ground", "SecondFloor", "Stairs"};
+    private List<string> groundTags = new List<string>() {"Ground", "MovingGround"};
     public PlayerStateMachine playerStateMachine;
     public bool active = false;
 
@@ -50,7 +50,17 @@ public class FallScript : MonoBehaviour
     IEnumerator GetLastPostionAfterXSeconds(float seconds, Vector3 position)
     {
         yield return new WaitForSeconds(seconds);
-        if (active)
+
+        bool standingOnSolidGround = false;
+        foreach(GameObject ground in groundStoodOn)
+        {
+            if (ground.CompareTag("Ground"))
+            {
+                standingOnSolidGround = true;
+                break;
+            }
+        }
+        if (active && standingOnSolidGround)
         {
             playerStateMachine.lastPositionOnSolidGround = position;
         }

@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 2027524980473820493}
   - component: {fileID: 2027524980473820492}
   - component: {fileID: 2027524980473820495}
+  - component: {fileID: 2932949179292419002}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Ground
@@ -379,6 +380,18 @@ CompositeCollider2D:
       - {x: 0.000029300001, y: -2}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &2932949179292419002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027524980473820481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79dc184166ea4d44bd7d79f35c9800e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2027524981093376150
 GameObject:
   m_ObjectHideFlags: 0

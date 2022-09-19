@@ -35,9 +35,7 @@ public class SpawnItemScript : MonoBehaviour, Triggerable
         while (true)
         {
             spawnItem();
-            print(interval);
             yield return new WaitForSeconds(interval);
-            print("Looped");
         }
     }
 
