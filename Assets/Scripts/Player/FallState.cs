@@ -5,18 +5,14 @@ using UnityEngine;
 namespace GBJam.Player
 {
 	public class FallState : State
-	{ 
-		public FallState(PlayerStateMachine stateMachine) : base(stateMachine) { }
-
+	{
 		float timePassedWhileFalling = 0;
 
-		override
-		public IEnumerator Start()
-		{
+		public FallState(PlayerStateMachine stateMachine) : base(stateMachine) {
 			stateMachine.fallScript.active = false;
+			stateMachine.playerInteractionController.enabled = false;
 			timePassedWhileFalling = 0;
 			stateMachine.playerRigidbody.velocity = Vector3.zero;
-			yield break;
 		}
 
 		override

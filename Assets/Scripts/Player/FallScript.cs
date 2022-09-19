@@ -12,7 +12,6 @@ public class FallScript : MonoBehaviour
     public List<GameObject> groundStoodOn = new List<GameObject>();
 
 
-
     private void FixedUpdate()
     {
         if (active)

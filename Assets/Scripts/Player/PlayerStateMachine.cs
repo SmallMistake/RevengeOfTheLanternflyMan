@@ -12,12 +12,17 @@ namespace GBJam.Player
         internal FallScript fallScript;
         internal SpriteRenderer spriteRenderer;
         public Animator animator;
+        public PlayerInteractionController playerInteractionController;
 
-        private void Start()
+        private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             fallScript = transform.parent.GetComponentInChildren<FallScript>();
             playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
             SetState(new RegularState(this));
         }
 

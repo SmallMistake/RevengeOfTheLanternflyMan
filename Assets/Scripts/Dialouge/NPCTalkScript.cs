@@ -19,15 +19,6 @@ public class NPCTalkScript : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Primary") && inRange)
-        {
-            print("Working On Dialogue");
-            //dialogueTrigger.TriggerDialogue();
-        }
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         PlayerInteractionController interactionController = collision.GetComponent<PlayerInteractionController>();

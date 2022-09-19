@@ -7,18 +7,14 @@ namespace GBJam.Player
 {
 	public class RegularState : State
 	{
-		public RegularState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+		public RegularState(PlayerStateMachine stateMachine) : base(stateMachine) {
+			stateMachine.playerInteractionController.enabled = true;
+			stateMachine.fallScript.active = true;
+		}
 
 		enum direction { left, right, up, down };
 
 		private List<direction> keysPressed = new List<direction>();
-
-		override
-		public IEnumerator Start()
-		{
-			stateMachine.fallScript.active = true;
-			yield break;
-		}
 
 		override
 		public void FixedUpdate()

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 205
   animator: {fileID: 905750201642381133}
+  playerInteractionController: {fileID: 9074100436908917500}
 --- !u!114 &9074100436908917500
 MonoBehaviour:
   m_ObjectHideFlags: 0
