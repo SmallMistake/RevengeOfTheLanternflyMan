@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStateMachine: {fileID: 3951168298085661288}
   active: 0
-  parentTop: {fileID: 905750201642381123}
   groundStoodOn: []
 --- !u!61 &905750199761895814
 BoxCollider2D:
@@ -230,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71c85a5dc23d7648a22c4b019949a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 905750201642381133}
 --- !u!114 &353733191545542954
 MonoBehaviour:
   m_ObjectHideFlags: 0

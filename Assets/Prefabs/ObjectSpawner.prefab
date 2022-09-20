@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8680010414184001045}
   - component: {fileID: 8680010414184001046}
+  - component: {fileID: 5298779270699530768}
   m_Layer: 0
   m_Name: ObjectSpawner
   m_TagString: Untagged
@@ -47,3 +48,18 @@ MonoBehaviour:
   itemToSpawn: {fileID: 8812110429921745607, guid: 7b004df6cb154bb4c85928c68849e3df, type: 3}
   spawnOnce: 0
   spawnOnTimer: 3
+--- !u!114 &5298779270699530768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680010414184001044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8255b44b743ae8498c8df5b8bcce736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 1, a: 1}
+  radius: 0.4
+  direction: {x: 0, y: 1, z: 0}
