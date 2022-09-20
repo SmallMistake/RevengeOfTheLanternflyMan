@@ -181,6 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778613b505110a94d840423441311394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   triggerInteractbles: 0
   hitEffect: {fileID: 0}
