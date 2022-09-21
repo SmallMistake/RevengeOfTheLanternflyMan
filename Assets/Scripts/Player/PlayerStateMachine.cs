@@ -13,12 +13,14 @@ namespace GBJam.Player
         internal SpriteRenderer spriteRenderer;
         public Animator animator;
         public PlayerInteractionController playerInteractionController;
+        internal PlayerHealth playerHealth;
 
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             fallScript = transform.parent.GetComponentInChildren<FallScript>();
             playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+            playerHealth = GetComponent<PlayerHealth>();
         }
 
         private void Start()

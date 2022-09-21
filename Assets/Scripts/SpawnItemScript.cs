@@ -47,4 +47,12 @@ public class SpawnItemScript : MonoBehaviour, Triggerable
 
     }
 
+    private void OnDisable()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 }

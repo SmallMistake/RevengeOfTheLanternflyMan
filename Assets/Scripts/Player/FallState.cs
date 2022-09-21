@@ -13,6 +13,7 @@ namespace GBJam.Player
 			stateMachine.playerInteractionController.enabled = false;
 			timePassedWhileFalling = 0;
 			stateMachine.playerRigidbody.velocity = Vector3.zero;
+			stateMachine.playerHealth.DealDamage(1);
 		}
 
 		override
@@ -20,7 +21,7 @@ namespace GBJam.Player
 		{
 			timePassedWhileFalling += Time.deltaTime * 1.5f;
 			stateMachine.transform.localScale = Vector3.Lerp(stateMachine.transform.localScale, Vector3.zero, timePassedWhileFalling);
-			if(stateMachine.transform.localScale.x == 0)
+			if(stateMachine.transform.localScale.x < 0.1)
             {
 				stateMachine.respawnAtSSpot();
             }
