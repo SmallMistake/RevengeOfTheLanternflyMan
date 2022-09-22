@@ -10,7 +10,7 @@ public class PointInDirection : MonoBehaviour
     public float radius = 0.4f;
     public Vector3 direction = new Vector3(1f, 0, 0);
 
-    #if UNITY_Editor
+    #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Gizmos.color = color;

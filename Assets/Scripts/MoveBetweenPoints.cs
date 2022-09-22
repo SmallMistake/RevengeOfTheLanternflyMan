@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveBetweenPoints : MonoBehaviour
 {
-    public Transform platform;
+    public Transform movingObject;
     public Transform destinationHolder;
     public float speed;
 
@@ -27,7 +27,7 @@ public class MoveBetweenPoints : MonoBehaviour
         }
 
         currentDestination = 0;
-        platform.transform.position = destinations[currentDestination].position;
+        movingObject.transform.position = destinations[currentDestination].position;
         currentDestination++;
         headingForwards = true;
     }
@@ -36,7 +36,7 @@ public class MoveBetweenPoints : MonoBehaviour
     {
         if (!stopped)
         {
-            if (platform.transform.position == destinations[currentDestination].position)
+            if (movingObject.transform.position == destinations[currentDestination].position)
             {
                 if (headingForwards == true)
                 {  //Heading forwards
@@ -52,7 +52,7 @@ public class MoveBetweenPoints : MonoBehaviour
                         else //Restart at begining
                         {
                             currentDestination = 0;
-                            platform.transform.position = destinations[currentDestination].position;
+                            movingObject.transform.position = destinations[currentDestination].position;
                             currentDestination = 1;
                         }
                     }
@@ -71,14 +71,14 @@ public class MoveBetweenPoints : MonoBehaviour
                         else //Restart at begining
                         {
                             currentDestination = destinations.Count;
-                            platform.transform.position = destinations[currentDestination].position;
+                            movingObject.transform.position = destinations[currentDestination].position;
                             currentDestination = destinations.Count - 1;
                         }
                     }
                 }
             }
             float step = speed * Time.deltaTime;
-            platform.transform.position = Vector3.MoveTowards(platform.transform.position, destinations[currentDestination].position, step);
+            movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, destinations[currentDestination].position, step);
         }
     }
 

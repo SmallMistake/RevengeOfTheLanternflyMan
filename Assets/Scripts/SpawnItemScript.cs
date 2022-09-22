@@ -42,17 +42,7 @@ public class SpawnItemScript : MonoBehaviour, Triggerable
     private GameObject spawnItem()
     {
         GameObject spawnedItem = Instantiate(itemToSpawn, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
-        spawnedItem.transform.parent = transform;
+        spawnedItem.transform.parent = transform.parent.Find("TempHolder");
         return spawnedItem;
-
     }
-
-    private void OnDisable()
-    {
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
 }
