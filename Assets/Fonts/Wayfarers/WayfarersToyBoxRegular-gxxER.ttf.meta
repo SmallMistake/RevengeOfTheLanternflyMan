@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1f5009f2c09470d458287a36aa69b3e6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: 3
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Wayfarer's Toy Box
+  fallbackFontReferences: []
+  customCharacters: ~!@#$%^&*()_+`1234567890-={}|[]\<>?,./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,13 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class LockableDoorTileMapScript : MonoBehaviour, Triggerable
+public class LockableDoorTileMapScript : MonoBehaviour
 {
     public bool unlockWithKey = true;
 
-    public void trigger()
+    public List<GameObject> switches;
+    private List<ISwitch> ISwitches = new List<ISwitch>();
+
+    private void Start()
     {
-        Unlock();
+        if (switches.Count > 0)
+        {
+            foreach (GameObject switchObject in switches)
+            {
+                ISwitches.Add(switchObject.GetComponent<ISwitch>());
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if(switches.Count > 0)
+        {
+            bool allSwitched = true;
+            foreach (ISwitch switchObject in ISwitches)
+            {
+                if (switchObject.pressed == false)
+                {
+                    allSwitched = false;
+                    break;
+                }
+            }
+            if (allSwitched)
+            {
+                Unlock();
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

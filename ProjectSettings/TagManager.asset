@@ -22,8 +22,8 @@ TagManager:
   - HalfWalls
   - 
   - 
-  - 
-  - 
+  - PushableBlock
+  - BlockPushableArea
   - 
   - 
   - 

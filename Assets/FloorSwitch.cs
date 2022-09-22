@@ -7,7 +7,6 @@ public class FloorSwitch : ISwitch
     public Sprite onSprite;
     public Sprite offSprite;
     private SpriteRenderer spriteRenderer;
-    private bool on = false;
 
     public GameObject targetObject;
     Triggerable targetObjectTrigger;
@@ -23,17 +22,20 @@ public class FloorSwitch : ISwitch
     {
         if (collision.GetComponent<FallScript>())
         {
-            on = !on;
+            pressed = !pressed;
             SetSprite();
         }
     }
 
     private void SetSprite()
     {
-        if (on)
+        if (pressed)
         {
             spriteRenderer.sprite = onSprite;
-            targetObjectTrigger.trigger();
+            if (targetObjectTrigger != null)
+            {
+                targetObjectTrigger.trigger();
+            }
         }
         else
         {

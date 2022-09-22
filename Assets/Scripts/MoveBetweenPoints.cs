@@ -14,6 +14,10 @@ public class MoveBetweenPoints : MonoBehaviour
     private List<Transform> destinations = new List<Transform>();
     private int currentDestination;
 
+    private float waitAtEnd = 1f;
+
+    bool stopped = false;
+
 
     private void Start()
     {
@@ -30,45 +34,58 @@ public class MoveBetweenPoints : MonoBehaviour
 
     private void Update()
     {
-        if(platform.transform.position == destinations[currentDestination].position)
+        if (!stopped)
         {
-            if(headingForwards == true) {  //Heading forwards
-                currentDestination++;
-                if(currentDestination >= destinations.Count)
-                {
-                    if (loopBackwards) //Loop backward;
-                    {
-                        headingForwards = false;
-                        currentDestination -= 2;
-                    }
-                    else //Restart at begining
-                    {
-                        currentDestination = 0;
-                        platform.transform.position = destinations[currentDestination].position;
-                        currentDestination = 1;
-                    }
-                }
-            }
-            else  //Heading backwards
+            if (platform.transform.position == destinations[currentDestination].position)
             {
-                currentDestination--;
-                if (currentDestination < 0)
-                {
-                    if (loopBackwards) //Loop backward;
+                if (headingForwards == true)
+                {  //Heading forwards
+                    currentDestination++;
+                    if (currentDestination >= destinations.Count)
                     {
-                        headingForwards = true;
-                        currentDestination += 2;
+                        if (loopBackwards) //Loop backward;
+                        {
+                            StartCoroutine(WaitAtEnd());
+                            headingForwards = false;
+                            currentDestination -= 2;
+                        }
+                        else //Restart at begining
+                        {
+                            currentDestination = 0;
+                            platform.transform.position = destinations[currentDestination].position;
+                            currentDestination = 1;
+                        }
                     }
-                    else //Restart at begining
+                }
+                else  //Heading backwards
+                {
+                    currentDestination--;
+                    if (currentDestination < 0)
                     {
-                        currentDestination = destinations.Count;
-                        platform.transform.position = destinations[currentDestination].position;
-                        currentDestination = destinations.Count - 1;
+                        if (loopBackwards) //Loop backward;
+                        {
+                            StartCoroutine(WaitAtEnd());
+                            headingForwards = true;
+                            currentDestination += 2;
+                        }
+                        else //Restart at begining
+                        {
+                            currentDestination = destinations.Count;
+                            platform.transform.position = destinations[currentDestination].position;
+                            currentDestination = destinations.Count - 1;
+                        }
                     }
                 }
             }
+            float step = speed * Time.deltaTime;
+            platform.transform.position = Vector3.MoveTowards(platform.transform.position, destinations[currentDestination].position, step);
         }
-        float step = speed * Time.deltaTime;
-        platform.transform.position = Vector3.MoveTowards(platform.transform.position, destinations[currentDestination].position, step);
+    }
+
+    IEnumerator WaitAtEnd()
+    {
+        stopped = true;
+        yield return new WaitForSeconds(waitAtEnd);
+        stopped = false;
     }
 }

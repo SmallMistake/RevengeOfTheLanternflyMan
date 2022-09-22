@@ -9,6 +9,13 @@ public class PlayerInteractionController : MonoBehaviour
     private DialogueTrigger lastDialogueTriggerEntered;
     internal bool active;
 
+    private PlayerInventory playerInventory;
+
+    private void Start()
+    {
+        playerInventory = GetComponent<PlayerInventory>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -20,12 +27,18 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else //Attack
             {
-                animator.SetTrigger("Primary");
+                if (playerInventory.UnlockedVenusFlyTrap())
+                {
+                    animator.SetTrigger("Primary");
+                }
             }
         }
         if (Input.GetButtonDown("Secondary"))
         {
-            projectileSpawner.SpawnAtLocation();
+            if (playerInventory.UnlockedWalnuts())
+            {
+                projectileSpawner.SpawnAtLocation();
+            }
         }
     }
 
