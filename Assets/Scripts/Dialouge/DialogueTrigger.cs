@@ -5,9 +5,9 @@ using static Utils;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public DialogueFlags currentStageOfDialogue;
+    public Questline questline;
     public Dialogue unassignedDialogue;
-    public Dialogue startedDialogue;
+    public Dialogue inProgressDialogue;
     public Dialogue completedDialogue;
     public Dialogue postCompletedDialogue;
 
@@ -16,13 +16,14 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(Time.timeScale != 0)
         {
-            switch (currentStageOfDialogue)
+            questline.CheckIfFinishedAllSubTasks();
+            switch (questline.currentStatus)
             {
                 case DialogueFlags.Unassigned:
                     FindObjectOfType<DialougeManager>().StartDialogue(unassignedDialogue, this);
                     break;
-                case DialogueFlags.Started:
-                    FindObjectOfType<DialougeManager>().StartDialogue(startedDialogue, this);
+                case DialogueFlags.InProgress:
+                    FindObjectOfType<DialougeManager>().StartDialogue(inProgressDialogue, this);
                     break;
                 case DialogueFlags.Completed:
                     FindObjectOfType<DialougeManager>().StartDialogue(completedDialogue, this);
@@ -36,18 +37,16 @@ public class DialogueTrigger : MonoBehaviour
 
     public void HandleDialogueFinished()
     {
-        switch (currentStageOfDialogue)
+        switch (questline.currentStatus)
         {
             case DialogueFlags.Unassigned:
-                currentStageOfDialogue = DialogueFlags.Started;
+                questline.currentStatus = DialogueFlags.InProgress;
                 break;
-            case DialogueFlags.Started:
-                currentStageOfDialogue = DialogueFlags.Completed;
+            case DialogueFlags.InProgress:
                 break;
             case DialogueFlags.Completed:
-                currentStageOfDialogue = DialogueFlags.PostCompleted;
+                questline.currentStatus = DialogueFlags.PostCompleted;
                 break;
         }
-        print("TODO Dialogue Finished");
     }
 }

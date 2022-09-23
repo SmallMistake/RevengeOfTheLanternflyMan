@@ -17,7 +17,6 @@ public class PlayerItemPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print(pickupMessage);
             playerInventory.UnlockUpgrade(upgradeName);
             pickupMessage = pickupMessage.Replace("\\n", "\n");
             GeneralUpdateManager updateManager = FindObjectOfType<GeneralUpdateManager>();

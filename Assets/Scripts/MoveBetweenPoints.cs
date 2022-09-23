@@ -19,18 +19,24 @@ public class MoveBetweenPoints : MonoBehaviour
     bool stopped = false;
 
 
-    private void Start()
+    private void Awake()
     {
         foreach (Transform destination in destinationHolder)
         {
             destinations.Add(destination);
         }
+    }
 
+
+    private void OnEnable()
+    {
+        stopped = false;
         currentDestination = 0;
         movingObject.transform.position = destinations[currentDestination].position;
         currentDestination++;
         headingForwards = true;
     }
+
 
     private void Update()
     {

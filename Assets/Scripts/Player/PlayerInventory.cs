@@ -8,24 +8,37 @@ public class PlayerInventory : MonoBehaviour
     private int numberOfAcorns;
     private int numberOfKeys;
 
-    private bool unlockedVenusFlyTrap;
-    private bool unlockedWalnuts;
-    private bool unlockedPesticide;
+    private List<Utils.PermanentUpgrades> permanentUpgrades = new List<Utils.PermanentUpgrades>();
 
     public static event Action<int> acornsChanged;
 
     public static event Action<int> keysChanged;
+    public static event Action<Utils.PermanentUpgrades, int> upgradesChanged; //Use -1 if lost upgrade, 1 if gained
+
 
     private void Start()
     {
+        SaveSystemGameObject.loadedPlayer += LoadedPlayer;
         acornsChanged.Invoke(numberOfAcorns);
         keysChanged.Invoke(numberOfKeys);
+    }
+
+    private void LoadedPlayer(PlayerData playerData)
+    {
+        numberOfAcorns = 0;
+        AddAcorn(playerData.currency);
+        permanentUpgrades = playerData.items;
     }
 
     public void AddAcorn(int amount)
     {
         numberOfAcorns += amount;
         acornsChanged.Invoke(numberOfAcorns);
+    }
+
+    public int GetCurrency()
+    {
+        return numberOfAcorns;
     }
 
     public void AddKey(int amount)
@@ -39,34 +52,26 @@ public class PlayerInventory : MonoBehaviour
         return numberOfKeys;
     }
 
-    public bool UnlockedPesticide()
+    public bool UnlockedItem(Utils.PermanentUpgrades upgradeToCheckFor)
     {
-        return unlockedPesticide;
-    }
-
-    public bool UnlockedWalnuts()
-    {
-        return unlockedWalnuts;
-    }
-
-    public bool UnlockedVenusFlyTrap()
-    {
-        return unlockedVenusFlyTrap;
+        if (permanentUpgrades.Contains(upgradeToCheckFor))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        } 
     }
 
     public void UnlockUpgrade(Utils.PermanentUpgrades upgradeName)
     {
-        switch (upgradeName) {
-            case Utils.PermanentUpgrades.VenusFlyTrap:
-                unlockedVenusFlyTrap = true;
-                break;
-            case Utils.PermanentUpgrades.Pecticide:
-                unlockedPesticide = true;
-                break;
-            case Utils.PermanentUpgrades.Walnut:
-                unlockedWalnuts = true;
-                break;
+        permanentUpgrades.Add(upgradeName);
+        upgradesChanged.Invoke(upgradeName, 1);
+    }
 
-        }
+    public List<Utils.PermanentUpgrades> GetUpgrades()
+    {
+        return permanentUpgrades;
     }
 }

@@ -27,7 +27,7 @@ public class PlayerInteractionController : MonoBehaviour
             }
             else //Attack
             {
-                if (playerInventory.UnlockedVenusFlyTrap())
+                if (playerInventory.UnlockedItem(Utils.PermanentUpgrades.VenusFlyTrap))
                 {
                     animator.SetTrigger("Primary");
                 }
@@ -35,7 +35,7 @@ public class PlayerInteractionController : MonoBehaviour
         }
         if (Input.GetButtonDown("Secondary"))
         {
-            if (playerInventory.UnlockedWalnuts())
+            if (playerInventory.UnlockedItem(Utils.PermanentUpgrades.Walnut))
             {
                 projectileSpawner.SpawnAtLocation();
             }

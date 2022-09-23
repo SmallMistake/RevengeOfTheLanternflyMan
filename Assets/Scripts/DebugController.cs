@@ -22,7 +22,7 @@ public class DebugController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("h") && Input.GetKeyDown("j") && Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("h") && Input.GetKeyDown("k"))
         {
             foreach (Transform child in transform)
             {
