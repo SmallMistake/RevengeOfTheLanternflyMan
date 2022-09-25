@@ -8,6 +8,13 @@ public class SpawnItemScript : MonoBehaviour, Triggerable
     bool spawned = false;
     public float spawnOnTimer = 0f;
 
+    GameObject tempHolder;
+
+    private void Awake()
+    {
+        tempHolder = GameObject.Find("TempHolder");
+    }
+
     private void OnEnable()
     {
         if (spawnOnTimer > 0)
@@ -42,7 +49,7 @@ public class SpawnItemScript : MonoBehaviour, Triggerable
     private GameObject spawnItem()
     {
         GameObject spawnedItem = Instantiate(itemToSpawn, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
-        spawnedItem.transform.parent = transform.parent.Find("TempHolder");
+        spawnedItem.transform.parent = tempHolder.transform;
         return spawnedItem;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomSwitcherController : MonoBehaviour
 {
-    private List<GameObject> roomsIn = new List<GameObject>();
+    public List<GameObject> roomsIn = new List<GameObject>();
     public GameObject roomHolder;
     private List<GameObject> rooms = new List<GameObject>();
     private GameObject activeRoom;

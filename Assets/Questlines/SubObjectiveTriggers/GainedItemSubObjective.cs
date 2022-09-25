@@ -17,6 +17,11 @@ public class GainedItemSubObjective : ISubObjectiveTrigger
         PlayerInventory.upgradesChanged += WatchPlayerInventory;
     }
 
+    private void OnDestroy()
+    {
+        PlayerInventory.upgradesChanged -= WatchPlayerInventory;
+    }
+
     private void WatchPlayerInventory(Utils.PermanentUpgrades upgradeName, int changeDirection)
     {
         if (upgradeNameToCheckFor.Equals(upgradeName))

@@ -8,6 +8,8 @@ public class SpawnProjectileScript : MonoBehaviour
     public void SpawnAtLocation()
     {
         projectile.layer = gameObject.layer;
-        Instantiate(projectile, transform.position, transform.rotation);
+        GameObject createdProjectile = Instantiate(projectile, transform.position, transform.rotation);
+
+        createdProjectile.transform.parent = GameObject.FindObjectOfType<TempHolderManager>().gameObject.transform;
     }
 }

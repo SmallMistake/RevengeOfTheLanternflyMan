@@ -25,13 +25,23 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        HandleTriggerEvent(collision);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        HandleTriggerEvent(collision);
+    }
+
+    public void HandleTriggerEvent(Collider2D collision)
+    {
         DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         if (damageDealer && !invincible)
         {
+            invincible = true;
+            animator.SetTrigger("StartIFrames");
             DealDamage(damageDealer.damage);
             playerRigidbody.AddForce(new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y).normalized * knockbackForce);
-            animator.SetTrigger("StartIFrames");
-            invincible = true;
         }
     }
 

@@ -22,7 +22,7 @@ public class DialougeManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Primary") && dialogueActive)
+        if ((Input.GetButtonDown("Primary") || Input.GetButtonDown("Select")) && dialogueActive)
         {
             DisplayNextSentence();
         }

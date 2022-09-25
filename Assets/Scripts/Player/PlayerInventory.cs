@@ -23,6 +23,11 @@ public class PlayerInventory : MonoBehaviour
         keysChanged.Invoke(numberOfKeys);
     }
 
+    private void OnDestroy()
+    {
+        SaveSystemGameObject.loadedPlayer -= LoadedPlayer;
+    }
+
     private void LoadedPlayer(PlayerData playerData)
     {
         numberOfAcorns = 0;

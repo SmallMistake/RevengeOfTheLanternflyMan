@@ -14,6 +14,11 @@ public class PauseController : MonoBehaviour
         PlayerInventory.keysChanged += UpdateKeyVisual;
     }
 
+    private void OnDestroy()
+    {
+        PlayerInventory.keysChanged -= UpdateKeyVisual;
+    }
+
     // Update is called once per frame
     void Update()
     {
