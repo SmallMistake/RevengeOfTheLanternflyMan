@@ -11,15 +11,21 @@ namespace GBJam.Player
         public float moveSpeed = 40f;
         internal FallScript fallScript;
         internal SpriteRenderer spriteRenderer;
-        internal Animator animator;
+        public Animator animator;
+        public PlayerInteractionController playerInteractionController;
+        internal PlayerHealth playerHealth;
+
+        private void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            fallScript = transform.parent.GetComponentInChildren<FallScript>();
+            playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+            playerHealth = GetComponent<PlayerHealth>();
+        }
 
         private void Start()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            fallScript = GetComponentInChildren<FallScript>();
-            playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             SetState(new RegularState(this));
-            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -45,6 +51,12 @@ namespace GBJam.Player
         public void setToRegularState()
         {
             SetState(new RegularState(this));
+        }
+
+        public void Die()
+        {
+            FindObjectOfType<GameOverScript>().Activate();
+            SetState(new DieState(this));
         }
 
     }

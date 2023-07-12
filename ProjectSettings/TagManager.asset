@@ -5,24 +5,29 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - RoomBounds
+  - Bouncer
+  - MovingGround
+  - Weighted
+  - MainAudio
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
+  - Player
+  - Enemy
+  - PlayerProjectile
+  - EnemyProjectile
+  - HalfWalls
+  - Background
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PushableBlock
+  - BlockPushableArea
+  - Switch
+  - SpecialPlayerLayer
   - 
   - 
   - 

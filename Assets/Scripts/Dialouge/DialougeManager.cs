@@ -13,6 +13,8 @@ public class DialougeManager : MonoBehaviour
     private bool dialogueActive = false;
     private bool closedThisFrame = false;
 
+    private DialogueTrigger dialogueTrigger;
+
     private void Start()
     {
         sentences = new Queue<string>();
@@ -20,7 +22,7 @@ public class DialougeManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Primary") && dialogueActive)
+        if ((Input.GetButtonDown("Primary") || Input.GetButtonDown("Select") || Input.GetButtonDown("Start")) && dialogueActive)
         {
             DisplayNextSentence();
         }
@@ -30,13 +32,15 @@ public class DialougeManager : MonoBehaviour
         closedThisFrame = false;
     }
 
-    public void StartDialogue(Dialogue dialouge)
+    public void StartDialogue(Dialogue dialouge, DialogueTrigger trigger)
     {
         if (!closedThisFrame)
         {
+            dialogueTrigger = trigger;
             Time.timeScale = 0;
             dialogueActive = true;
             nameUI.text = dialouge.speakerName;
+            animator.ResetTrigger("CloseDialogue");
             animator.SetTrigger("OpenDialogue");
 
             sentences.Clear();
@@ -81,7 +85,10 @@ public class DialougeManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        animator.ResetTrigger("OpenDialogue");
         animator.SetTrigger("CloseDialogue");
+        dialogueTrigger.HandleDialogueFinished();
+        dialogueTrigger = null;
         dialogueActive = false;
         Time.timeScale = 1;
         closedThisFrame = true;

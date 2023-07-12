@@ -5,18 +5,16 @@ using UnityEngine;
 namespace GBJam.Player
 {
 	public class FallState : State
-	{ 
-		public FallState(PlayerStateMachine stateMachine) : base(stateMachine) { }
-
+	{
 		float timePassedWhileFalling = 0;
 
-		override
-		public IEnumerator Start()
-		{
+		public FallState(PlayerStateMachine stateMachine) : base(stateMachine) {
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Falling");
 			stateMachine.fallScript.active = false;
+			stateMachine.playerInteractionController.enabled = false;
 			timePassedWhileFalling = 0;
 			stateMachine.playerRigidbody.velocity = Vector3.zero;
-			yield break;
+			stateMachine.playerHealth.DealDamage(1);
 		}
 
 		override
@@ -24,7 +22,7 @@ namespace GBJam.Player
 		{
 			timePassedWhileFalling += Time.deltaTime * 1.5f;
 			stateMachine.transform.localScale = Vector3.Lerp(stateMachine.transform.localScale, Vector3.zero, timePassedWhileFalling);
-			if(stateMachine.transform.localScale.x == 0)
+			if(stateMachine.transform.localScale.x < 0.1)
             {
 				stateMachine.respawnAtSSpot();
             }
