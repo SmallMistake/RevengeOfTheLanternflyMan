@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -6473,7 +6473,7 @@ TextureImporter:
       tileset_generic 1_214: 2086243003
       tileset_generic 1_226: 1865850978
       tileset_generic 1_209: 2062783602
-      tileset_generic 1_233: -1555815642
+      tileset_generic 1_251: -275106420
       tileset_generic 1_119: 2037167348
       tileset_generic 1_235: 1161088597
       tileset_generic 1_189: -1074486306
@@ -6737,7 +6737,7 @@ TextureImporter:
       tileset_generic 1_278: 1622944757
       tileset_generic 1_130: 1145007098
       tileset_generic 1_285: 1373408439
-      tileset_generic 1_251: -275106420
+      tileset_generic 1_233: -1555815642
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

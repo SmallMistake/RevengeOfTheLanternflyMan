@@ -26,12 +26,4 @@ public class MainMenuController : MonoBehaviour
         currentMenu = nextPage;
         currentMenu.SetActive(true);
     }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Select") || Input.GetButtonDown("Start") || Input.GetButtonDown("Primary"))
-        {
-           EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-        }
-    }
 }

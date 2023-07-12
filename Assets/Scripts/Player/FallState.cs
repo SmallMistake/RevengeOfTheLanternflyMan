@@ -9,6 +9,7 @@ namespace GBJam.Player
 		float timePassedWhileFalling = 0;
 
 		public FallState(PlayerStateMachine stateMachine) : base(stateMachine) {
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Falling");
 			stateMachine.fallScript.active = false;
 			stateMachine.playerInteractionController.enabled = false;
 			timePassedWhileFalling = 0;

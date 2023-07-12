@@ -9,6 +9,7 @@ TagManager:
   - Bouncer
   - MovingGround
   - Weighted
+  - MainAudio
   layers:
   - Default
   - TransparentFX
@@ -21,11 +22,11 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - HalfWalls
-  - 
+  - Background
   - 
   - PushableBlock
   - BlockPushableArea
-  - 
+  - Switch
   - SpecialPlayerLayer
   - 
   - 

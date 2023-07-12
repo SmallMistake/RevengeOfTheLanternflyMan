@@ -8,5 +8,6 @@ public class Utils
 
     public enum DialogueFlags { Unassigned, InProgress, Completed, PostCompleted}
 
+    [System.Serializable]
     public enum PermanentUpgrades { Heart1, Heart2, Pecticide, VenusFlyTrap, Walnut}
 }

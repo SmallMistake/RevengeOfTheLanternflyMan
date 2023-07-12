@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AcornScript : MonoBehaviour
 {
+    public FMODIncrementingHelper comboSFXHelper;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -12,7 +13,8 @@ public class AcornScript : MonoBehaviour
             if (inventory)
             {
                 inventory.AddAcorn(1);
-                Destroy(transform.parent.gameObject);
+                comboSFXHelper.handleIncrement();
+                gameObject.SetActive(false);
             }
         }
     }

@@ -10,9 +10,12 @@ public class RoomSwitcherController : MonoBehaviour
     private GameObject activeRoom;
     public GameObject startRoom;
 
-    private void Start()
+    TempHolderManager tempHolder;
+
+    private void Awake()
     {
-        foreach(Transform room in roomHolder.transform)
+        tempHolder = FindObjectOfType<TempHolderManager>();
+        foreach (Transform room in roomHolder.transform)
         {
             rooms.Add(room.gameObject);
             if(room.gameObject != startRoom)
@@ -22,7 +25,13 @@ public class RoomSwitcherController : MonoBehaviour
                     child.gameObject.SetActive(false);
                 }
             }
+            startRoom.SetActive(true);
         }
+    }
+
+    private void Start()
+    {
+        startRoom.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +67,8 @@ public class RoomSwitcherController : MonoBehaviour
 
     public void SetRoomActive(int roomToChangeTo)
     {
-        if(activeRoom != null)
+        tempHolder.ClearTempHolder();
+        if (activeRoom != null)
         {
             foreach (Transform child in activeRoom.transform)
             {

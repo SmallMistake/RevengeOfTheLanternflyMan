@@ -20,4 +20,12 @@ public class IProjectile : MonoBehaviour
         return triggerInteractbles;
     }
 
+    private void OnDestroy()
+    {
+        if (hitEffect)
+        {
+            Instantiate(hitEffect, transform.position, transform.rotation);
+        }
+    }
+
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Damagable : MonoBehaviour
 {
     public int health;
+    public GameObject deathEffect;
 
     private bool allowRespawnOnRoomLeave = false;
 
@@ -31,6 +32,10 @@ public class Damagable : MonoBehaviour
 
     private void Die()
     {
+        if (deathEffect)
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+        }
         if (allowRespawnOnRoomLeave)
         {
             gameObject.SetActive(false);

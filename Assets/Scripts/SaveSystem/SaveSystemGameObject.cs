@@ -40,6 +40,7 @@ public class SaveSystemGameObject : MonoBehaviour
             timePlayed: 4f,
             items: playerInventory.GetUpgrades()
         );
+        Debug.Log($"Saved Player: Upgrades = {playerInventory.GetUpgrades().Count} Currency = {playerInventory.GetCurrency()}");
     }
 
     public void UILoadPlayer()

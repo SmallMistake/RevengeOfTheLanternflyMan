@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d334f253-5a1a-4542-8f44-715b99b2456a}">
+		<property name="assetPath">
+			<value>SD-FallingV3.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.728</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1685784-457c-48db-b92e-b5379c907559}</destination>
+		</relationship>
+	</object>
+</objects>

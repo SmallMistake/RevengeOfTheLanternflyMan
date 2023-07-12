@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Utils;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour, Triggerable
 {
     public string dialougeName = "NotNamed";
     public Questline questline;
@@ -14,6 +14,12 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue postCompletedDialogue;
 
     public static event Action<string> DialougeEnded; //Used by Observers
+
+
+    public void trigger()
+    {
+        TriggerDialogue();
+    }
 
     public void TriggerDialogue()
     {

@@ -10,7 +10,8 @@ public class LevelWarp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            FindObjectOfType<LevelLoader>().LoadLevel(levelNameToGoTo);
+            FindObjectOfType<SaveSystemGameObject>().SavePlayer();
+            FindObjectOfType<LevelLoader>().EndLevelWithTransition(levelNameToGoTo);
         }
     }
 }

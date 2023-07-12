@@ -28,7 +28,6 @@ public class PopupBlockerController : MonoBehaviour
 
     public void HandleStateChange(bool changedState)
     {
-
         foreach (ISwitch iswitch in switches)
         {
             iswitch.SetState(changedState);

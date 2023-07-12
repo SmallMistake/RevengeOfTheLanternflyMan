@@ -22,7 +22,7 @@ public class DialougeManager : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetButtonDown("Primary") || Input.GetButtonDown("Select")) && dialogueActive)
+        if ((Input.GetButtonDown("Primary") || Input.GetButtonDown("Select") || Input.GetButtonDown("Start")) && dialogueActive)
         {
             DisplayNextSentence();
         }
@@ -40,6 +40,7 @@ public class DialougeManager : MonoBehaviour
             Time.timeScale = 0;
             dialogueActive = true;
             nameUI.text = dialouge.speakerName;
+            animator.ResetTrigger("CloseDialogue");
             animator.SetTrigger("OpenDialogue");
 
             sentences.Clear();
@@ -84,6 +85,7 @@ public class DialougeManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        animator.ResetTrigger("OpenDialogue");
         animator.SetTrigger("CloseDialogue");
         dialogueTrigger.HandleDialogueFinished();
         dialogueTrigger = null;

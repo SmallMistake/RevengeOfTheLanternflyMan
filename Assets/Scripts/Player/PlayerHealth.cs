@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         playerHealthChanged.Invoke(health);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hurt");
         if (health <= 0)
         {
             PlayerStateMachine playerStateMachine = GetComponent<PlayerStateMachine>();

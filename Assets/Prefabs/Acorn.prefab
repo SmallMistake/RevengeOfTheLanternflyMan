@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4323657383343165883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.11, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4323657383931571577}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1385363497, guid: 667a766f47ded6e478a10151b72a8872, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2ec8d62acd00194981fcb8f46206115, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fe57a20867f1c448cedfe667bb3c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboSFXHelper: {fileID: 5296221545232597868}
 --- !u!1 &4323657383931571579
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +125,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4323657383931571577}
   - component: {fileID: 4323657383931571578}
+  - component: {fileID: 6694799241337901679}
+  - component: {fileID: 5296221545232597868}
   m_Layer: 0
   m_Name: Acorn
   m_TagString: Untagged
@@ -167,3 +170,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6694799241337901679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323657383931571579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97930624bc7bbcb42b313a90e1308d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5296221545232597868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323657383931571579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbc0d57957ed1149aa2f64d5048bc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

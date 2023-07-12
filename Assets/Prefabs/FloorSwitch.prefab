@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2158262869816142275}
   - component: {fileID: 2158262869816142272}
   - component: {fileID: 2158262869816142273}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: FloorSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

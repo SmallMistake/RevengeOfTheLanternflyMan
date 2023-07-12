@@ -18,4 +18,9 @@ public class GeneralUpdateManager : MonoBehaviour
         messageArea.text = message;
         animator.SetTrigger("ShowMessage");
     }
+
+    public void MessageClosed()
+    {
+        //TODO Message Closed
+    }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1e8a702e51f7343833a29fbce2ad9d, type: 3}
   m_Name: TestObjective
   m_EditorClassIdentifier: 
-  subObjectiveName: GetVenusFlyTrap
+  subObjectiveName: GetPesticide
   status: 0

@@ -76,8 +76,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4282735928
+  m_fontColor: {r: 0.21960784, g: 0.3647059, b: 0.27058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 4184976346393316303}
   - component: {fileID: 4184976346393316300}
   - component: {fileID: 4184976346393316301}
+  - component: {fileID: 4570311835489580528}
   m_Layer: 5
   m_Name: DialougeCanvas
   m_TagString: Untagged
@@ -197,7 +198,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -265970495
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &4184976346393316302
 MonoBehaviour:
@@ -274,6 +275,18 @@ MonoBehaviour:
   nameUI: {fileID: 4184976346476301667}
   dialogueUI: {fileID: 4184976345974220351}
   animator: {fileID: 4184976346393316300}
+--- !u!114 &4570311835489580528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184976346393316299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13dad40f5bcca94f8c7a647613c9f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4184976346476301665
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,8 +362,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4282735928
+  m_fontColor: {r: 0.21960784, g: 0.3647059, b: 0.27058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -477,7 +490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 530967353cee8c646a4fdac1efca2d8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e2395b3666531d45ad74543a85f63ac, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -486,4 +499,4 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.2
+  m_PixelsPerUnitMultiplier: 1

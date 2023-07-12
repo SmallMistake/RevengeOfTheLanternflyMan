@@ -11,17 +11,20 @@ public class ISwitch : MonoBehaviour
     public Sprite offSprite;
     internal SpriteRenderer spriteRenderer;
 
-    public GameObject targetObject;
-    internal Triggerable targetObjectTrigger;
+    public List<GameObject> targetObjects;
+    private List<Triggerable> triggersToCall = new List<Triggerable>();
 
     private UnityEvent<bool> SwitchTriggered = new UnityEvent<bool>();
 
     // Start is called before the first frame update
     void Start()
     {
-        if(targetObject != null)
+        if(targetObjects != null)
         {
-            targetObjectTrigger = targetObject.GetComponent<Triggerable>();
+            foreach (GameObject item in targetObjects)
+            {
+                triggersToCall.Add(item.GetComponent<Triggerable>());
+            }
         }
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetSprite();
@@ -45,15 +48,24 @@ public class ISwitch : MonoBehaviour
         SwitchTriggered.Invoke(pressed);
     }
 
+    internal void TriggerSwitch(bool state)
+    {
+        pressed = state;
+        SwitchTriggered.Invoke(pressed);
+    }
+
 
     internal void SetSprite()
     {
         if (pressed)
         {
             spriteRenderer.sprite = onSprite;
-            if (targetObjectTrigger != null)
+            if (targetObjects != null)
             {
-                targetObjectTrigger.trigger();
+                foreach (Triggerable triggerable in triggersToCall)
+                {
+                    triggerable.trigger();
+                }
             }
         }
         else

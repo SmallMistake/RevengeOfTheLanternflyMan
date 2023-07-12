@@ -17,6 +17,7 @@ public class PlayerItemPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Interactables/GetNewUpgrade");
             playerInventory.UnlockUpgrade(upgradeName);
             pickupMessage = pickupMessage.Replace("\\n", "\n");
             GeneralUpdateManager updateManager = FindObjectOfType<GeneralUpdateManager>();
