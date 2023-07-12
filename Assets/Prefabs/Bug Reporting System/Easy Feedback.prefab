@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 11419256}
   - component: {fileID: 6859542860634321111}
   - component: {fileID: 2015816632715450430}
-  - component: {fileID: 2362642778140131134}
+  - component: {fileID: 8886056519511537407}
   - component: {fileID: 9177700078354386247}
   m_Layer: 5
   m_Name: Easy Feedback
@@ -536,7 +536,7 @@ MonoBehaviour:
   OnFormOpened:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2362642778140131134}
+      - m_Target: {fileID: 8886056519511537407}
         m_TargetAssemblyTypeName: FeedbackFormHelper, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -566,9 +566,9 @@ MonoBehaviour:
   OnFormClosed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2362642778140131134}
+      - m_Target: {fileID: 8886056519511537407}
         m_TargetAssemblyTypeName: FeedbackFormHelper, Assembly-CSharp
-        m_MethodName: UnPause
+        m_MethodName: Unpause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -662,7 +662,7 @@ MonoBehaviour:
   ToggleKey: 293
   ShowKey: 0
   HideKey: 27
---- !u!114 &2362642778140131134
+--- !u!114 &8886056519511537407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 164440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81b1bf3e61dc704eb23b94029999c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ed0cf651da37f44db95cd0a27b33823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &9177700078354386247
