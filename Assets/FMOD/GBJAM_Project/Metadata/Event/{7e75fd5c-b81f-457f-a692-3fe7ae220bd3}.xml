@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{88a17f50-5994-486d-a4ec-c6a8c93241d9}</destination>
+			<destination>{421c34ad-3100-4061-b89a-405e78103846}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{fafca3f3-bc24-4dcf-92e5-fdc17505489d}</destination>
@@ -56,7 +56,7 @@
 			<destination>{eaa1c76a-f362-4188-965b-cce72341f5b7}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{c4c5324d-19dd-4e1f-9eac-46211e8ea4a6}</destination>
+			<destination>{78dd8708-3f9a-442e-b78d-37721fc26482}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{78b37527-bfce-4770-b8c1-f36bc4e49d50}" />
@@ -106,7 +106,6 @@
 		<property name="startOffset">
 			<value>10</value>
 		</property>
-		<property name="name" />
 		<relationship name="audioFile">
 			<destination>{02307380-90cd-4493-a417-e678fee4bf56}</destination>
 		</relationship>
