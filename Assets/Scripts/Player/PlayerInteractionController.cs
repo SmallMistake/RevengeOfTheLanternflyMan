@@ -1,4 +1,4 @@
-using System;
+callusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +9,8 @@ public class PlayerInteractionController : MonoBehaviour
     public SpawnProjectileScript projectileSpawner;
     private DialogueTrigger lastDialogueTriggerEntered;
     internal bool active;
+
+    private List<Usable> usablesInRange;
 
     public static event Action<Utils.PermanentUpgrades?> UsedPrimary; //Used by Observers
     public static event Action<Utils.PermanentUpgrades?> UsedSecondary; //Used by Observers
