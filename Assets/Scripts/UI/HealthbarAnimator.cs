@@ -14,7 +14,7 @@ public class HealthbarAnimator : MonoBehaviour
     {
         if(healthBar.value < 0.2)
         {
-            healthBar.colo
+            print("TODO healthbar danger animator");
         }
     }
 }
