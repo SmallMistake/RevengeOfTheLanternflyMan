@@ -33,7 +33,6 @@ public class FMODIncrementingHelper : MonoBehaviour
         yield return new WaitForSeconds(comboWaitTime);
 
         currentPickupCombo = 0;
-        print("Reset");
         PickupEvent.setParameterByName("Combo", currentPickupCombo);
     }
 
