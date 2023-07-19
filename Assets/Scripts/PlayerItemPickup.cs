@@ -7,6 +7,7 @@ public class PlayerItemPickup : MonoBehaviour
     public Utils.PermanentUpgrades upgradeName;
     public string pickupMessage;
     private PlayerInventory playerInventory;
+    public GameObject objectToDestroy;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class PlayerItemPickup : MonoBehaviour
             pickupMessage = pickupMessage.Replace("\\n", "\n");
             GeneralUpdateManager updateManager = FindObjectOfType<GeneralUpdateManager>();
             updateManager.ShowNotification(pickupMessage);
-            Destroy(gameObject);
+            Destroy(objectToDestroy ?? gameObject);
         }
     }
 

@@ -6,6 +6,7 @@ public class Damagable : MonoBehaviour
 {
     public int health;
     public GameObject deathEffect;
+    public GameObject objectToDestroy;
 
     public delegate void DamagedDelegate();
     public DamagedDelegate damaged;
@@ -46,7 +47,7 @@ public class Damagable : MonoBehaviour
         }
         else
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(objectToDestroy ?? transform.parent.gameObject);
         }
     }
 }
