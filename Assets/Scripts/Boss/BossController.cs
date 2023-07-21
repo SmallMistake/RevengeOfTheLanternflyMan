@@ -5,25 +5,16 @@ using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
-    //Replace this with a call that occurs when the room is entered later on.
-    public bool firstLoad = true;
 
     public List<EntityPhaseController> phases;
-    public EntityPhaseController currentPhase;
+    public int currentPhaseIndex;
 
     private GameObject healthBar;
 
     private void OnEnable()
     {
-        if (firstLoad)
-        {
-            firstLoad = !firstLoad;
-        }
-        else
-        {
-            DisplayHUD();
-            StartFight();
-        }
+        DisplayHUD();
+        StartFight();
     }
 
     private void OnDisable()
@@ -41,8 +32,30 @@ public class BossController : MonoBehaviour
 
     private void StartFight()
     {
-        currentPhase = phases[0];
-        currentPhase.SetHealthBar(healthBar.GetComponentInChildren<Slider>());
-        currentPhase.StartPhase();
+        currentPhaseIndex = 0;
+        StartPhase();
+    }
+
+    public void MoveToNextPhase()
+    {
+        currentPhaseIndex++;
+        if (currentPhaseIndex < phases.Count)
+        {
+            StartPhase();
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    public void StartPhase()
+    {
+        phases[currentPhaseIndex].StartPhase(healthBar.GetComponentInChildren<Slider>(), this);
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

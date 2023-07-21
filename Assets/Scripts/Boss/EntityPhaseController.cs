@@ -11,13 +11,19 @@ public class EntityPhaseController : MonoBehaviour
 
     private Slider healthBar;
 
+    BossController controller;
 
-    public void StartPhase()
+    public List<AttackController> attackControllers;
+
+
+    public void StartPhase(Slider healthBar, BossController controller)
     {
+        this.healthBar = healthBar;
+        this.controller = controller;
         startingHealth = GetCurrentHealth();
+        StartAttackControllers();
         SetupDamageListeners();
         UpdateHealthBar();
-        print("TODO create timeline to allow moves to be input for phase start");
     }
     
     private int GetCurrentHealth()
@@ -30,14 +36,21 @@ public class EntityPhaseController : MonoBehaviour
         return currentHealth;
     }
 
-    public void SetHealthBar(Slider healthBar)
-    {
-        this.healthBar = healthBar;
-    }
-
     private void UpdateHealthBar()
     {
-        healthBar.value = GetCurrentHealth() / startingHealth;
+        healthBar.value = (float) GetCurrentHealth() / (float) startingHealth;
+        if(healthBar.value <= 0 )
+        {
+            controller.MoveToNextPhase();
+        }
+    }
+
+    private void StartAttackControllers()
+    {
+        foreach(AttackController attackController in attackControllers)
+        {
+            attackController.StartAttacks();
+        }
     }
 
     public void SetupDamageListeners()
