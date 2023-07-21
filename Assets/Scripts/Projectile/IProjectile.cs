@@ -11,7 +11,7 @@ public class IProjectile : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Vector2 movement = Vector2.up * speed;
+        Vector2 movement = gameObject.transform.up * speed;
         rb.velocity = rb.GetRelativeVector(movement);
     }
 

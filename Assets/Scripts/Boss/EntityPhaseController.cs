@@ -13,14 +13,17 @@ public class EntityPhaseController : MonoBehaviour
 
     BossController controller;
 
+    public List<AttackController> attackControllers;
 
-    public void StartPhase(Slider healthbar, BossController controller)
+
+    public void StartPhase(Slider healthBar, BossController controller)
     {
+        this.healthBar = healthBar;
+        this.controller = controller;
         startingHealth = GetCurrentHealth();
-        this.healthBar = healthbar;
+        StartAttackControllers();
         SetupDamageListeners();
         UpdateHealthBar();
-        this.controller = controller;
     }
     
     private int GetCurrentHealth()
@@ -39,6 +42,14 @@ public class EntityPhaseController : MonoBehaviour
         if(healthBar.value <= 0 )
         {
             controller.MoveToNextPhase();
+        }
+    }
+
+    private void StartAttackControllers()
+    {
+        foreach(AttackController attackController in attackControllers)
+        {
+            attackController.StartAttacks();
         }
     }
 
