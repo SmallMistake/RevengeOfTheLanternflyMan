@@ -40,13 +40,13 @@ public class PlayerInteractionController : MonoBehaviour
                 if (playerInventory.UnlockedItem(Utils.PermanentUpgrades.Pecticide))
                 {
                     animator.SetTrigger("Primary");
-                    UsedPrimary.Invoke(Utils.PermanentUpgrades.Pecticide);
+                    UsedPrimary?.Invoke(Utils.PermanentUpgrades.Pecticide);
                     StartCoroutine(HandlePrimaryCooldown());
                 }
                 else
                 {
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FailedToUseItem");
-                    UsedPrimary.Invoke(null);
+                    UsedPrimary?.Invoke(null);
                 }
             }
         }
@@ -62,7 +62,7 @@ public class PlayerInteractionController : MonoBehaviour
             else
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FailedToUseItem");
-                UsedSecondary.Invoke(null);
+                UsedSecondary?.Invoke(null);
             }
         }
     }
