@@ -33,21 +33,21 @@ public class HUDController : MonoBehaviour
         }
 
         PlayerHealth.playerHealthChanged += UpdateHealthUI;
-        PlayerInventory.acornsChanged += UpdateAcornUI;
+        //PlayerInventory.acornsChanged += UpdateAcornUI;
         PlayerInteractionController.UsedPrimary += UpdatePrimaryUI;
         PlayerInteractionController.UsedSecondary += UpdateSecondaryUI;
-        PlayerInventory.changedPrimary += UpdatePrimaryUI;
-        PlayerInventory.changedSecondary += UpdateSecondaryUI;
+        InventoryController.changedPrimary += UpdatePrimaryUI;
+        InventoryController.changedSecondary += UpdateSecondaryUI;
     }
 
     private void OnDestroy()
     {
         PlayerHealth.playerHealthChanged -= UpdateHealthUI;
-        PlayerInventory.acornsChanged -= UpdateAcornUI;
+        //PlayerInventory.acornsChanged -= UpdateAcornUI;
         PlayerInteractionController.UsedPrimary -= UpdatePrimaryUI;
         PlayerInteractionController.UsedSecondary -= UpdateSecondaryUI;
-        PlayerInventory.changedPrimary -= UpdatePrimaryUI;
-        PlayerInventory.changedSecondary -= UpdateSecondaryUI;
+        InventoryController.changedPrimary -= UpdatePrimaryUI;
+        InventoryController.changedSecondary -= UpdateSecondaryUI;
     }
 
     private void UpdateHealthUI(int health)

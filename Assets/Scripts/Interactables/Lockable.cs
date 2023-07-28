@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,20 @@ using UnityEngine.Events;
 public class Lockable : MonoBehaviour
 {
     public bool unlocked;
-
+    public string itemNameToUse;
+    public int amountNeeded;
     public UnityEvent onUnlock;
 
-    public bool TryToUnlock()
+    public void TryToUnlock()
     {
         if (!unlocked)
         {
-            unlocked = !unlocked;
-            onUnlock?.Invoke();
+            bool succeededInUnlocking = FindObjectOfType<InventoryController>().TryToUseItem(itemNameToUse, amountNeeded);
+            if (succeededInUnlocking)
+            {
+                unlocked = !unlocked;
+                onUnlock?.Invoke();
+            }
         }
-        return unlocked;
     }
 }

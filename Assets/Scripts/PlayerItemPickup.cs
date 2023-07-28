@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Remove this or make it into an upgrade Pickup 
 public class PlayerItemPickup : MonoBehaviour
 {
     public Utils.PermanentUpgrades upgradeName;
     public string pickupMessage;
-    private PlayerInventory playerInventory;
+    private InventoryController playerInventory;
     public GameObject objectToDestroy;
 
     private void Start()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();
+        playerInventory = FindObjectOfType<InventoryController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

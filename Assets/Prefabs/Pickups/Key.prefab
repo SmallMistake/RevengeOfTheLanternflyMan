@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2767336515817234115}
   - component: {fileID: 2767336515817234112}
   - component: {fileID: 2767336515817234113}
-  - component: {fileID: 2767336515817234114}
   - component: {fileID: 367678759689640242}
+  - component: {fileID: 7736965625550986844}
+  - component: {fileID: 2250114886428044566}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -103,18 +104,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.004691705, y: -0.063806176}
   m_Size: {x: 0.8404846, y: 0.87238765}
   m_Direction: 0
---- !u!114 &2767336515817234114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767336515817234124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15dcae45a8fa8414a8573b3b42d2f2a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &367678759689640242
 Animator:
   serializedVersion: 4
@@ -135,3 +124,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7736965625550986844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767336515817234124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9088e0b3f89087947bd910f049651b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    Name: SmallKey
+    Description: Used to unlock common doors.
+    amountHeld: 1
+  onItemPickedUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2250114886428044566}
+        m_TargetAssemblyTypeName: DestroyOnCall, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2250114886428044566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2767336515817234124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bdbb0d967054d41b23d02917613b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
