@@ -9,7 +9,7 @@ public class CameraBoundsScript : MonoBehaviour
     CinemachineVirtualCamera virtualCamera;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         confiner = GetComponent<CinemachineConfiner>();
         confiner.m_BoundingShape2D = transform.parent.GetComponent<CompositeCollider2D>();

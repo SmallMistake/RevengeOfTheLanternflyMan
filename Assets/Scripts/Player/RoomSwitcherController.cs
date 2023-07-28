@@ -1,84 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RoomSwitcherController : MonoBehaviour
 {
-    public List<GameObject> roomsIn = new List<GameObject>();
-    public GameObject roomHolder;
-    private List<GameObject> rooms = new List<GameObject>();
-    private GameObject activeRoom;
-    public GameObject startRoom;
-
+    public List<RoomController> roomsIn = new List<RoomController>();
+    private RoomController activeRoom;
+    //public GameObject startRoom;
     TempHolderManager tempHolder;
+
+    //"RoomBounds" used to be a used tag for this. It can now be removed as the script is used now.
 
     private void Awake()
     {
         tempHolder = FindObjectOfType<TempHolderManager>();
-        foreach (Transform room in roomHolder.transform)
-        {
-            rooms.Add(room.gameObject);
-            if(room.gameObject != startRoom)
-            {
-                foreach (Transform child in room)
-                {
-                    child.gameObject.SetActive(false);
-                }
-            }
-            startRoom.SetActive(true);
-        }
-    }
-
-    private void Start()
-    {
-        startRoom.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("RoomBounds")){
-            if (activeRoom == null)
+        RoomController roomController = collision.GetComponent<RoomController>();
+        if(roomController)
+        {
+            if (!roomsIn.Contains(roomController))
             {
-                roomsIn.Add(collision.gameObject);
-                SetRoomActive(int.Parse(roomsIn[0].name.ToString()) - 1);
+                roomsIn.Add(roomController);
             }
-            if (!roomsIn.Contains(collision.gameObject))
+
+            if (NeedToSwitchRoom())
             {
-                roomsIn.Add(collision.gameObject);
-            }
-            if (roomsIn.Count == 1)
-            {
-                SetRoomActive(int.Parse(roomsIn[0].name.ToString()) - 1);
+                SwitchRoom(roomsIn[0]);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("RoomBounds"))
+        RoomController roomController = collision.GetComponent<RoomController>();
+        if (roomController)
         {
-            roomsIn.Remove(collision.gameObject);
-            if (roomsIn.Count == 1)
+            if (roomsIn.Contains(roomController))
             {
-                SetRoomActive(int.Parse(roomsIn[0].name.ToString()) - 1);
+                roomsIn.Remove(roomController);
+            }
+
+            if (NeedToSwitchRoom())
+            {
+                SwitchRoom(roomsIn[0]);
             }
         }
     }
 
-    public void SetRoomActive(int roomToChangeTo)
+    private bool NeedToSwitchRoom()
     {
-        tempHolder.ClearTempHolder();
-        if (activeRoom != null)
+        if(roomsIn.Count == 1)
         {
-            foreach (Transform child in activeRoom.transform)
-            {
-                child.gameObject.SetActive(false);
-            }
+            return true;
         }
-        activeRoom = rooms[roomToChangeTo].gameObject;
-        foreach (Transform child in activeRoom.transform)
+        else
         {
-            child.gameObject.SetActive(true);
+            return false;
         }
+    }
+
+    private void SwitchRoom(RoomController roomToChangeTo)
+    {
+        tempHolder?.ClearTempHolder();
+        activeRoom?.ExitRoom();
+        activeRoom = roomToChangeTo;
+        activeRoom?.EnterRoom();
     }
 }

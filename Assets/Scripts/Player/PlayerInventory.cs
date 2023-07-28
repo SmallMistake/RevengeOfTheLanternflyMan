@@ -28,8 +28,8 @@ public class PlayerInventory : MonoBehaviour
     {
         UpdateUIWithCurrentSetItems();
         FindObjectOfType<SaveSystemGameObject>().LoadPlayer();
-        acornsChanged.Invoke(numberOfAcorns);
-        keysChanged.Invoke(numberOfKeys);
+        acornsChanged?.Invoke(numberOfAcorns);
+        keysChanged?.Invoke(numberOfKeys);
     }
 
     private void OnDestroy()
@@ -54,7 +54,7 @@ public class PlayerInventory : MonoBehaviour
         {
             numberOfAcorns = maxAcorns;
         }
-        acornsChanged.Invoke(numberOfAcorns);
+        acornsChanged?.Invoke(numberOfAcorns);
     }
 
     public int GetCurrency()
@@ -67,7 +67,7 @@ public class PlayerInventory : MonoBehaviour
         if(numberOfAcorns > 0)
         {
             numberOfAcorns--;
-            acornsChanged.Invoke(numberOfAcorns);
+            acornsChanged?.Invoke(numberOfAcorns);
             return true;
         }
         else
@@ -79,7 +79,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddKey(int amount)
     {
         numberOfKeys += amount;
-        keysChanged.Invoke(numberOfKeys);
+        keysChanged?.Invoke(numberOfKeys);
     }
 
     public int GetKeys()
@@ -102,7 +102,7 @@ public class PlayerInventory : MonoBehaviour
     public void UnlockUpgrade(Utils.PermanentUpgrades upgradeName)
     {
         permanentUpgrades.Add(upgradeName);
-        upgradesChanged.Invoke(upgradeName, 1);
+        upgradesChanged?.Invoke(upgradeName, 1);
         UpdateUIWithCurrentSetItems();
     }
 
@@ -115,11 +115,11 @@ public class PlayerInventory : MonoBehaviour
     {
         if (permanentUpgrades.Contains(Utils.PermanentUpgrades.Pecticide)) // This is just a temp solution
         {
-            changedPrimary.Invoke(Utils.PermanentUpgrades.Pecticide);
+            changedPrimary?.Invoke(Utils.PermanentUpgrades.Pecticide);
         }
         if (permanentUpgrades.Contains(Utils.PermanentUpgrades.Walnut))
         {
-            changedSecondary.Invoke(Utils.PermanentUpgrades.Walnut);
+            changedSecondary?.Invoke(Utils.PermanentUpgrades.Walnut);
         }
     }
 }

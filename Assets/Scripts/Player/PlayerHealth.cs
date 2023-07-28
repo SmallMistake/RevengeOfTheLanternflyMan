@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         health = startingHealth;
-        playerHealthChanged.Invoke(health);
+        playerHealthChanged?.Invoke(health);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
