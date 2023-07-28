@@ -45,12 +45,12 @@ public class LockableDoorTileMapScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && unlockWithKey)
         {
-            PlayerInventory inventory = collision.gameObject.GetComponent<PlayerInventory>();
-            if(inventory.GetKeys() > 0)
-            {
-                inventory.AddKey(-1);
-                Unlock();
-            }
+            InventoryController inventory = collision.gameObject.GetComponent<InventoryController>();
+            //if(inventory.GetKeys() > 0)
+            //{
+                //inventory.AddKey(-1);
+               // Unlock();
+            //}
         }
     }
 

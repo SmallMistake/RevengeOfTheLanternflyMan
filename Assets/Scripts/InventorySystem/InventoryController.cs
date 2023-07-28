@@ -1,19 +1,15 @@
+using AeLa.EasyFeedback.APIs;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class InventoryController : MonoBehaviour
 {
-    private int numberOfAcorns;
-    private int maxAcorns = 9;
-    private int numberOfKeys;
-
+    public List<InventoryEntry> inventoryEntries;
     private List<Utils.PermanentUpgrades> permanentUpgrades = new List<Utils.PermanentUpgrades>();
 
-    public static event Action<int> acornsChanged;
-
-    public static event Action<int> keysChanged;
     public static event Action<Utils.PermanentUpgrades, int> upgradesChanged; //Use -1 if lost upgrade, 1 if gained
     public static event Action<Utils.PermanentUpgrades?> changedPrimary;
     public static event Action<Utils.PermanentUpgrades?> changedSecondary;
@@ -28,8 +24,6 @@ public class PlayerInventory : MonoBehaviour
     {
         UpdateUIWithCurrentSetItems();
         FindObjectOfType<SaveSystemGameObject>().LoadPlayer();
-        acornsChanged?.Invoke(numberOfAcorns);
-        keysChanged?.Invoke(numberOfKeys);
     }
 
     private void OnDestroy()
@@ -39,52 +33,21 @@ public class PlayerInventory : MonoBehaviour
 
     private void LoadedPlayer(PlayerData playerData)
     {
-        numberOfAcorns = 0;
-        AddAcorn(playerData.currency);
         permanentUpgrades = playerData.items;
     }
 
-    public void AddAcorn(int amount)
+    public void PickupItem(InventoryEntry newInventoryEntry)
     {
-        if (numberOfAcorns + amount < maxAcorns)
+        bool itemNotInInventory = true;
+        foreach (var listEntry in inventoryEntries.Where(listEntry => listEntry.Name == newInventoryEntry.Name))
         {
-            numberOfAcorns += amount;
+            listEntry.amountHeld += newInventoryEntry.amountHeld;
+            itemNotInInventory = false;
         }
-        else
+        if (itemNotInInventory)
         {
-            numberOfAcorns = maxAcorns;
+            inventoryEntries.Add(newInventoryEntry.ShallowCopy());
         }
-        acornsChanged?.Invoke(numberOfAcorns);
-    }
-
-    public int GetCurrency()
-    {
-        return numberOfAcorns;
-    }
-
-    public bool UseWalnut()
-    {
-        if(numberOfAcorns > 0)
-        {
-            numberOfAcorns--;
-            acornsChanged?.Invoke(numberOfAcorns);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public void AddKey(int amount)
-    {
-        numberOfKeys += amount;
-        keysChanged?.Invoke(numberOfKeys);
-    }
-
-    public int GetKeys()
-    {
-        return numberOfKeys;
     }
 
     public bool UnlockedItem(Utils.PermanentUpgrades upgradeToCheckFor)
@@ -105,6 +68,23 @@ public class PlayerInventory : MonoBehaviour
         upgradesChanged?.Invoke(upgradeName, 1);
         UpdateUIWithCurrentSetItems();
     }
+
+    public bool TryToUseItem(String itemName, int amountNeeded)
+    {
+        foreach (var listEntry in inventoryEntries.Where(listEntry => listEntry.Name == itemName))
+        {
+            if(listEntry.amountHeld >= amountNeeded)
+            {
+                listEntry.amountHeld -= amountNeeded;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+    } 
 
     public List<Utils.PermanentUpgrades> GetUpgrades()
     {

@@ -10,7 +10,7 @@ public class DebugSetPlayerData : MonoBehaviour
     {
         if(upgradesToGivePlayer != null)
         {
-            PlayerInventory playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
+            InventoryController playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryController>();
             foreach (Utils.PermanentUpgrades upgrade in upgradesToGivePlayer)
             {
                 playerInventory.UnlockedItem(upgrade);

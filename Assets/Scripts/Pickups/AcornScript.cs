@@ -9,10 +9,10 @@ public class AcornScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerInventory inventory = collision.gameObject.GetComponent<PlayerInventory>();
+            InventoryController inventory = collision.gameObject.GetComponent<InventoryController>();
             if (inventory)
             {
-                inventory.AddAcorn(1);
+                //inventory.AddAcorn(1);
                 comboSFXHelper.handleIncrement();
                 gameObject.SetActive(false);
             }

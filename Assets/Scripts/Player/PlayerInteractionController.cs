@@ -16,14 +16,14 @@ public class PlayerInteractionController : MonoBehaviour
     public static event Action<Utils.PermanentUpgrades?> UsedPrimary; //Used by Observers
     public static event Action<Utils.PermanentUpgrades?> UsedSecondary; //Used by Observers
 
-    private PlayerInventory playerInventory;
+    private InventoryController playerInventory;
 
     bool primaryOnCooldown = false;
     float primaryCooldown = 0.4f;
 
     private void Start()
     {
-        playerInventory = GetComponent<PlayerInventory>();
+        playerInventory = GetComponent<InventoryController>();
     }
 
     // Update is called once per frame
@@ -54,10 +54,10 @@ public class PlayerInteractionController : MonoBehaviour
         {
             if (playerInventory.UnlockedItem(Utils.PermanentUpgrades.Walnut))
             {
-                if (playerInventory.UseWalnut())
-                {
-                    projectileSpawner.SpawnAtLocation();
-                }
+                //if (playerInventory.UseWalnut())
+                //{
+                    //projectileSpawner.SpawnAtLocation();
+                //}
             }
             else
             {

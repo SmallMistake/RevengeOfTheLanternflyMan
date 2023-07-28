@@ -18,7 +18,7 @@ public class PauseController : MonoBehaviour
     private void Awake()
     {
         PauseInterrupter.ChangeCanPauseStatus += SetCanPause;
-        PlayerInventory.keysChanged += UpdateKeyVisual;
+        //PlayerInventory.keysChanged += UpdateKeyVisual;
     }
 
     private void Start()
@@ -35,7 +35,7 @@ public class PauseController : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerInventory.keysChanged -= UpdateKeyVisual;
+        //PlayerInventory.keysChanged -= UpdateKeyVisual;
         PauseInterrupter.ChangeCanPauseStatus -= SetCanPause;
     }
 
