@@ -89,8 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomsIn: []
-  roomHolder: {fileID: 0}
-  startRoom: {fileID: 0}
 --- !u!50 &8802029922188065373
 Rigidbody2D:
   serializedVersion: 4
@@ -128,6 +126,7 @@ GameObject:
   - component: {fileID: 3714270469812734501}
   - component: {fileID: 3951168298085661288}
   - component: {fileID: 9074100436908917500}
+  - component: {fileID: 3302643174053129218}
   m_Layer: 6
   m_Name: Body
   m_TagString: Player
@@ -255,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ab7bfd1a1dc1f41ad1482c8868b700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryEntries: []
 --- !u!114 &3714270469812734501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +297,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 905750201642381133}
   projectileSpawner: {fileID: 2761655679334273260}
+--- !u!114 &3302643174053129218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905750199867869171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70d523dae585db40aa80c9f502827ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToTeleport: {fileID: 905750201642381121}
 --- !u!1 &905750201642381121
 GameObject:
   m_ObjectHideFlags: 0
