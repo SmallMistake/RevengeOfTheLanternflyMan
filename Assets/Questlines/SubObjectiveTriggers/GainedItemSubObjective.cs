@@ -14,12 +14,13 @@ public class GainedItemSubObjective : ISubObjectiveTrigger
 
     void Start()
     {
-        InventoryController.upgradesChanged += WatchPlayerInventory;
+        //TODO Replace with new System
+        //InventoryController.upgradesChanged += WatchPlayerInventory;
     }
 
     private void OnDestroy()
     {
-        InventoryController.upgradesChanged -= WatchPlayerInventory;
+        //InventoryController.upgradesChanged -= WatchPlayerInventory;
     }
 
     private void WatchPlayerInventory(Utils.PermanentUpgrades upgradeName, int changeDirection)

@@ -11,21 +11,23 @@ public class RoomController : MonoBehaviour
     public Collider2D roomBounds;
     public UnityEvent onRoomEnter;
     public UnityEvent onRoomExit;
+    GameObject virtualCamera;
 
-    private void Awake()
+
+    private void Start()
     {
         if(roomBounds == null) {
             print("Please add room bounds to room " + gameObject.name);
         }
-        GameObject virtualCamera = (GameObject)Instantiate(Resources.Load("Utilities/2DVirtualCamera"));
+        virtualCamera = (GameObject)Instantiate(Resources.Load("Utilities/2DVirtualCamera"));
         virtualCamera.GetComponent<CinemachineConfiner>().m_BoundingShape2D = roomBounds;
-        virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectWithTag("Player").transform;
         virtualCamera.transform.parent = transform;
         ExitRoom();
     }
 
     public void EnterRoom()
     {
+        virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectWithTag("Player").transform;
         //Turn on Children
         foreach (Transform child in transform)
         {

@@ -33,14 +33,15 @@ public class SaveSystemGameObject : MonoBehaviour
 
     public void SavePlayer()
     {
-        InventoryController playerInventory = FindObjectOfType<InventoryController>();
+        //Todo Replace
+        //InventoryController playerInventory = FindObjectOfType<InventoryController>();
         SaveSystem.SavePlayer(
             currency: -1,//playerInventory.GetCurrency(),
             level: data.level,
             timePlayed: 4f,
-            items: playerInventory.GetUpgrades()
+            items: null// playerInventory.GetUpgrades()
         );
-        Debug.Log($"Saved Player: Upgrades = {playerInventory.GetUpgrades().Count} Currency = playerInventory.GetCurrency()");
+        //Debug.Log($"Saved Player: Upgrades = {playerInventory.GetUpgrades().Count} Currency = playerInventory.GetCurrency()");
     }
 
     public void UILoadPlayer()

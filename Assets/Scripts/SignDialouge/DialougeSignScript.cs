@@ -32,7 +32,7 @@ public class DialougeSignScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Primary") && inRange && Time.timeScale == 1)
+        if (Input.GetButtonDown("Player1_Shoot") && inRange && Time.timeScale == 1)
         {
             onUseDialougeTrigger.Invoke();
         }

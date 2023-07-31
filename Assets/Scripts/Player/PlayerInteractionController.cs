@@ -16,20 +16,15 @@ public class PlayerInteractionController : MonoBehaviour
     public static event Action<Utils.PermanentUpgrades?> UsedPrimary; //Used by Observers
     public static event Action<Utils.PermanentUpgrades?> UsedSecondary; //Used by Observers
 
-    private InventoryController playerInventory;
 
     bool primaryOnCooldown = false;
     float primaryCooldown = 0.4f;
 
-    private void Start()
-    {
-        playerInventory = GetComponent<InventoryController>();
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Primary")){
+        /* Replace with new System
+        if(Input.GetButtonDown("Player1_Primary")){
 
             if (lastDialogueTriggerEntered) //Speak
             {
@@ -50,7 +45,7 @@ public class PlayerInteractionController : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButtonDown("Secondary"))
+        if (Input.GetButtonDown("Player1_Secondary"))
         {
             if (playerInventory.UnlockedItem(Utils.PermanentUpgrades.Walnut))
             {
@@ -65,6 +60,7 @@ public class PlayerInteractionController : MonoBehaviour
                 UsedSecondary?.Invoke(null);
             }
         }
+        */
     }
 
     public void AddDialougeTriggerEntered(DialogueTrigger dialogueTrigger)

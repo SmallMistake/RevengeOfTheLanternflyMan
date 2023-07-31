@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 905750201642381123}
   - component: {fileID: 905750201642381133}
   - component: {fileID: 311982834678971654}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc407eeaff5e4b46bfbde6b8a758ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5426421906359612938, guid: df1300152d6bba0468289c859bfcb3d5, type: 3}
+  projectile: {fileID: 5426421906359612938, guid: df1300152d6bba0468289c859bfcb3d5,
+    type: 3}
 --- !u!1 &5338922157836024195
 GameObject:
   m_ObjectHideFlags: 0
