@@ -28,6 +28,9 @@
 		<relationship name="timeline">
 			<destination>{16f4fce9-c752-41ff-ab62-8e93eb60376c}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{315ae0ea-d88a-4565-a86d-e01f546b1c59}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{2f4d33e8-c20c-44be-a1cd-641f2e87a4bd}">
 		<relationship name="masterBus">
@@ -36,7 +39,7 @@
 	</object>
 	<object class="MasterTrack" id="{6e830b2b-2b91-4f3b-a12e-b903320a41da}">
 		<relationship name="modules">
-			<destination>{96edc9c6-4d15-4046-bc41-3a29fad9795e}</destination>
+			<destination>{0122b8dc-d771-4fe2-85a2-aa56ba7602ae}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{e88d33b2-7ece-4afc-8c36-1359ddf647c0}</destination>
@@ -57,7 +60,7 @@
 	<object class="MarkerTrack" id="{6de372d4-76a2-4599-867e-db6b8106dfb9}" />
 	<object class="Timeline" id="{16f4fce9-c752-41ff-ab62-8e93eb60376c}">
 		<relationship name="modules">
-			<destination>{96edc9c6-4d15-4046-bc41-3a29fad9795e}</destination>
+			<destination>{0122b8dc-d771-4fe2-85a2-aa56ba7602ae}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{2e089805-20bf-4f0d-ac9d-6d73e976e83b}</destination>
@@ -77,12 +80,12 @@
 			<destination>{2f4d33e8-c20c-44be-a1cd-641f2e87a4bd}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{96edc9c6-4d15-4046-bc41-3a29fad9795e}">
+	<object class="SingleSound" id="{0122b8dc-d771-4fe2-85a2-aa56ba7602ae}">
 		<property name="length">
-			<value>75.493877551020404</value>
+			<value>123.48081632653061</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{07ca5650-0797-48f6-85d0-4d7238b496e8}</destination>
+			<destination>{6ec475c2-d776-40cc-a1c0-cd8bc94a7890}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{586eed8e-a07f-4de4-8556-b164791b32a8}">
@@ -93,10 +96,10 @@
 	<object class="MixerBusPanner" id="{1be006db-123b-433a-b30a-1546c43d18d8}" />
 	<object class="LoopRegion" id="{2e089805-20bf-4f0d-ac9d-6d73e976e83b}">
 		<property name="position">
-			<value>6.9083654869867495</value>
+			<value>5.6000000000000005</value>
 		</property>
 		<property name="length">
-			<value>68.566634513013256</value>
+			<value>117.88081632653059</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{16f4fce9-c752-41ff-ab62-8e93eb60376c}</destination>
