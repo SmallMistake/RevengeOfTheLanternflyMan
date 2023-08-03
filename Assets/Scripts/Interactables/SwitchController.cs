@@ -1,37 +1,45 @@
+using PixelCrushers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SwitchController : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    public TagMask tagMask = new TagMask();
+
+    public SpriteRenderer spriteRenderer;
     public Sprite offSprite;
     public Sprite onSprite;
     private bool on;
-    public GameObject triggerTarget;
-    private Triggerable trigger;
 
-    private void Start()
-    {
-        trigger = triggerTarget.GetComponent<Triggerable>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    // switch delegate
+    public delegate void OnSwitchPressed(bool value);
+    public OnSwitchPressed onSwitchPressed;
+
+    public UnityEvent onSwitchOn;
+    public UnityEvent onSwitchOff;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IProjectile projectile = collision.gameObject.GetComponent<IProjectile>();
-        if (projectile && projectile.triggerInteractbles)
-        {
+        if( tagMask.IsInTagMask(collision.tag)) { 
             on = !on;
+            onSwitchPressed?.Invoke(on);
             if (on)
             {
                 spriteRenderer.sprite = onSprite;
-                trigger.trigger();
+                onSwitchOn?.Invoke();
             }
             else
             {
                 spriteRenderer.sprite = offSprite;
+                onSwitchOff?.Invoke();
             }
         }
+    }
+
+    public bool isOn()
+    {
+        return on;
     }
 }

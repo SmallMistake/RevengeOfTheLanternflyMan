@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2158262869816142278}
   - component: {fileID: 2158262869816142275}
   - component: {fileID: 2158262869816142272}
-  - component: {fileID: 2158262869816142273}
+  - component: {fileID: 5090712010542909666}
   m_Layer: 15
   m_Name: FloorSwitch
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2158262869816142273
+--- !u!114 &5090712010542909666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +121,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2158262869816142279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a7f765b903974dae5fd29f5b13111, type: 3}
+  m_Script: {fileID: 11500000, guid: 4259af27ec5fe6d45b1810f3967eb767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
-  onSprite: {fileID: -1214679192, guid: 0400163b8238d6b46b461f5480e87a07, type: 3}
+  tagMask:
+    m_tags:
+    - Player
+  spriteRenderer: {fileID: 2158262869816142275}
   offSprite: {fileID: 1128966435, guid: 0400163b8238d6b46b461f5480e87a07, type: 3}
-  targetObject: {fileID: 0}
+  onSprite: {fileID: -1214679192, guid: 0400163b8238d6b46b461f5480e87a07, type: 3}
+  onSwitchOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onSwitchOff:
+    m_PersistentCalls:
+      m_Calls: []
