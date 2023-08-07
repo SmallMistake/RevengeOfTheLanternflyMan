@@ -1106,7 +1106,7 @@ MonoBehaviour:
       Data2: 1303963853
       Data3: 2093229192
       Data4: -1733363023
-    Path: event:/Music/BossTheme
+    Path: event:/Music/Character Themes/BossTheme
   StopType: 2
   Parameters: []
 --- !u!114 &11400000
