@@ -35,6 +35,6 @@ public class OpeningCutsceneController : MonoBehaviour
     IEnumerator WaitTillReadyToTransition()
     {
         yield return new WaitForSeconds(2);
-        levelLoader.LoadLevel("Level1");
+        levelLoader.LoadLevel("GreenMeadow");
     }
 }
