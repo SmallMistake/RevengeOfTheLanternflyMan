@@ -31,8 +31,8 @@ public class MenuPageController : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(previouslySelectedButton);
         }
-
-        if (Input.GetButtonDown("Select") || Input.GetButtonDown("Start") || Input.GetButtonDown("Primary"))
+        if (Input.GetButtonDown("Player1_Shoot"))
+        //if (Input.GetButtonDown("Select") || Input.GetButtonDown("Start") || Input.GetButtonDown("Primary"))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }

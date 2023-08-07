@@ -18,7 +18,8 @@ public class MenuAnimationHelper : MonoBehaviour
 
     public void StartMusic()
     {
-        audioSource.clip = musicToPlay;
-        audioSource.Play();
+        //Replace with FMOD
+        //audioSource.clip = musicToPlay;
+        //audioSource.Play();
     }
 }
