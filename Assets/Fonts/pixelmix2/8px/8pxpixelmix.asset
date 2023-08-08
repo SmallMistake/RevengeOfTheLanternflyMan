@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: 8pxpixelmix
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 552765636
   material: {fileID: 3421663795754581385}
-  materialHashCode: 0
+  materialHashCode: -2075575964
   m_Version: 1.1.0
   m_SourceFontFileGUID: 4180615742ef7f645becbb96fec38f45
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4180615742ef7f645becbb96fec38f45, type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4180615742ef7f645becbb96fec38f45,
+    type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
@@ -25,7 +26,7 @@ MonoBehaviour:
     m_FamilyName: pixelmix
     m_StyleName: Regular
     m_PointSize: 8
-    m_Scale: 1
+    m_Scale: 0.5
     m_LineHeight: 8
     m_AscentLine: 8
     m_CapLine: 7
