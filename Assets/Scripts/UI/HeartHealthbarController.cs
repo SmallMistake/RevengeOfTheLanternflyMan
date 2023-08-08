@@ -40,7 +40,6 @@ public class HeartHealthbarController : MonoBehaviour,
     {
         int currentNumberOfFullHearts = (int)(healthChangeInfo.NewHealth / (heartPhases.Count - 1));
         int currentRemainderOfHearts = (int) healthChangeInfo.NewHealth % (heartPhases.Count  - 1);
-        print("Max Health: " + healthChangeInfo.AffectedHealth.MaximumHealth + "Full Hearts: " + currentNumberOfFullHearts + ". Remainder: " + currentRemainderOfHearts);
         foreach (Image heart in heartsList)
         {
             if(currentNumberOfFullHearts > 0)
