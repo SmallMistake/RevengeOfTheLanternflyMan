@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6332445290794996037}
   - component: {fileID: 9100041259413901919}
   m_Layer: 5
-  m_Name: SignPopup
+  m_Name: PF_SignPopup_Outdated_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ SortingGroup:
   m_GameObject: {fileID: 6332445290794996090}
   m_Enabled: 1
   m_SortingLayerID: -265970495
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 1
 --- !u!114 &6332445290794996037
 MonoBehaviour:

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 11485334}
   - component: {fileID: 11453294}
   m_Layer: 0
-  m_Name: Bubble Template Standard Bark UI
+  m_Name: PF_BubbleTemplateStandardBark_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &11475372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,10 +251,8 @@ MonoBehaviour:
   canvasGroup: {fileID: 22506366}
   barkText:
     m_uiText: {fileID: 0}
-    m_textMeshProUGUI: {fileID: 0}
   nameText:
     m_uiText: {fileID: 0}
-    m_textMeshProUGUI: {fileID: 0}
   includeName: 0
   portraitImage: {fileID: 0}
   showPortraitImage: 0

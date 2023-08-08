@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4618981821081335384}
   m_Layer: 5
-  m_Name: WeaponHolder HUD
+  m_Name: PF_WeaponHolder_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
