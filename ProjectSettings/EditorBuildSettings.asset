@@ -18,15 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Scn_AssetLibrary_Level.unity
     guid: 09a4f66a7ebd1834687bcc960fc33d24
   - enabled: 0
-    path: Assets/TopDownEngine/Demos/StartScreen/StartScreen.unity
+    path: Assets/Plugins/TopDownEngine/Demos/StartScreen/StartScreen.unity
     guid: 52360e1567e3fee418407abdfd132d73
   - enabled: 0
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaDungeon.unity
+    path: Assets/Plugins/TopDownEngine/Demos/Koala2D/KoalaDungeon.unity
     guid: 84badc9c6b6e65a45be4824a7dc1a865
   - enabled: 0
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaRooms.unity
+    path: Assets/Plugins/TopDownEngine/Demos/Koala2D/KoalaRooms.unity
     guid: e04cbbc59c9fc7f4daf2418621d84909
   - enabled: 0
-    path: Assets/TopDownEngine/Demos/Koala2D/KoalaProceduralTilemap.unity
+    path: Assets/Plugins/TopDownEngine/Demos/Koala2D/KoalaProceduralTilemap.unity
     guid: 8ac9dc199fdb4d8479ee2fe42a5923fb
   m_configObjects: {}

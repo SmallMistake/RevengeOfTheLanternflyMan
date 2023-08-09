@@ -6,16 +6,16 @@ public class FMODButtonHelper : MonoBehaviour
 {
     public void PlaySelect()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/Select");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select");
     }
 
     public void PlayBack()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/BackUI");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/BackUI");
     }
 
     public void PlayHover()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/HoverUI");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/HoverUI");
     }
 }
