@@ -19,7 +19,7 @@ public class RoomController : MonoBehaviour
         if(roomBounds == null) {
             print("Please add room bounds to room " + gameObject.name);
         }
-        virtualCamera = (GameObject)Instantiate(Resources.Load("Utilities/2DVirtualCamera"));
+        virtualCamera = (GameObject)Instantiate(Resources.Load("Utilities/PF_2DVirtualCamera_Utility"));
         virtualCamera.GetComponent<CinemachineConfiner>().m_BoundingShape2D = roomBounds;
         virtualCamera.transform.parent = transform;
         ExitRoom();
