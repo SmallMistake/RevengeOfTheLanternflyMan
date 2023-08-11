@@ -69,11 +69,11 @@ public class HeartHealthbarController : MonoBehaviour,
             GameObject createdHeart = Instantiate(heartPrefab);
             if(rowIndex < numberOfHeartsPerRow)
             {
-                createdHeart.transform.parent = rowOne.transform;
+                createdHeart.transform.SetParent(rowOne.transform);
             }
             else
             {
-                createdHeart.transform.parent = rowTwo.transform;
+                createdHeart.transform.SetParent(rowTwo.transform);
             }
             createdHeart.transform.localScale = new Vector3(1, 1, 1);
             heartsList.Add(createdHeart.GetComponent<Image>());

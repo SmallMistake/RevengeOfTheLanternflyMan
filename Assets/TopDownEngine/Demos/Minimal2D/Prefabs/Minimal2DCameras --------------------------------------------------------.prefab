@@ -9007,8 +9007,8 @@ MonoBehaviour:
   QtyColor: {r: 1, g: 1, b: 1, a: 1}
   QtyPadding: 10
   QtyAlignment: 8
-  PreviousInventory: {fileID: 114897950874241748}
-  NextInventory: {fileID: 114897950874241748}
+  PreviousInventory: {fileID: 0}
+  NextInventory: {fileID: 0}
 --- !u!114 &114258668857118574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12847,6 +12847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
+      propertyPath: TargetInventoryName
+      value: PrimaryWeaponInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
       propertyPath: TargetChoiceInventory
       value: 
       objectReference: {fileID: 114524914237827840}
@@ -12959,18 +12964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38b20e816353dd44a4b02f9fb1fa524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114897950874241748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 4272430967753270122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451de0ab4ebef804ea32af6b63b22370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &8886536831647470898 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4618981821081335384, guid: ef8d83b7dfc38524891b999345c731ba,
@@ -12987,7 +12980,7 @@ PrefabInstance:
     - target: {fileID: 3341298924847502349, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
       propertyPath: m_Name
-      value: WeaponHolder HUD (1)
+      value: SecondaryWeaponHolder HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4059990858113072634, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
@@ -13018,6 +13011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
+      propertyPath: TargetInventoryName
+      value: SecondaryWeaponInventory
       objectReference: {fileID: 0}
     - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}

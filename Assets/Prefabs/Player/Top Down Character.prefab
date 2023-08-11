@@ -9817,11 +9817,12 @@ GameObject:
   - component: {fileID: 114079283237680582}
   - component: {fileID: 114495819129293066}
   - component: {fileID: 114545434076996454}
+  - component: {fileID: 9169885551691085988}
   - component: {fileID: 114619658823058744}
   - component: {fileID: 114530058247276760}
   - component: {fileID: 114863807796539354}
   - component: {fileID: 114644362621734812}
-  - component: {fileID: 114104414726605804}
+  - component: {fileID: 4459753467412701382}
   - component: {fileID: 114171358364461030}
   - component: {fileID: 114499223069276626}
   - component: {fileID: 395640575115141984}
@@ -10161,6 +10162,46 @@ MonoBehaviour:
   MaximumBufferDuration: 0.25
   RequiresPerfectTile: 0
   CurrentWeapon: {fileID: 0}
+--- !u!114 &9169885551691085988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54b7b53e26347643a7d54dd14a14b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  InitialWeapon: {fileID: 0}
+  CanPickupWeapons: 1
+  WeaponUseFeedback: {fileID: 0}
+  WeaponAttachment: {fileID: 4315474336313948}
+  ProjectileSpawn: {fileID: 0}
+  AutomaticallyBindAnimator: 1
+  AmmoDisplayID: 0
+  AutoIK: 1
+  ContinuousPress: 0
+  GettingHitInterruptsAttack: 0
+  UseSecondaryAxisThresholdToShoot: 0
+  ForceWeaponAimControl: 0
+  ForcedWeaponAimControl: 1
+  ForceAlwaysShoot: 0
+  BufferInput: 1
+  NewInputExtendsBuffer: 0
+  MaximumBufferDuration: 0.25
+  RequiresPerfectTile: 0
+  CurrentWeapon: {fileID: 0}
 --- !u!114 &114619658823058744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10213,7 +10254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498750440386690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c86c96e06d6ae44b822a6ab24e1b8fe, type: 3}
   m_Name: 
@@ -10263,7 +10304,7 @@ MonoBehaviour:
   OnUnpause:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &114104414726605804
+--- !u!114 &4459753467412701382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10272,7 +10313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498750440386690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b56d00552d6cd44b46000232e9d83a, type: 3}
+  m_Script: {fileID: 11500000, guid: c040c3bd1d502aa4cb4b4b405e4532fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityStartSfx: {fileID: 0}
@@ -10286,7 +10327,7 @@ MonoBehaviour:
   BlockingWeaponStates: 
   PlayerID: Player1
   MainInventoryName: MainInventory
-  WeaponInventoryName: WeaponInventory
+  WeaponInventoryName: PrimaryWeaponInventory
   HotbarInventoryName: 
   InventoryTransform: {fileID: 0}
   WeaponRotationMode: 0
@@ -10294,7 +10335,9 @@ MonoBehaviour:
   AutoPickOnlyIfMainInventoryIsEmpty: 0
   AutoEquipWeaponOnStart: {fileID: 0}
   AutoEquipOnlyIfMainInventoryIsEmpty: 0
-  CharacterHandleWeapon: {fileID: 0}
+  CharacterHandleWeapon: {fileID: 114545434076996454}
+  SecondaryWeaponInventoryName: SecondaryWeaponInventory
+  SecondaryCharacterHandleWeapon: {fileID: 9169885551691085988}
 --- !u!114 &114171358364461030
 MonoBehaviour:
   m_ObjectHideFlags: 0

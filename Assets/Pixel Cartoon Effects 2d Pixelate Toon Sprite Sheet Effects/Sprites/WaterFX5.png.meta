@@ -414,7 +414,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Water5_10: 21300020
       Water5_9: 21300018
       Water5_5: 21300010
       Water5_8: 21300016
@@ -424,6 +423,7 @@ TextureImporter:
       Water5_0: 21300000
       Water5_11: 21300022
       Water5_4: 21300008
+      Water5_10: 21300020
       Water5_6: 21300012
       Water5_3: 21300006
   spritePackingTag: 
