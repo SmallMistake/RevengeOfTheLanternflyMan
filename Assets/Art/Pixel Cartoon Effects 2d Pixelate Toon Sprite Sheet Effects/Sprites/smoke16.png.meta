@@ -728,9 +728,8 @@ TextureImporter:
     nameFileIdTable:
       smoke16_2: 21300004
       smoke16_17: 21300034
-      smoke16_9: 21300018
+      smoke16_3: 21300006
       smoke16_5: 21300010
-      smoke16_13: 21300026
       smoke16_15: 21300030
       smoke16_18: 21300036
       smoke16_20: 21300040
@@ -747,10 +746,11 @@ TextureImporter:
       smoke16_19: 21300038
       smoke16_14: 21300028
       smoke16_8: 21300016
-      smoke16_3: 21300006
-      smoke16_4: 21300008
-      smoke16_22: 21300044
       smoke16_7: 21300014
+      smoke16_9: 21300018
+      smoke16_4: 21300008
+      smoke16_13: 21300026
+      smoke16_22: 21300044
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

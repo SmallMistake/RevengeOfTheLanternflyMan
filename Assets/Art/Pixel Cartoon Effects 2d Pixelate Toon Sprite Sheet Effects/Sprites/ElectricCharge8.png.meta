@@ -702,7 +702,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ElectricCharge8_21: 21300042
       ElectricCharge8_14: 21300028
       ElectricCharge8_15: 21300030
       ElectricCharge8_5: 21300010
@@ -724,6 +723,7 @@ TextureImporter:
       ElectricCharge8_16: 21300032
       ElectricCharge8_20: 21300040
       ElectricCharge8_3: 21300006
+      ElectricCharge8_21: 21300042
       ElectricCharge8_7: 21300014
       ElectricCharge8_10: 21300020
   spritePackingTag: 
