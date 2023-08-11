@@ -775,7 +775,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Fire2_22: 21300044
-      Fire2_21: 21300042
       Fire2_15: 21300030
       Fire2_19: 21300038
       Fire2_14: 21300028
@@ -794,8 +793,9 @@ TextureImporter:
       Fire2_4: 21300008
       Fire2_24: 21300048
       Fire2_7: 21300014
-      Fire2_20: 21300040
+      Fire2_21: 21300042
       Fire2_0: 21300000
+      Fire2_20: 21300040
       Fire2_13: 21300026
       Fire2_1: 21300002
       Fire2_11: 21300022

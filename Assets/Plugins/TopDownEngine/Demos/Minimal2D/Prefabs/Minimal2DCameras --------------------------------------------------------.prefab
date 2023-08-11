@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013042102342366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2700005, y: 24.72, z: -21.5}
+  m_LocalPosition: {x: -5.2747517, y: 24.72, z: -21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12813,7 +12813,7 @@ PrefabInstance:
     - target: {fileID: 3341298924847502349, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
       propertyPath: m_Name
-      value: WeaponHolder HUD
+      value: PrimaryWeaponHolder HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4059990858113072634, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
@@ -12844,6 +12844,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
+      propertyPath: Title
+      value: Primary
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
+      propertyPath: TargetInventoryName
+      value: PrimaryWeaponInventory
       objectReference: {fileID: 0}
     - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
@@ -12987,7 +12997,7 @@ PrefabInstance:
     - target: {fileID: 3341298924847502349, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
       propertyPath: m_Name
-      value: WeaponHolder HUD (1)
+      value: SecondaryWeaponHolder HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4059990858113072634, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}
@@ -13018,6 +13028,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
+      propertyPath: Title
+      value: Secondary
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
+        type: 3}
+      propertyPath: TargetInventoryName
+      value: SecondaryWeaponInventory
       objectReference: {fileID: 0}
     - target: {fileID: 4238602240799566270, guid: ef8d83b7dfc38524891b999345c731ba,
         type: 3}

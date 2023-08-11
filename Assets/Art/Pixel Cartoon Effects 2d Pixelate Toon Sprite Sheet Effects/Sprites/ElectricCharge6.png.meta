@@ -680,7 +680,6 @@ TextureImporter:
     nameFileIdTable:
       ElectricCharge6_18: 21300036
       ElectricCharge6_2: 21300004
-      ElectricCharge6_21: 21300042
       ElectricCharge6_3: 21300006
       ElectricCharge6_6: 21300012
       ElectricCharge6_10: 21300020
@@ -697,10 +696,11 @@ TextureImporter:
       ElectricCharge6_13: 21300026
       ElectricCharge6_17: 21300034
       ElectricCharge6_14: 21300028
-      ElectricCharge6_9: 21300018
-      ElectricCharge6_8: 21300016
-      ElectricCharge6_7: 21300014
       ElectricCharge6_12: 21300024
+      ElectricCharge6_21: 21300042
+      ElectricCharge6_8: 21300016
+      ElectricCharge6_9: 21300018
+      ElectricCharge6_7: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
