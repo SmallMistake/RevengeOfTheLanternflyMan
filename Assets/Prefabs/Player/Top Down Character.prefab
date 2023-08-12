@@ -9819,7 +9819,8 @@ GameObject:
   - component: {fileID: 114545434076996454}
   - component: {fileID: 808427370296635157}
   - component: {fileID: 114619658823058744}
-  - component: {fileID: 114530058247276760}
+  - component: {fileID: 573611347792402078}
+  - component: {fileID: 8220639666108101904}
   - component: {fileID: 114863807796539354}
   - component: {fileID: 114644362621734812}
   - component: {fileID: 7781444131451324256}
@@ -9827,6 +9828,7 @@ GameObject:
   - component: {fileID: 114499223069276626}
   - component: {fileID: 395640575115141984}
   - component: {fileID: 3104696250269282162}
+  - component: {fileID: 2613903700465211659}
   m_Layer: 10
   m_Name: Top Down Character
   m_TagString: Player
@@ -10225,7 +10227,7 @@ MonoBehaviour:
   BlockingWeaponStates: 
   PreventJumpInButtonActivatedZone: 1
   ButtonActivatedZone: {fileID: 0}
---- !u!114 &114530058247276760
+--- !u!114 &573611347792402078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10234,7 +10236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498750440386690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8c17a9a9fed854daff1f08f315ad69, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e8c2afcec97aff4baaa0dddecaa9599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityStartSfx: {fileID: 0}
@@ -10247,6 +10249,31 @@ MonoBehaviour:
   BlockingConditionStates: 
   BlockingWeaponStates: 
   FallingFeedback: {fileID: 4241640356283784650}
+  damageAmount: 2
+  flickerDuration: 1
+  invincibilityDuration: 1
+--- !u!114 &8220639666108101904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d571308d3e972fb458acb7de24e60ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  lastSafeRespawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &114863807796539354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10440,6 +10467,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToTeleport: {fileID: 1498750440386690}
+--- !u!114 &2613903700465211659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2197fcad73af24fa09c1fce0b4c0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561075265052736
 GameObject:
   m_ObjectHideFlags: 0
@@ -17335,7 +17374,7 @@ MonoBehaviour:
   CooldownDuration: 0
   InitialDelay: 0
   CanPlay: 1
-  CanPlayWhileAlreadyPlaying: 1
+  CanPlayWhileAlreadyPlaying: 0
   ChanceToPlay: 100
   FeedbacksIntensity: 1
   Events:
@@ -17343,7 +17382,19 @@ MonoBehaviour:
     TriggerUnityEvents: 1
     OnPlay:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 2613903700465211659}
+          m_TargetAssemblyTypeName: SignalPlayerMovementStateController, Assembly-CSharp
+          m_MethodName: DisablePlayerMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnPause:
       m_PersistentCalls:
         m_Calls: []
@@ -17355,7 +17406,31 @@ MonoBehaviour:
         m_Calls: []
     OnComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 8220639666108101904}
+          m_TargetAssemblyTypeName: RespawnToLastSafeLocationController, Assembly-CSharp
+          m_MethodName: Respawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2613903700465211659}
+          m_TargetAssemblyTypeName: SignalPlayerMovementStateController, Assembly-CSharp
+          m_MethodName: EnablePlayerMovement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnRestoreInitialValues:
       m_PersistentCalls:
         m_Calls: []
