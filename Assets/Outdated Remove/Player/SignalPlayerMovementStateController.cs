@@ -12,14 +12,14 @@ public class SignalPlayerMovementStateController : MonoBehaviour
     {
         FindObjectOfType<InputManager>().InputDetectionActive = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<TopDownController2D>().SetMovement(Vector3.zero);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().MovementState.ChangeState(MovementStates.Idle);
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().MovementState.ChangeState(MovementStates.Idle); Maybe allow ability to pass this in.
         CharacterMovement movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
-        movementController.AbilityPermitted = false;
+        movementController.PermitAbility(false);
     }
     public void EnablePlayerMovement() {
         FindObjectOfType<InputManager>().InputDetectionActive = true;
         CharacterMovement movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
-        movementController.AbilityPermitted = true;
+        movementController.PermitAbility(true);
     }
 
 }
