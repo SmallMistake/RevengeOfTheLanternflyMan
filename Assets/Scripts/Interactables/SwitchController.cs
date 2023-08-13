@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+//This class is used to track if multiple switches are pressed. If so do something.
 public class SwitchController : MonoBehaviour
 {
     public TagMask tagMask = new TagMask();
@@ -27,15 +29,31 @@ public class SwitchController : MonoBehaviour
             onSwitchPressed?.Invoke(on);
             if (on)
             {
-                spriteRenderer.sprite = onSprite;
-                onSwitchOn?.Invoke();
+                TurnOn();
             }
             else
             {
-                spriteRenderer.sprite = offSprite;
-                onSwitchOff?.Invoke();
+                TurnOff();
             }
         }
+    }
+
+    public void TurnOn()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = onSprite;
+        }
+        onSwitchOn?.Invoke();
+    }
+
+    public void TurnOff()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = offSprite;
+        }
+        onSwitchOff?.Invoke();
     }
 
     public bool isOn()
