@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5990657115037112970}
   - component: {fileID: 5990657115037112971}
   - component: {fileID: 5990657115037112948}
-  - component: {fileID: 2523135498668080576}
   - component: {fileID: 2685528437226852291}
   m_Layer: 0
   m_Name: Main Camera
@@ -55,15 +54,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1187378
-    y: 0.1681076
-    width: 0.7807417
-    height: 1.037464
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -146,29 +145,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2523135498668080576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5990657115037112969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_AssetsPPU: 16
-  m_RefResolutionX: 160
-  m_RefResolutionY: 144
-  m_CropFrame: 3
-  m_GridSnapping: 2
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!114 &2685528437226852291
 MonoBehaviour:
   m_ObjectHideFlags: 0
