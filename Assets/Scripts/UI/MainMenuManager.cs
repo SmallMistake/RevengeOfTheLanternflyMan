@@ -8,6 +8,8 @@ public class MainMenuManager : MonoBehaviour
 {
 
     public GameObject mainPage;
+    public GameObject saveFilePage;
+    public GameObject settingsPage;
     public GameObject creditsPage;
 
     private GameObject currentMenu;
@@ -15,6 +17,8 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         mainPage.SetActive(true);
+        saveFilePage.SetActive(false);
+        settingsPage.SetActive(false);
         creditsPage.SetActive(false);
         currentMenu = mainPage;
     }
