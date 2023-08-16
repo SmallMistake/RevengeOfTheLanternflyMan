@@ -68,9 +68,15 @@ namespace IntronDigital
 
 		protected const string _saveFolderName = "ProgressData";
 
-		public string getCurrentSaveFolderName()
+		public string getCurrentSaveFolderName(int? saveFileIndex = null)
 		{
-			return "Player" + currentSaveFile + _saveFolderName;
+			if(saveFileIndex == null)
+			{
+                return "Player" + currentSaveFile + _saveFolderName;
+            }
+			else {
+                return "Player" + saveFileIndex + _saveFolderName;
+            }
 
         }
 		protected const string _saveFileName = "Progress.data";
@@ -130,7 +136,7 @@ namespace IntronDigital
 		/// <summary>
 		/// Saves the progress to a file
 		/// </summary>
-		protected virtual void SaveProgress()
+		protected virtual void SaveProgress(int saveFileIndex)
 		{
 			onSaveStarted?.Invoke();
             GameProgress progress = new GameProgress ();
@@ -145,16 +151,17 @@ namespace IntronDigital
 				progress.Collectibles = FoundCollectibles.ToArray();	
 			}
 
-			MMSaveLoadManager.Save(progress, _saveFileName, getCurrentSaveFolderName());
+			MMSaveLoadManager.Save(progress, _saveFileName, getCurrentSaveFolderName(saveFileIndex));
             onSaveFinished?.Invoke();
+            TopDownEngineSaveFilesChangedEvent.Trigger();
         }
 
 		/// <summary>
 		/// A test method to create a test save file at any time from the inspector
 		/// </summary>
-		protected virtual void CreateSaveGame()
+		public virtual void CreateSaveGame(int saveFileIndex)
 		{
-			SaveProgress();
+			SaveProgress(saveFileIndex);
 		}
 
         /// <summary>
@@ -189,7 +196,14 @@ namespace IntronDigital
 				InitialMaximumLives = GameManager.Instance.MaximumLives;
 				InitialCurrentLives = GameManager.Instance.CurrentLives;
 			}
-		}
+            TopDownEngineSaveFilesChangedEvent.Trigger();
+
+        }
+
+		public GameProgress GetSaveFile(int saveFileIndex)
+		{
+            return (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName(saveFileIndex));
+        }
 
 		public virtual void FindCollectible(string collectibleName)
 		{
@@ -222,7 +236,7 @@ namespace IntronDigital
 			{
 				case TopDownEngineEventTypes.LevelComplete:
 					LevelComplete ();
-					SaveProgress ();
+					SaveProgress (currentSaveFile);
 					break;
 				case TopDownEngineEventTypes.GameOver:
 					GameOver ();
@@ -251,17 +265,18 @@ namespace IntronDigital
 		/// <summary>
 		/// A method used to remove all save files associated to progress
 		/// </summary>
-		public virtual void ResetProgress()
+		public virtual void ResetProgress(int fileIndex = 1)
 		{
-			MMSaveLoadManager.DeleteSaveFolder (getCurrentSaveFolderName());			
-		}
+			MMSaveLoadManager.DeleteSaveFolder(getCurrentSaveFolderName(fileIndex));
+            TopDownEngineSaveFilesChangedEvent.Trigger();
+        }
 
 		/// <summary>
 		/// OnEnable, we start listening to events.
 		/// </summary>
 		protected virtual void OnEnable()
 		{
-			this.MMEventStartListening<TopDownEngineStarEvent> ();
+			this.MMEventStartListening<TopDownEngineStarEvent>();
 			this.MMEventStartListening<TopDownEngineEvent>();
 		}
 
@@ -270,8 +285,18 @@ namespace IntronDigital
 		/// </summary>
 		protected virtual void OnDisable()
 		{
-			this.MMEventStopListening<TopDownEngineStarEvent> ();
+			this.MMEventStopListening<TopDownEngineStarEvent>();
 			this.MMEventStopListening<TopDownEngineEvent>();
 		}		
 	}
+
+    public struct TopDownEngineSaveFilesChangedEvent
+    {
+
+        static TopDownEngineSaveFilesChangedEvent e;
+        public static void Trigger()
+        {
+            MMEventManager.TriggerEvent(e);
+        }
+    }
 }

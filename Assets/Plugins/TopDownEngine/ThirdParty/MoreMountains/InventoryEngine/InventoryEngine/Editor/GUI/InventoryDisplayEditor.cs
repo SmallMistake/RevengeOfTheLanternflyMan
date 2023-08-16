@@ -65,6 +65,4 @@ namespace MoreMountains.InventoryEngine
 			EditorGUILayout.Space ();
 		}
 	}
-
-
 }
