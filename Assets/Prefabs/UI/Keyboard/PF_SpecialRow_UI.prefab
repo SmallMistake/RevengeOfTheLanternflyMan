@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 8321647534873857797}
   - component: {fileID: 8321647534873857796}
   - component: {fileID: 8388452427608685774}
+  - component: {fileID: 6371099960404535176}
   m_Layer: 5
   m_Name: EndButton
   m_TagString: Untagged
@@ -461,6 +462,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6371099960404535176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321647534873857850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26e90f4835898409b5433ae009e3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardController: {fileID: 0}
+  overridingValue: end
 --- !u!1 &8321647535038174215
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +488,7 @@ GameObject:
   - component: {fileID: 8321647535038174210}
   - component: {fileID: 8321647535038174209}
   - component: {fileID: 7487013680072439607}
+  - component: {fileID: 3547470551980029588}
   m_Layer: 5
   m_Name: BackspaceButton
   m_TagString: Untagged
@@ -583,6 +599,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3547470551980029588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321647535038174215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26e90f4835898409b5433ae009e3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardController: {fileID: 0}
+  overridingValue: backspace
 --- !u!1 &8321647535044107435
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +761,7 @@ GameObject:
   - component: {fileID: 8321647535327699905}
   - component: {fileID: 8321647535327699904}
   - component: {fileID: 5950405282216698479}
+  - component: {fileID: 8607513225492192984}
   m_Layer: 5
   m_Name: UppercaseButton
   m_TagString: Untagged
@@ -841,6 +872,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8607513225492192984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321647535327699910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26e90f4835898409b5433ae009e3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardController: {fileID: 0}
+  overridingValue: capitalize
 --- !u!1 &8321647535503097053
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +898,7 @@ GameObject:
   - component: {fileID: 8321647535503097048}
   - component: {fileID: 8321647535503097055}
   - component: {fileID: 7120813667885824311}
+  - component: {fileID: 8361691535070164149}
   m_Layer: 5
   m_Name: LowercaseButton
   m_TagString: Untagged
@@ -963,6 +1009,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8361691535070164149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321647535503097053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb26e90f4835898409b5433ae009e3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardController: {fileID: 0}
+  overridingValue: lowercase
 --- !u!1 &8321647535544098150
 GameObject:
   m_ObjectHideFlags: 0

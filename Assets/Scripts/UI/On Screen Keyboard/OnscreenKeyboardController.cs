@@ -13,7 +13,7 @@ public class OnscreenKeyboardController : MonoBehaviour
     public GameObject keyboardRow;
     public List<GameObject> specialRows;
     public int numberOfKeysPerRow;
-    private List<string> lowercaseLetters = new List<string>{
+    public List<string> primaryKeyboard = new List<string>{
         "a",
         "b",
         "c",
@@ -78,7 +78,7 @@ public class OnscreenKeyboardController : MonoBehaviour
         ",",
         "."
     };
-    private List<string> uppercaseLetters = new List<string>
+    public List<string> secondaryKeyboard = new List<string>
     {
         "A",
         "B",
@@ -146,7 +146,9 @@ public class OnscreenKeyboardController : MonoBehaviour
 
     };
 
-    private bool currentlyUppercase;
+    public UnityEvent<string> textSubmitted;
+
+    private bool currentlyUsingPrimaryKeyboard;
     private GameObject currentRow;
 
     public List<TextDestinationController> textDestinationControllers = new List<TextDestinationController>();
@@ -157,13 +159,13 @@ public class OnscreenKeyboardController : MonoBehaviour
     public virtual void SetupKeyboardDisplay()
     {
         List<string> tempList;
-        if (currentlyUppercase)
+        if (currentlyUsingPrimaryKeyboard)
         {
-            tempList = uppercaseLetters;
+            tempList = primaryKeyboard;
         }
         else
         {
-            tempList = lowercaseLetters;
+            tempList = secondaryKeyboard;
         }
 
         int currentRowIndex = 0;
@@ -200,6 +202,10 @@ public class OnscreenKeyboardController : MonoBehaviour
         foreach (GameObject specialRow in specialRows)
         {
             GameObject specialRowInstance = Instantiate(specialRow);
+            foreach(KeyButtonController button in specialRowInstance.GetComponentsInChildren<KeyButtonController>())
+            {
+                button.keyboardController = this;
+            }
             specialRowInstance.transform.SetParent(gameObject.transform);
             specialRowInstance.transform.localScale = Vector3.one;
         }
@@ -212,6 +218,10 @@ public class OnscreenKeyboardController : MonoBehaviour
             if(key.ToLower() == "backspace")
             {
                 textDestinationController.RemoveCharacter();
+            }
+            else if(key.ToLower() == "end")
+            {
+                textSubmitted.Invoke(textDestinationController.GetText());
             }
             else
             {

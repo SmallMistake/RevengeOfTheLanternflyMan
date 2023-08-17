@@ -26,11 +26,7 @@ namespace IntronDigital
 	/// </summary>
 	public class GameProgress
 	{
-		public string StoredCharacterName;
-		public int InitialMaximumLives = 0;
-		public int InitialCurrentLives = 0;
-		public int MaximumLives = 0;
-		public int CurrentLives = 0;
+		public string playerName;
 		public GameScene[] Scenes;
 		public string[] Collectibles;
 	}
@@ -43,8 +39,7 @@ namespace IntronDigital
 	public class ProgressManager : MMSingleton<ProgressManager>, MMEventListener<TopDownEngineEvent>, MMEventListener<TopDownEngineStarEvent>
 	{
 		public int currentSaveFile = 1;
-		public int InitialMaximumLives { get; set; }
-		public int InitialCurrentLives { get; set; }
+		public string playerName;
 
 		/// the list of scenes that we'll want to consider for our game
 		[Tooltip("the list of scenes that we'll want to consider for our game")]
@@ -140,11 +135,7 @@ namespace IntronDigital
 		{
 			onSaveStarted?.Invoke();
             GameProgress progress = new GameProgress ();
-			progress.StoredCharacterName = "characterName"; // GameManager.Instance.StoredCharacter.name;
-			progress.MaximumLives = GameManager.Instance.MaximumLives;
-			progress.CurrentLives = GameManager.Instance.CurrentLives;
-			progress.InitialMaximumLives = InitialMaximumLives;
-			progress.InitialCurrentLives = InitialCurrentLives;
+			progress.playerName = LanternflyGameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
 			progress.Scenes = Scenes;
 			if (FoundCollectibles != null)
 			{
@@ -159,8 +150,10 @@ namespace IntronDigital
 		/// <summary>
 		/// A test method to create a test save file at any time from the inspector
 		/// </summary>
-		public virtual void CreateSaveGame(int saveFileIndex)
+		public virtual void CreateSaveGame(int saveFileIndex, string playerName = "Test")
 		{
+			this.playerName = playerName;
+			LanternflyGameManager.Instance.playerName = playerName;
 			SaveProgress(saveFileIndex);
 		}
 
@@ -176,15 +169,18 @@ namespace IntronDigital
         /// <summary>
         /// Loads the saved progress into memory
         /// </summary>
-        protected virtual void LoadSavedProgress()
+        public virtual void LoadSavedProgress(int playerIndex = 1)
 		{
+			currentSaveFile = playerIndex;
 			GameProgress progress = (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName());
 			if (progress != null)
 			{
-				GameManager.Instance.MaximumLives = progress.MaximumLives;
+				LanternflyGameManager.Instance.playerName = progress.playerName;
+				/*
 				GameManager.Instance.CurrentLives = progress.CurrentLives;
 				InitialMaximumLives = progress.InitialMaximumLives;
 				InitialCurrentLives = progress.InitialCurrentLives;
+				*/
 				Scenes = progress.Scenes;
 				if (progress.Collectibles != null)
 				{
@@ -193,8 +189,8 @@ namespace IntronDigital
 			}
 			else
 			{
-				InitialMaximumLives = GameManager.Instance.MaximumLives;
-				InitialCurrentLives = GameManager.Instance.CurrentLives;
+				playerName = LanternflyGameManager.Instance.playerName;
+				//InitialCurrentLives = GameManager.Instance.CurrentLives;
 			}
             TopDownEngineSaveFilesChangedEvent.Trigger();
 
@@ -250,16 +246,6 @@ namespace IntronDigital
 		protected virtual void GameOver()
 		{
 			ResetProgress ();
-			ResetLives ();
-		}
-
-		/// <summary>
-		/// Resets the number of lives to its initial values
-		/// </summary>
-		protected virtual void ResetLives()
-		{
-			GameManager.Instance.MaximumLives = InitialMaximumLives;
-			GameManager.Instance.CurrentLives = InitialCurrentLives;
 		}
 
 		/// <summary>

@@ -31,7 +31,7 @@ public class MenuPageManager : MonoBehaviour
             {
                 foreach (GameObject button in firstSelectedButton)
                 {
-                    if (button.gameObject.activeSelf)
+                    if (button.gameObject.activeInHierarchy)
                     {
                         EventSystem.current.SetSelectedGameObject(button.gameObject);
                         break;

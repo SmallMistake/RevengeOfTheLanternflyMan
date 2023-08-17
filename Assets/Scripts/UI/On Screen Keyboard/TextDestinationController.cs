@@ -24,4 +24,9 @@ public class TextDestinationController : MonoBehaviour
             textMesh.text = textMesh.text.Remove(textMesh.text.Length - 1, 1);
         }
     }
+
+    public string GetText()
+    {
+        return textMesh.text;
+    }
 }
