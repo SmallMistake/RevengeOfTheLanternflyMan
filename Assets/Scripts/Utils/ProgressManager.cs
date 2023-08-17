@@ -2,14 +2,16 @@
 using UnityEngine;
 using MoreMountains.Tools;
 using UnityEngine.SceneManagement;
+using MoreMountains.TopDownEngine;
+using UnityEngine.Events;
 
-namespace MoreMountains.TopDownEngine
+namespace IntronDigital
 {	
 	[System.Serializable]
 	/// <summary>
 	/// A serializable entity to store deadline demo scenes, whether they've been completed, unlocked, how many stars can and have been collected
 	/// </summary>
-	public class DeadlineScene
+	public class GameScene
 	{
 		public string SceneName;
 		public bool LevelComplete = false;
@@ -22,14 +24,10 @@ namespace MoreMountains.TopDownEngine
 	/// <summary>
 	/// A serializable entity used to store progress : a list of scenes with their internal status (see above), how many lives are left, and how much we can have
 	/// </summary>
-	public class DeadlineProgress
-    {
-		public string StoredCharacterName;
-		public int InitialMaximumLives = 0;
-		public int InitialCurrentLives = 0;
-		public int MaximumLives = 0;
-		public int CurrentLives = 0;
-		public DeadlineScene[] Scenes;
+	public class GameProgress
+	{
+		public string playerName;
+		public GameScene[] Scenes;
 		public string[] Collectibles;
 	}
 
@@ -38,38 +36,42 @@ namespace MoreMountains.TopDownEngine
 	/// There's no general class for that in the engine, for the simple reason that no two games will want to save the exact same things.
 	/// But this should show you how it's done, and you can then copy and paste that into your own class (or extend this one, whatever you prefer).
 	/// </summary>
-	public class DeadlineProgressManager : MMSingleton<DeadlineProgressManager>, MMEventListener<TopDownEngineEvent>, MMEventListener<TopDownEngineStarEvent>
+	public class ProgressManager : MMSingleton<ProgressManager>, MMEventListener<TopDownEngineEvent>, MMEventListener<TopDownEngineStarEvent>
 	{
 		public int currentSaveFile = 1;
-		public int InitialMaximumLives { get; set; }
-		public int InitialCurrentLives { get; set; }
-
-		[Header("Characters")] 
-		public Character Naomi;
-		public Character Jules;
+		public string playerName;
 
 		/// the list of scenes that we'll want to consider for our game
 		[Tooltip("the list of scenes that we'll want to consider for our game")]
-		public DeadlineScene[] Scenes;
+		public GameScene[] Scenes;
 
 		[MMInspectorButton("CreateSaveGame")]
 		/// A test button to test creating the save file
 		public bool CreateSaveGameBtn;
 
-        [MMInspectorButton("CreateSaveGame")]
+        [MMInspectorButton("LoadSaveGame")]
         /// A test button to test creating the save file
         public bool LoadSaveGameBtn;
 
         /// the current amount of collected stars
         public int CurrentStars { get; protected set; }
+
+		public UnityEvent onSaveStarted;
+		public UnityEvent onSaveFinished;
 		
 		public List<string> FoundCollectibles { get; protected set; }
 
 		protected const string _saveFolderName = "ProgressData";
 
-		public string getCurrentSaveFolderName()
+		public string getCurrentSaveFolderName(int? saveFileIndex = null)
 		{
-			return "Player" + currentSaveFile + _saveFolderName;
+			if(saveFileIndex == null)
+			{
+                return "Player" + currentSaveFile + _saveFolderName;
+            }
+			else {
+                return "Player" + saveFileIndex + _saveFolderName;
+            }
 
         }
 		protected const string _saveFileName = "Progress.data";
@@ -112,7 +114,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void InitializeStars()
 		{
-			foreach (DeadlineScene scene in Scenes)
+			foreach (GameScene scene in Scenes)
 			{
 				if (scene.SceneName == SceneManager.GetActiveScene().name)
 				{
@@ -129,44 +131,56 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Saves the progress to a file
 		/// </summary>
-		protected virtual void SaveProgress()
+		protected virtual void SaveProgress(int saveFileIndex)
 		{
-            DeadlineProgress progress = new DeadlineProgress();
-			progress.StoredCharacterName = "characterName"; // GameManager.Instance.StoredCharacter.name;
-			progress.MaximumLives = GameManager.Instance.MaximumLives;
-			progress.CurrentLives = GameManager.Instance.CurrentLives;
-			progress.InitialMaximumLives = InitialMaximumLives;
-			progress.InitialCurrentLives = InitialCurrentLives;
+			onSaveStarted?.Invoke();
+            GameProgress progress = new GameProgress ();
+			progress.playerName = LanternflyGameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
 			progress.Scenes = Scenes;
 			if (FoundCollectibles != null)
 			{
 				progress.Collectibles = FoundCollectibles.ToArray();	
 			}
 
-			MMSaveLoadManager.Save(progress, _saveFileName, getCurrentSaveFolderName());
-		}
+			MMSaveLoadManager.Save(progress, _saveFileName, getCurrentSaveFolderName(saveFileIndex));
+            onSaveFinished?.Invoke();
+            TopDownEngineSaveFilesChangedEvent.Trigger();
+        }
 
 		/// <summary>
 		/// A test method to create a test save file at any time from the inspector
 		/// </summary>
-		protected virtual void CreateSaveGame()
+		public virtual void CreateSaveGame(int saveFileIndex, string playerName = "Test")
 		{
-			SaveProgress();
+			this.playerName = playerName;
+			LanternflyGameManager.Instance.playerName = playerName;
+			SaveProgress(saveFileIndex);
 		}
 
-		/// <summary>
-		/// Loads the saved progress into memory
-		/// </summary>
-		protected virtual void LoadSavedProgress()
+        /// <summary>
+        /// A test method to create a test save file at any time from the inspector
+        /// </summary>
+        protected virtual void LoadSaveGame()
+        {
+			print("TODO Load Test Button");
+            //SaveProgress();
+        }
+
+        /// <summary>
+        /// Loads the saved progress into memory
+        /// </summary>
+        public virtual void LoadSavedProgress(int playerIndex = 1)
 		{
-            DeadlineProgress progress = (DeadlineProgress)MMSaveLoadManager.Load(typeof(DeadlineProgress), _saveFileName, getCurrentSaveFolderName());
+			currentSaveFile = playerIndex;
+			GameProgress progress = (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName());
 			if (progress != null)
 			{
-				GameManager.Instance.StoredCharacter = (progress.StoredCharacterName == Jules.name) ? Jules : Naomi;
-				GameManager.Instance.MaximumLives = progress.MaximumLives;
+				LanternflyGameManager.Instance.playerName = progress.playerName;
+				/*
 				GameManager.Instance.CurrentLives = progress.CurrentLives;
 				InitialMaximumLives = progress.InitialMaximumLives;
 				InitialCurrentLives = progress.InitialCurrentLives;
+				*/
 				Scenes = progress.Scenes;
 				if (progress.Collectibles != null)
 				{
@@ -175,10 +189,17 @@ namespace MoreMountains.TopDownEngine
 			}
 			else
 			{
-				InitialMaximumLives = GameManager.Instance.MaximumLives;
-				InitialCurrentLives = GameManager.Instance.CurrentLives;
+				playerName = LanternflyGameManager.Instance.playerName;
+				//InitialCurrentLives = GameManager.Instance.CurrentLives;
 			}
-		}
+            TopDownEngineSaveFilesChangedEvent.Trigger();
+
+        }
+
+		public GameProgress GetSaveFile(int saveFileIndex)
+		{
+            return (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName(saveFileIndex));
+        }
 
 		public virtual void FindCollectible(string collectibleName)
 		{
@@ -191,7 +212,7 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="deadlineStarEvent">Deadline star event.</param>
 		public virtual void OnMMEvent(TopDownEngineStarEvent deadlineStarEvent)
 		{
-			foreach (DeadlineScene scene in Scenes)
+			foreach (GameScene scene in Scenes)
 			{
 				if (scene.SceneName == deadlineStarEvent.SceneName)
 				{
@@ -211,7 +232,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				case TopDownEngineEventTypes.LevelComplete:
 					LevelComplete ();
-					SaveProgress ();
+					SaveProgress (currentSaveFile);
 					break;
 				case TopDownEngineEventTypes.GameOver:
 					GameOver ();
@@ -225,32 +246,23 @@ namespace MoreMountains.TopDownEngine
 		protected virtual void GameOver()
 		{
 			ResetProgress ();
-			ResetLives ();
-		}
-
-		/// <summary>
-		/// Resets the number of lives to its initial values
-		/// </summary>
-		protected virtual void ResetLives()
-		{
-			GameManager.Instance.MaximumLives = InitialMaximumLives;
-			GameManager.Instance.CurrentLives = InitialCurrentLives;
 		}
 
 		/// <summary>
 		/// A method used to remove all save files associated to progress
 		/// </summary>
-		public virtual void ResetProgress()
+		public virtual void ResetProgress(int fileIndex = 1)
 		{
-			MMSaveLoadManager.DeleteSaveFolder (getCurrentSaveFolderName());			
-		}
+			MMSaveLoadManager.DeleteSaveFolder(getCurrentSaveFolderName(fileIndex));
+            TopDownEngineSaveFilesChangedEvent.Trigger();
+        }
 
 		/// <summary>
 		/// OnEnable, we start listening to events.
 		/// </summary>
 		protected virtual void OnEnable()
 		{
-			this.MMEventStartListening<TopDownEngineStarEvent> ();
+			this.MMEventStartListening<TopDownEngineStarEvent>();
 			this.MMEventStartListening<TopDownEngineEvent>();
 		}
 
@@ -259,8 +271,18 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void OnDisable()
 		{
-			this.MMEventStopListening<TopDownEngineStarEvent> ();
+			this.MMEventStopListening<TopDownEngineStarEvent>();
 			this.MMEventStopListening<TopDownEngineEvent>();
 		}		
 	}
+
+    public struct TopDownEngineSaveFilesChangedEvent
+    {
+
+        static TopDownEngineSaveFilesChangedEvent e;
+        public static void Trigger()
+        {
+            MMEventManager.TriggerEvent(e);
+        }
+    }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SaveSystemGameObject : MonoBehaviour
 {
+
+    //Outdated
     private PlayerData data;
     private QuestLineData questData;
 
