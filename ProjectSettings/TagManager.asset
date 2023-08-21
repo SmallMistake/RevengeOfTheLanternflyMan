@@ -18,7 +18,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - AllFloors
   - Water
   - UI
   - 
@@ -34,28 +34,28 @@ TagManager:
   - MovingPlatform
   - FallingPlatform
   - Projectile
-  - Camera1
-  - Camera2
-  - Camera3
-  - Camera4
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 2FObstacles
+  - 2FGround
+  - 2FPlayer
+  - 2FObstaclesDoors
+  - 2FEnemies
+  - 2FHole
+  - 2FMovingPlatform
+  - 2FFallingPlatform
+  - 2FProjectile
   m_SortingLayers:
   - name: Background
     uniqueID: 1798043625
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 2296623839
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Foreground
     uniqueID: 1603220759
@@ -65,4 +65,22 @@ TagManager:
     locked: 0
   - name: Above
     uniqueID: 961700441
+    locked: 0
+  - name: 2FBackground
+    uniqueID: 2257480915
+    locked: 0
+  - name: 2FGround
+    uniqueID: 1864986373
+    locked: 0
+  - name: 2FDefault
+    uniqueID: 2737102601
+    locked: 0
+  - name: 2FForeground
+    uniqueID: 318271767
+    locked: 0
+  - name: 2FCharacters
+    uniqueID: 1288760559
+    locked: 0
+  - name: 2FAbove
+    uniqueID: 3705494803
     locked: 0
