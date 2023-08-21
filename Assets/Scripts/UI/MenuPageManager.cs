@@ -6,23 +6,39 @@ using UnityEngine.UI;
 
 public class MenuPageManager : MonoBehaviour
 {
-    public Button firstSelectedButton;
+    //Goes through list till finds active button
+    public List<GameObject> firstSelectedButton;
 
     private GameObject previouslySelectedButton;
 
+    bool firstEnable;
+
     private void OnEnable()
     {
-        if(previouslySelectedButton != null){
-            EventSystem.current.SetSelectedGameObject(previouslySelectedButton);
-        }
-        else
-        {
-            EventSystem.current.SetSelectedGameObject(firstSelectedButton.gameObject);
-        }
+        firstEnable = true;
     }
 
     private void Update()
     {
+        if (firstEnable)
+        {
+            firstEnable = false;
+            if (previouslySelectedButton != null)
+            {
+                EventSystem.current.SetSelectedGameObject(previouslySelectedButton);
+            }
+            else
+            {
+                foreach (GameObject button in firstSelectedButton)
+                {
+                    if (button.gameObject.activeInHierarchy)
+                    {
+                        EventSystem.current.SetSelectedGameObject(button.gameObject);
+                        break;
+                    }
+                }
+            }
+        }
         if(EventSystem.current.currentSelectedGameObject != null)
         {
             previouslySelectedButton = EventSystem.current.currentSelectedGameObject;
