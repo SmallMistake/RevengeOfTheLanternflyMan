@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 6473329693121444804}
   - component: {fileID: 6383842468670336758}
   - component: {fileID: 6384651661544105606}
+  - component: {fileID: 2254051981478197423}
   m_Layer: 0
   m_Name: WoodenKeyPicker
   m_TagString: Untagged
@@ -157,6 +158,17 @@ MonoBehaviour:
   PickableIfInventoryIsFull: 0
   DisableObjectWhenDepleted: 0
   RequirePlayerTag: 1
+--- !u!210 &2254051981478197423
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415749643681864102}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &6416206511652286932
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +241,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1603220759
-  m_SortingLayer: 3
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300020, guid: 22132c6b69a48954b9505792504dca22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,7 +345,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1603220759
-  m_SortingLayer: 3
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300022, guid: 22132c6b69a48954b9505792504dca22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
