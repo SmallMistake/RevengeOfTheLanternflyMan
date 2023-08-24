@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EntityPhaseController : MonoBehaviour
 {
-
+    public string phaseName; //Can be same for all phases or have different names for each phase
     public List<Damagable> damagePoints;
     private int startingHealth;
 

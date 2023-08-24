@@ -1,3 +1,5 @@
+using MoreMountains.Tools;
+using MoreMountains.TopDownEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +12,8 @@ public class BossController : MonoBehaviour
     public int currentPhaseIndex;
 
     private GameObject healthBar;
+    public string bossName;
+    public Health health; //Later on allow each phase to have different health;
 
     private void OnEnable()
     {
@@ -27,7 +31,9 @@ public class BossController : MonoBehaviour
 
     private void DisplayHUD()
     {
-        healthBar = (GameObject)Instantiate(Resources.Load("UI/Boss Canvas"));
+        healthBar = (GameObject)Instantiate(Resources.Load("UI/PF_BossCanvas_UI"));
+        healthBar.GetComponent<BossHealthBarHUDController>().SetUpVisuals(bossName, health);
+        //mmHealthBar.TargetProgressBar = healthBar.GetComponent<MMProgressBar>();
     }
 
     private void StartFight()
@@ -51,7 +57,14 @@ public class BossController : MonoBehaviour
 
     public void StartPhase()
     {
-        phases[currentPhaseIndex].StartPhase(healthBar.GetComponentInChildren<Slider>(), this);
+        if(phases.Count > 0)
+        {
+            phases[currentPhaseIndex].StartPhase(healthBar.GetComponentInChildren<Slider>(), this);
+        }
+        else
+        {
+            print("TODO Add Phases to Boss Controller " + gameObject.name);
+        }
     }
 
     private void Die()
