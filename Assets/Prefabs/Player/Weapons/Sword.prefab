@@ -698,7 +698,7 @@ MonoBehaviour:
   WeaponCurrentlyActive: 1
   InputAuthorized: 1
   TriggerMode: 0
-  DelayBeforeUse: 0.7
+  DelayBeforeUse: 0.4
   DelayBeforeUseReleaseInterruption: 0
   TimeBetweenUses: 0.1
   TimeBetweenUsesReleaseInterruption: 0
@@ -848,7 +848,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 47421343
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63bbc3a420e7c1749af6342fd3dd09b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
