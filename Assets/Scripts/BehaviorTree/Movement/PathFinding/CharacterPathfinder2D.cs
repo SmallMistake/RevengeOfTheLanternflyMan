@@ -114,7 +114,10 @@ namespace MoreMountains.TopDownEngine
             // DetermineNextWaypoint();
             DetermineDistanceToNextWaypoint();
             DetermineDistanceToDestination();
-            MoveController();
+            if (!DetermineIfReachedDestination())
+            {
+                MoveController();
+            }
         }
 
         /// <summary>
@@ -133,6 +136,18 @@ namespace MoreMountains.TopDownEngine
                 _newMovement.x = _direction.x;
                 _newMovement.y = _direction.y;
                 characterMovement.SetMovement(_newMovement);
+            }
+        }
+
+        private bool DetermineIfReachedDestination()
+        {
+            if(NextWaypointIndex >= Waypoints.Length)
+            {
+                print("Reached Destination");
+                return true;
+            }
+            else {
+                return false;
             }
         }
 

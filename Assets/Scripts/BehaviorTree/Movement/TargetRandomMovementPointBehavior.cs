@@ -1,3 +1,4 @@
+using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityGameObject;
 using MoreMountains.Tools;
@@ -6,24 +7,28 @@ using Pathfinding;
 using System.Drawing;
 using UnityEngine;
 
-public class SelectNearbyMovementPointBehavior : Action
+
+// I am reworking this class so that the selection of the point and movement are different actions
+public class TargetRandomMovementPointBehavior : Action
 {
     public float radiusToLook;
-    public AIBrain aiBrain;
-    public AIActionPathfinderToTarget2D pathfindingAction;
+    //public AIBrain aiBrain;
+    //public AIActionPathfinderToTarget2D pathfindingAction;
 
     private bool selectedNewDestination;
 
     private GameObject targetMovement;
-    public float rangeOfSuccess;
+    //public float rangeOfSuccess;
+    BehaviorTree behaviorTree;
 
 
     public override void OnStart()
     {
-        aiBrain = GetComponent<AIBrain>();
-        pathfindingAction = GetComponent<AIActionPathfinderToTarget2D>();
-        pathfindingAction.Initialization();
         selectedNewDestination = false;
+        behaviorTree = GetComponent<BehaviorTree>();
+        //aiBrain = GetComponent<AIBrain>();
+        //pathfindingAction = GetComponent<AIActionPathfinderToTarget2D>();
+        //pathfindingAction.Initialization();
         LookForMovementPoint();
     }
 
@@ -33,10 +38,13 @@ public class SelectNearbyMovementPointBehavior : Action
         Vector3 destination = PickRandomPoint();
         targetMovement = new GameObject($"{gameObject.name} Destination");
         targetMovement.transform.position = destination;
-        aiBrain.Target = targetMovement.transform;
+        //aiBrain.Target = targetMovement.transform;
         //aiDestinationSetter.target = targetMovement.transform;
         //ai.SetPath(point);
         //aiDestinationSetter.target = targetMovement.transform;
+        SharedTransform target = new SharedTransform();
+        target.Value = targetMovement.transform;
+        behaviorTree.SetVariable("Target", target);
         selectedNewDestination = true;
     }
 
@@ -60,12 +68,11 @@ public class SelectNearbyMovementPointBehavior : Action
 
     public override TaskStatus OnUpdate()
     {
-        pathfindingAction.PerformAction();
-        if (IsWithinRangeOfDestination() && selectedNewDestination)
+        //pathfindingAction.PerformAction();
+        if (selectedNewDestination) //IsWithinRangeOfDestination() &&
         {
             //aiDestinationSetter.target = null;
-            pathfindingAction.OnExitState();
-            GameObject.Destroy(targetMovement);
+            //pathfindingAction.OnExitState();
             return TaskStatus.Success;
         }
         else
@@ -73,7 +80,7 @@ public class SelectNearbyMovementPointBehavior : Action
             return TaskStatus.Running;
         }
     }
-
+    /*
     private bool IsWithinRangeOfDestination()
     {
         if(Vector3.Distance(targetMovement.transform.position, transform.position) <= rangeOfSuccess)
@@ -85,4 +92,5 @@ public class SelectNearbyMovementPointBehavior : Action
             return false;
         }
     }
+    */
 }
