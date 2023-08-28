@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
+using UnityEngine.Events;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -15,18 +16,20 @@ namespace MoreMountains.TopDownEngine
     {
         protected CharacterMovement _characterMovement;
         protected CharacterPathfinder2D _characterPathfinder2D;
+        public UnityEvent onDestinationReached;
+
 
         /// <summary>
         /// On init we grab our CharacterMovement ability
         /// </summary>
         public override void Initialization()
         {
-            _characterMovement = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
-            _characterPathfinder2D = this.gameObject.GetComponent<CharacterPathfinder2D>();
+            _characterMovement = gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
+            _characterPathfinder2D = gameObject.GetComponent<CharacterPathfinder2D>();
             _characterPathfinder2D.Initialization();
             if (_characterPathfinder2D == null)
             {
-                Debug.LogWarning(this.name + " : the AIActionPathfinderToTarget3D AI Action requires the CharacterPathfinder3D ability");
+                Debug.LogWarning(name + " : the AIActionPathfinderToTarget3D AI Action requires the CharacterPathfinder3D ability");
             }
         }
 
@@ -36,7 +39,14 @@ namespace MoreMountains.TopDownEngine
         public override void PerformAction()
         {
             Move();
-            _characterPathfinder2D.ProcessAbility();
+            if (_characterPathfinder2D.ReachedDestination())
+            {
+                onDestinationReached?.Invoke();
+            }
+            else
+            {
+                _characterPathfinder2D.ProcessAbility();
+            }
         }
 
         /// <summary>
@@ -62,6 +72,7 @@ namespace MoreMountains.TopDownEngine
         {
             base.OnExitState();
             _characterPathfinder2D.OnExitState();
+            Destroy(_characterPathfinder2D.Target.gameObject);
             _characterPathfinder2D?.SetNewDestination(null);
             _characterMovement?.SetHorizontalMovement(0f);
             _characterMovement?.SetVerticalMovement(0f);

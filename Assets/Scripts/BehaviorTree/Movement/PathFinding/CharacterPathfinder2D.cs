@@ -109,14 +109,16 @@ namespace MoreMountains.TopDownEngine
             {
                 return;
             }
-
-            DrawDebugPath();
-            // DetermineNextWaypoint();
-            DetermineDistanceToNextWaypoint();
-            DetermineDistanceToDestination();
-            if (!DetermineIfReachedDestination())
+            if (!ReachedDestination())
             {
+                DrawDebugPath();
+                DetermineDistanceToNextWaypoint();
+                DetermineDistanceToDestination();
                 MoveController();
+            }
+            else
+            {
+                characterMovement.SetMovement(Vector2.zero);
             }
         }
 
@@ -139,11 +141,10 @@ namespace MoreMountains.TopDownEngine
             }
         }
 
-        private bool DetermineIfReachedDestination()
+        public bool ReachedDestination()
         {
             if(NextWaypointIndex >= Waypoints.Length)
             {
-                print("Reached Destination");
                 return true;
             }
             else {

@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACQn+uJaSHmqwIAAKYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVN9v2jAQ/leQn9cphYyWvW1A6Sa1RWVTH0YfTHwhFo4d+UeBVvzvvXMCCUyKFOfuu7vvuzvng0ntKsi8sTMrxYMRwL73GJ3Zl17rvIcdXxu9kO9wxLxI4QsC8Yh55l4atF9TmDMleCuzH3qtCJygMWiZG1tOxRrGxnmH5pwrB+iyxlO0RtNHj+3wdTWikD2e+jd0esfTKOkd8JiB9mBbaPL1WwOtTwStkUFnipcVCKLdBgwHDX44ijCNghoEkc+MUtI1bJjfV1HtM9+TViE5KovlCVuAXBeeWHYDn/LcgW9kW76fSIsNqjOyn6buWsndpub0xlWgGmnav72NjOq0D/8hrq6jO7emvD9Wvk6oii9ktkGOGXe+09iueXJOPegtVxu+UvBSgH40M2uCFuj0NlBocNCftJ8nceMCsk1rr6leGEPVGc9xOM1oSMMh6t+NlSxXcW5pbVgoE7sdhw8W5/ILCcfVcE0KtBKLvw7+8HV3hxrHnbTOo6tRqYneygRLUDaNPSM1wY+N1RDNDekKNFd+P8c0/nKIF75O2QvPHafb0hRvfMdLcBESzS0+SS5cc7Nth+XgdyiruZHaL4DbrOjkc4XZPoArnoJXUkOriByP2MSx0bpeQHfupKhFsDnPOlEedj5YmHDP4w1ASrgkolsQ+xkjdFCK9jGKoNz/UAQ9r9TjgmNZFc3s0SAxNJ69X2kP1kGK8y1naT4a9kfp4AbEYNQfra762fAmXfVvUzEcrBI+YPEaSI0t52pe96yZFC6QbrVoXHnKGLeid6eMsb2Z5VW8gcLy7Uy+l6bTFalzs8gsgH6qE500g8Va+JcQUyFR7QK8lzpuIPtYMmWyDYjlKdEy9ne685Yv2yxLVsk348myZOP4H1syMp9u19zCm4QtFT8mO7DDJ1BLAwQUAAAICAAAkJ/rzqttlG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IztNBRUEovSizIKAaKGII4pZkpIHa0kkmapZmRpYmxeWqKsaWRZZKuUbKZuUmSkYVJiplxkkGisVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAkJ/riWkh5qsCAACmBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAkJ/rzqttlG0AAAB4AAAACQAkAAAAAAAAAAAAAAD4AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAALADAAAAAA==
+    dataString: UEsDBBQAAAgIAACQn+u+VnXGrgIAAK8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVNtuGjEQ/RXk5xItl5DStxYIaaUkKLTKQ8mDWc+yFl575UuARPx7Z7wLu1AJCXPmds5c+GRSuxJSb+zcSvFoBLBvHUZv9qXTGB9gzzdGL+UHnHxepfA5OfHo88K9NIj3KMyZAryV6Xe9UeScIBi0zIwtZmIDE+O8QzjjygGarPEUrRH67LA9fnXHFHLAV/+OXh/4GiedIz5T0B5s45rc3Nau1YtcK8+gU8WLEgTRbgIGvXPEYHhzG101iqq9qiypUUq6mhPzhzJqXpY5WCDRQnKUGHmQ4hzkJvdEtx37nGUOfK3f8sNUWuxUlZT9MFX7Cu62Fbl3rgKVGYyS8SjSqtI+/ufR7UVzZk3xcKrcS6iKz2W6feGHlDvf6nAbnl5SD3rH1ZavFbzmoJ/M3JqgBRq9DRQaHPSnzc+zuEkO6bbBK6pXYChbczpNqZ4RaThG/fuJksU6tn5YAUtlYsPjFoDF4fxEwnFHXJ0CUWLxx8FvvmkvU224l9Z5NNUqNdFbm2DJlc1iz0hN8BNjNUS4Jl2C5sofFpjGXw/xytYqe2W553Q2dfHadrqGq5AIN/5JcmVamF0zLAe/QlEujNR+CdymeSufy83uEVz+HLySGhpFZHjCJk6M1tUCuksjRS2DzXjaivKw98HClHsejwAp4ZKIdkHsZ4zQQSnaxyiCcv9FEfR5ox7nHMuqCLMno+P9XHy/0R5sghSXW86G2XjUHw8HdyAG4/543e2no7vhuv91KEaDdcIHLJ6B1NhyrhZVz+pJ4QLpRovGlaeMcSs698oY25lbXsYLFJbv5vKjMK2uSJ2ZZWoB9HOV6KwZLNbCvwoxExLVLsF7qeMGss8VUybdglidE61if2d7b/mqybJipXw3npAVm8Q/tBUj+HxdCwvvEnZU/JTsyI7/AFBLAwQUAAAICAAAkJ/rzqttlG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IztNBRUEovSizIKAaKGII4pZkpIHa0kkmapZmRpYmxeWqKsaWRZZKuUbKZuUmSkYVJiplxkkGisVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAkJ/rvlZ1xq4CAACvBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAkJ/rzqttlG0AAAB4AAAACQAkAAAAAAAAAAAAAAD7AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAALMDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
   logPathResults: 0
-  maxNearestNodeDistance: 100
+  maxNearestNodeDistance: 4
   scanOnStartup: 1
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
@@ -3031,8 +3031,8 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: -1
   maxFrameTime: 10
-  batchGraphUpdates: 0
-  graphUpdateBatchingInterval: 0.2
+  batchGraphUpdates: 1
+  graphUpdateBatchingInterval: 0.1
   euclideanEmbedding:
     mode: 0
     seed: 0
@@ -34305,6 +34305,7 @@ GameObject:
   - component: {fileID: 1569804759}
   - component: {fileID: 1569804758}
   - component: {fileID: 1569804757}
+  - component: {fileID: 1569804760}
   m_Layer: 0
   m_Name: Dynamic Blocker
   m_TagString: Untagged
@@ -34371,7 +34372,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569804756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -34398,13 +34399,47 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569804756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5131907, y: -13.585763, z: -16.103018}
+  m_LocalPosition: {x: 6.404, y: -13.651, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1569804760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569804756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 6814323669741351858
+  points:
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: -0.5, z: 0}
+  convex: 0
+  minBoundsHeight: 1
+  penaltyDelta: 0
+  modifyWalkability: 0
+  setWalkability: 0
+  applyOnStart: 1
+  applyOnScan: 1
+  updatePhysics: 0
+  resetPenaltyOnPhysics: 1
+  updateErosion: 1
+  modifyTag: 1
+  setTag: 0
+  legacyMode: 0
+  serializedVersion: 1
+  legacyUseWorldSpace: 0
 --- !u!1 &1605039964
 GameObject:
   m_ObjectHideFlags: 0
@@ -60413,7 +60448,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &2025947692
 PrefabInstance:
@@ -60432,7 +60467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001341059962208, guid: e27b90fe8798ee24998532eee1c7eb88, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4001341059962208, guid: e27b90fe8798ee24998532eee1c7eb88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71299,7 +71334,6 @@ GameObject:
   - component: {fileID: 2557893932996990831}
   - component: {fileID: 2557893932996990832}
   - component: {fileID: 2557893932996990835}
-  - component: {fileID: 2557893932996990842}
   - component: {fileID: 2557893932996990838}
   - component: {fileID: 2557893932996990840}
   m_Layer: 13
@@ -71362,7 +71396,7 @@ Transform:
   - {fileID: 4692371319483093148}
   - {fileID: 1008206551}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2520078979808697402
 Transform:
@@ -71536,7 +71570,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 6
+  WalkSpeed: 3
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 10
@@ -71699,18 +71733,20 @@ MonoBehaviour:
         Threshold Reached"},"ID":4,"Name":"Log","Instant":true,"SharedStringtext":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Health
         is below Threshold"},"SharedBoollogError":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoollogTime":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(90.46123,145.331741)"},"ID":5,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(312.857,140)","Comment":"Main
         Attack Branch"},"ID":6,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.RandomSelector","NodeData":{"Offset":"(-30.0477524,170.869446)"},"ID":7,"Name":"Random
-        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-350,290)","Comment":"Random
-        Swipe Attack"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"TargetRandomMovementPointBehavior","NodeData":{"Offset":"(-342.704651,181.121231)"},"ID":9,"Name":"Target
-        Random Movement Point Behavior","Instant":true,"SingleradiusToLook":1},{"Type":"MoveTowardsTargetBehavior","NodeData":{"Offset":"(-95.0563049,181.893921)"},"ID":10,"Name":"Move
+        Selector","Instant":true,"Int32seed":0,"BooleanuseSeed":false,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-350,199.090942)","Comment":"Random
+        Swipe Attack"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"TargetRandomMovementPointBehavior","NodeData":{"Offset":"(-315.514832,172.8291)"},"ID":9,"Name":"Target
+        Random Movement Point","Instant":true,"SingleradiusToLook":3},{"Type":"MoveTowardsTargetBehavior","NodeData":{"Offset":"(-95.0563049,171.893921)"},"ID":10,"Name":"Move
         Towards Target Behavior","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Target
-        that EntityTracks"}},{"Type":"IntronDigital.BehaviorTree.Attack","NodeData":{"Offset":"(76.74414,174.651367)"},"ID":11,"Name":"Attack","Instant":true,"List`1weapons":[1],"SinglewaitTime":2},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(272.5708,174.625)"},"ID":12,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2}}]}]}]}]},"DetachedTasks":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(8248.623,8685.171)","Comment":"Chase
-        Player"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SetTargetToPlayerBehavior","NodeData":{"Offset":"(-102.108063,276.586456)"},"ID":14,"Name":"Set
-        Target To Player Behavior","Instant":true},{"Type":"MoveTowardsTargetBehavior","NodeData":{"Offset":"(141.9849,277.864)"},"ID":15,"Name":"Move
+        that EntityTracks"}},{"Type":"IntronDigital.BehaviorTree.Attack","NodeData":{"Offset":"(63.92363,174.651367)"},"ID":11,"Name":"Attack","Instant":true,"List`1weapons":[1],"SinglewaitTime":2},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(186.302979,174.625)"},"ID":12,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2}}]}]}]}]},"DetachedTasks":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(8248.623,8685.171)","Comment":"Chase
+        Player"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"TargetPlayerBehavior","NodeData":{"Offset":"(-54.1044922,284.9391)"},"ID":14,"Name":"Target
+        Player","Instant":true},{"Type":"MoveTowardsTargetBehavior","NodeData":{"Offset":"(141.9849,277.864)"},"ID":15,"Name":"Move
         Towards Target Behavior","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Target
         that EntityTracks"}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(8810,8550)","Comment":"Charge
-        Target"},"ID":16,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"SetTargetToPlayerBehavior","NodeData":{"Offset":"(-158.944336,181.591125)"},"ID":17,"Name":"Set
-        Target To Player Behavior","Instant":true},{"Type":"ChargeTargetBehavior","NodeData":{"Offset":"(33.9606247,177.4837)"},"ID":18,"Name":"Charge
-        Target","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Log","NodeData":{"Offset":"(206.998459,184.975876)"},"ID":19,"Name":"Log","Instant":true,"SharedStringtext":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Charge
+        Target"},"ID":16,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"TargetPlayerBehavior","NodeData":{"Offset":"(-182.418213,186.7597)"},"ID":17,"Name":"Target
+        Player","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.UnknownTask","NodeData":{"Offset":"(33.9606247,177.4837)","Comment":"Unknown
+        Task. Right click and Replace to locate new task."},"ID":18,"Name":"Unknown
+        Charge Target","Instant":true,"StringJSONSerialization":"{\"Type\":\"ChargeTargetBehavior\",\"NodeData\":{\"Offset\":\"(33.9606247,177.4837)\"},\"ID\":18,\"Name\":\"Charge
+        Target\",\"Instant\":true}","List`1fieldNameHash":[],"List`1startIndex":[],"List`1dataPosition":[],"List`1unityObjects":[],"List`1byteData":[]},{"Type":"BehaviorDesigner.Runtime.Tasks.Log","NodeData":{"Offset":"(206.998459,184.975876)"},"ID":19,"Name":"Log","Instant":true,"SharedStringtext":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Charge
         Player"},"SharedBoollogError":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoollogTime":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false}}]}],"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Target
         that EntityTracks"}]}'
       fieldSerializationData:
@@ -71767,8 +71803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  DistanceToWaypointThreshold: 0.1
-  ClosestPointThreshold: 0.3
+  DistanceToWaypointThreshold: 0.5
+  ClosestPointThreshold: 1
   DebugDrawPath: 0
   Waypoints: []
   NextWaypointIndex: 0
@@ -71815,6 +71851,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
+  onDestinationReached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!70 &2557893932996990841
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -71831,48 +71870,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.51}
   m_Size: {x: 0.81, y: 1.21}
   m_Direction: 0
---- !u!114 &2557893932996990842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2516480044116550862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
-  radius: 0.59
-  height: 1.28
-  canMove: 1
-  maxSpeed: 1
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 0
-  enableRotation: 1
-  autoRepath:
-    mode: 2
-    period: 0.5
-    sensitivity: 10
-    maximumPeriod: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
 --- !u!95 &2574924759101648770
 Animator:
   serializedVersion: 4
