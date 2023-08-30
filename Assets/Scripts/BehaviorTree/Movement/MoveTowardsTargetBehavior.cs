@@ -14,8 +14,7 @@ using UnityEngine.Events;
 [TaskDescription("Move towards target using A*")]
 public class MoveTowardsTargetBehavior : Action
 {
-    public AIBrain aiBrain;
-    public AIActionPathfinderToTarget2D pathfindingAction;
+    public PathfindingBrain pathfindingBrain;
     public SharedTransform target;
 
     private bool reachedDestination;
@@ -23,19 +22,18 @@ public class MoveTowardsTargetBehavior : Action
     public override void OnStart()
     {
         reachedDestination = false;
-        aiBrain = GetComponent<AIBrain>();
-        pathfindingAction = GetComponent<AIActionPathfinderToTarget2D>();
-        pathfindingAction.onDestinationReached.AddListener(HandleDestinationReached);
-        aiBrain.Target = target.Value;
-        pathfindingAction.Initialization();
+        pathfindingBrain = GetComponent<PathfindingBrain>();
+        pathfindingBrain.OnDestinationReached.AddListener(HandleDestinationReached);
+        pathfindingBrain.SetNewDestination(target.Value);
+        pathfindingBrain.Initialization();
     }
 
     public override TaskStatus OnUpdate()
     {
-        pathfindingAction.PerformAction();
+        pathfindingBrain.PerformAction();
         if (reachedDestination)
         {
-            pathfindingAction.OnExitState();
+            pathfindingBrain.OnExitState();
             return TaskStatus.Success;
         }
         else
@@ -46,7 +44,7 @@ public class MoveTowardsTargetBehavior : Action
 
     private void HandleDestinationReached()
     {
-        pathfindingAction.onDestinationReached.RemoveListener(HandleDestinationReached);
+        pathfindingBrain.OnDestinationReached.RemoveListener(HandleDestinationReached);
         reachedDestination = true;
     }
 }

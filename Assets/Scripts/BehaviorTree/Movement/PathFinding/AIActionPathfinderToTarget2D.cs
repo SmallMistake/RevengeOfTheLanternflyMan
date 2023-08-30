@@ -14,6 +14,8 @@ namespace MoreMountains.TopDownEngine
     //[RequireComponent(typeof(CharacterPathfinder3D))]
     public class AIActionPathfinderToTarget2D : AIAction
     {
+       
+        /* Outdated
         protected CharacterMovement _characterMovement;
         protected CharacterPathfinder2D _characterPathfinder2D;
         public UnityEvent onDestinationReached;
@@ -76,6 +78,11 @@ namespace MoreMountains.TopDownEngine
             _characterPathfinder2D?.SetNewDestination(null);
             _characterMovement?.SetHorizontalMovement(0f);
             _characterMovement?.SetVerticalMovement(0f);
+        }
+        */
+        public override void PerformAction()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
