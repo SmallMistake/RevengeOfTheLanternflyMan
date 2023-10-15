@@ -346,7 +346,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: f
+    positiveButton: space
     altNegativeButton: 
     altPositiveButton: joystick 1 button 3
     gravity: 1000
@@ -794,7 +794,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: ','
+    positiveButton: j
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -807,10 +807,10 @@ InputManager:
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player1_Shoot
-    descriptiveName: alt version to handle the mouse
+    descriptiveName: alt version can be used for something else later
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 0
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -874,7 +874,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: .
+    positiveButton: ;
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -887,10 +887,10 @@ InputManager:
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player1_SecondaryShoot
-    descriptiveName: alt version to handle the mouse
+    descriptiveName: alt version
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 1
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

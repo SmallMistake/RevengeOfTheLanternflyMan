@@ -22,9 +22,10 @@ namespace MoreMountains.TopDownEngine
 		public bool InButtonAutoActivatedZone { get; set; }
 		/// if this is true, characters won't be able to jump while in a button activated zone
 		[Tooltip("if this is true, characters won't be able to jump while in a button activated zone")]
-		public bool PreventJumpInButtonActivatedZone = true; 
-		/// the current button activated zone
-		[Tooltip("the current button activated zone this character is in")]
+		public bool PreventJumpInButtonActivatedZone = true;
+
+        /// the current button activated zone
+        [Tooltip("the current button activated zone this character is in")]
 		[MMReadOnly]
 		public ButtonActivated ButtonActivatedZone;
 
