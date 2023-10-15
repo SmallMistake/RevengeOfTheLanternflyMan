@@ -414,7 +414,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      smoke14_6: 21300012
+      smoke14_10: 21300020
       smoke14_9: 21300018
       smoke14_5: 21300010
       smoke14_2: 21300004
@@ -424,7 +424,7 @@ TextureImporter:
       smoke14_8: 21300016
       smoke14_3: 21300006
       smoke14_7: 21300014
-      smoke14_10: 21300020
+      smoke14_6: 21300012
       smoke14_4: 21300008
   spritePackingTag: 
   pSDRemoveMatte: 0

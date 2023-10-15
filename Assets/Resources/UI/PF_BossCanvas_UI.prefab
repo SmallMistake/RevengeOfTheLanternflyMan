@@ -413,7 +413,8 @@ MonoBehaviour:
   m_text: Boss Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9e1202a45ec9e1b428e6a2ddf908db14, type: 2}
-  m_sharedMaterial: {fileID: 2454441746017239278, guid: 9e1202a45ec9e1b428e6a2ddf908db14, type: 2}
+  m_sharedMaterial: {fileID: 2454441746017239278, guid: 9e1202a45ec9e1b428e6a2ddf908db14,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -491,6 +492,7 @@ GameObject:
   - component: {fileID: 3849467005351687354}
   - component: {fileID: 4895995247901120958}
   - component: {fileID: 3526962887338123151}
+  - component: {fileID: 3310703199560748409}
   m_Layer: 5
   m_Name: PF_BossCanvas_UI
   m_TagString: Untagged
@@ -580,3 +582,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3310703199560748409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418338646490138879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa588b07313ee4479dd1e59eba749cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossNameTextMesh: {fileID: 1882365051747042439}
+  healthToListenTo: {fileID: 0}
+  healthBar: {fileID: 5819738697698834951}
