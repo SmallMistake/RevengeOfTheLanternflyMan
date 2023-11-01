@@ -412,20 +412,12 @@ namespace MoreMountains.TopDownEngine
 				yield break;
 			}
 
-			// if we've setup our game manager to use lives (meaning our max lives is more than zero)
-			if (GameManager.Instance.MaximumLives > 0)
+			// we lose a life
+			//GameManager.Instance.LoseLife(); Removed because we do not have a life system
+			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.GameOver, null);
+			if ((GameManager.Instance.GameOverScene != null) && (GameManager.Instance.GameOverScene != ""))
 			{
-				// we lose a life
-				GameManager.Instance.LoseLife();
-				// if we're out of lives, we check if we have an exit scene, and move there
-				if (GameManager.Instance.CurrentLives <= 0)
-				{
-					TopDownEngineEvent.Trigger(TopDownEngineEventTypes.GameOver, null);
-					if ((GameManager.Instance.GameOverScene != null) && (GameManager.Instance.GameOverScene != ""))
-					{
-						MMSceneLoadingManager.LoadScene(GameManager.Instance.GameOverScene);
-					}
-				}
+				MMSceneLoadingManager.LoadScene(GameManager.Instance.GameOverScene);
 			}
 
 			MMCameraEvent.Trigger(MMCameraEventTypes.StopFollowing);

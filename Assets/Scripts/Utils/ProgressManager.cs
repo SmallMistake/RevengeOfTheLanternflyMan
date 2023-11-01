@@ -135,7 +135,7 @@ namespace IntronDigital
 		{
 			onSaveStarted?.Invoke();
             GameProgress progress = new GameProgress ();
-			progress.playerName = LanternflyGameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
+			progress.playerName = GameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
 			progress.Scenes = Scenes;
 			if (FoundCollectibles != null)
 			{
@@ -153,7 +153,7 @@ namespace IntronDigital
 		public virtual void CreateSaveGame(int saveFileIndex, string playerName = "Test")
 		{
 			this.playerName = playerName;
-			LanternflyGameManager.Instance.playerName = playerName;
+			GameManager.Instance.playerName = playerName;
 			SaveProgress(saveFileIndex);
 		}
 
@@ -175,7 +175,7 @@ namespace IntronDigital
 			GameProgress progress = (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName());
 			if (progress != null)
 			{
-				LanternflyGameManager.Instance.playerName = progress.playerName;
+				GameManager.Instance.playerName = progress.playerName;
 				/*
 				GameManager.Instance.CurrentLives = progress.CurrentLives;
 				InitialMaximumLives = progress.InitialMaximumLives;
@@ -189,7 +189,7 @@ namespace IntronDigital
 			}
 			else
 			{
-				playerName = LanternflyGameManager.Instance.playerName;
+				playerName = GameManager.Instance.playerName;
 				//InitialCurrentLives = GameManager.Instance.CurrentLives;
 			}
             TopDownEngineSaveFilesChangedEvent.Trigger();

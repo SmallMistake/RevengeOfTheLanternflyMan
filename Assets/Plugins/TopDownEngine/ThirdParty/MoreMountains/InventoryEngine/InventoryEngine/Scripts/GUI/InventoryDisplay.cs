@@ -922,7 +922,9 @@ namespace MoreMountains.InventoryEngine
 		protected virtual void OnEnable()
 		{
 			this.MMEventStartListening<MMInventoryEvent>();
-		}
+            RedrawInventoryDisplay();
+
+        }
 
 		/// <summary>
 		/// On Disable, we stop listening for MMInventoryEvents

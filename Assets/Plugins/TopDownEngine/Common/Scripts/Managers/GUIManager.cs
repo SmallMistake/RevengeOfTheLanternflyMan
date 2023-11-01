@@ -10,8 +10,8 @@ namespace MoreMountains.TopDownEngine
 	/// Handles all GUI effects and changes
 	/// </summary>
 	[AddComponentMenu("TopDown Engine/Managers/GUIManager")]
-	public class GUIManager : MMSingleton<GUIManager> 
-	{
+	public class GUIManager : MMSingleton<GUIManager>, MMEventListener<MMStateChangeEvent<CharacterStates.MovementStates>>
+    {
 		/// the main canvas
 		[Tooltip("the main canvas")]
 		public Canvas MainCanvas;
@@ -49,8 +49,14 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("the pattern to apply to format the display of points")]
 		public string PointsTextPattern = "000000";
 
+        [Tooltip("The GameObject that holds the Items Group on the HUD during main gameplay.")]
+        public GameObject itemsHUDGroup;
+        [Tooltip("The GameObject that holds the Holdable Group on the HUD during main gameplay.")]
+        public GameObject holdableHUDGroup;
+		//The current HUD that is visible
+		private GameObject currentHUD;
 
-		protected float _initialJoystickAlpha;
+        protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
 		protected bool _initialized = false;
 
@@ -64,7 +70,16 @@ namespace MoreMountains.TopDownEngine
 			Initialization();
 		}
 
-		protected virtual void Initialization()
+        void OnEnable()
+        {
+            this.MMEventStartListening<MMStateChangeEvent<CharacterStates.MovementStates>>();
+        }
+        void OnDisable()
+        {
+            this.MMEventStopListening<MMStateChangeEvent<CharacterStates.MovementStates>>();
+        }
+
+        protected virtual void Initialization()
 		{
 			if (_initialized)
 			{
@@ -330,5 +345,33 @@ namespace MoreMountains.TopDownEngine
 				}    
 			}
 		}
-	}
+
+        // triggered every time a state change event occurs
+		public void OnMMEvent(MMStateChangeEvent<CharacterStates.MovementStates> stateChangeEvent)
+        {
+			//Change which hud is visible based on the state of the character
+			if (stateChangeEvent.NewState == CharacterStates.MovementStates.CarryingObject)
+        	{
+                ChangeActionsHUD(holdableHUDGroup);
+			}
+			else
+			{
+                ChangeActionsHUD(itemsHUDGroup);
+            }
+        }
+
+        //Call this to change which actions hud is visible
+        public virtual void ChangeActionsHUD(GameObject hudToMakeActive)
+        {
+			if(currentHUD != hudToMakeActive)
+			{
+                if (!(currentHUD == null))
+                {
+                    currentHUD.SetActive(false);
+                }
+                hudToMakeActive.SetActive(true);
+				currentHUD = hudToMakeActive;
+            }
+        }
+    }
 }

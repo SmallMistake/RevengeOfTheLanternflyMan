@@ -57,11 +57,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 1603220759
-    locked: 0
   - name: Characters
     uniqueID: 47421343
+    locked: 0
+  - name: Foreground
+    uniqueID: 1603220759
     locked: 0
   - name: Above
     uniqueID: 961700441
@@ -75,11 +75,11 @@ TagManager:
   - name: 2FDefault
     uniqueID: 2737102601
     locked: 0
-  - name: 2FForeground
-    uniqueID: 318271767
-    locked: 0
   - name: 2FCharacters
     uniqueID: 1288760559
+    locked: 0
+  - name: 2FForeground
+    uniqueID: 318271767
     locked: 0
   - name: 2FAbove
     uniqueID: 3705494803

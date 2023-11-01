@@ -15,6 +15,9 @@ public class CharacterPickupObject : CharacterAbility
     public CharacterHandleWeapon characterWeaponHandlerSecondary;
     public GameObject weaponAttachment;
 
+    protected const string _carryingObjectAnimationParameterName = "CarryingObject";
+    protected int _carryingObjectAnimationParameter;
+
     /// <summary>
     /// On init we grab our components
     /// </summary>
@@ -74,5 +77,21 @@ public class CharacterPickupObject : CharacterAbility
         characterWeaponHandler.AbilityPermitted = true;
         characterWeaponHandlerSecondary.AbilityPermitted = true;
         weaponAttachment.SetActive(true);
+    }
+
+    /// <summary>
+    /// Adds required animator parameters to the animator parameters list if they exist
+    /// </summary>
+    protected override void InitializeAnimatorParameters()
+    {
+        RegisterAnimatorParameter(_carryingObjectAnimationParameterName, AnimatorControllerParameterType.Bool, out _carryingObjectAnimationParameter);
+    }
+
+    /// <summary>
+    /// Sends the current speed and the current value of the Walking state to the animator
+    /// </summary>
+    public override void UpdateAnimator()
+    {
+        MMAnimatorExtensions.UpdateAnimatorBool(_animator, _carryingObjectAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.CarryingObject), _character._animatorParameters, _character.RunAnimatorSanityChecks);
     }
 }

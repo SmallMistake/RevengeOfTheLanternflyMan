@@ -42,7 +42,8 @@ namespace MoreMountains.TopDownEngine
 		CharacterSwitch,
 		Repaint,
 		TogglePause,
-		LoadNextScene
+		LoadNextScene,
+		ToggleInventory
 	}
 
 	/// <summary>
@@ -72,6 +73,8 @@ namespace MoreMountains.TopDownEngine
 		}
 	} 
 
+	// This point method is not being used but is being kept as an example
+	 
 	/// <summary>
 	/// A list of the methods available to change the current score
 	/// </summary>
@@ -115,7 +118,7 @@ namespace MoreMountains.TopDownEngine
 	{
 		PauseMenu,
 		NoPauseMenu
-	}
+    }
 
 	/// <summary>
 	/// A class to store points of entry into levels, one per level.
@@ -134,11 +137,12 @@ namespace MoreMountains.TopDownEngine
 		}
 	}
 
-	/// <summary>
-	/// The game manager is a persistent singleton that handles points and time
-	/// </summary>
-	[AddComponentMenu("TopDown Engine/Managers/Game Manager")]
-	public class GameManager : 	MMPersistentSingleton<GameManager>, 
+    /// <summary>
+    /// The game manager is a persistent singleton that handles points and time
+    /// </summary>
+    [AddComponentMenu("TopDown Engine/Managers/Game Manager")]
+    //[AddComponentMenu("Intron Digital/Managers/Game Manager")]
+    public class GameManager : 	MMPersistentSingleton<GameManager>, 
 		MMEventListener<MMGameEvent>, 
 		MMEventListener<TopDownEngineEvent>, 
 		MMEventListener<TopDownEnginePointEvent>
@@ -146,15 +150,10 @@ namespace MoreMountains.TopDownEngine
 		/// the target frame rate for the game
 		[Tooltip("the target frame rate for the game")]
 		public int TargetFrameRate = 300;
-		[Header("Lives")]
-		/// the maximum amount of lives the character can currently have
-		[Tooltip("the maximum amount of lives the character can currently have")]
-		public int MaximumLives = 0;
-		/// the current number of lives 
-		[Tooltip("the current number of lives ")]
-		public int CurrentLives = 0;
 
-		[Header("Bindings")]
+        public string playerName;
+
+        [Header("Bindings")]
 		/// the name of the scene to redirect to when all lives are lost
 		[Tooltip("the name of the scene to redirect to when all lives are lost")]
 		public string GameOverScene;
@@ -187,8 +186,7 @@ namespace MoreMountains.TopDownEngine
 		protected bool _inventoryOpen = false;
 		protected bool _pauseMenuOpen = false;
 		protected InventoryInputManager _inventoryInputManager;
-		protected int _initialMaximumLives;
-		protected int _initialCurrentLives;
+		protected string _playerName;
 
 		/// <summary>
 		/// On Awake we initialize our list of points of entry
@@ -205,8 +203,8 @@ namespace MoreMountains.TopDownEngine
 		protected virtual void Start()
 		{
 			Application.targetFrameRate = TargetFrameRate;
-			_initialCurrentLives = CurrentLives;
-			_initialMaximumLives = MaximumLives;
+
+			_playerName = playerName;
 		}
 					
 		/// <summary>
@@ -217,49 +215,6 @@ namespace MoreMountains.TopDownEngine
 			Points = 0;
 			MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Reset, 1f, 0f, false, 0f, true);
 			Paused = false;
-		}
-		/// <summary>
-		/// Use this method to decrease the current number of lives
-		/// </summary>
-		public virtual void LoseLife()
-		{
-			CurrentLives--;
-		}
-
-		/// <summary>
-		/// Use this method when a life (or more) is gained
-		/// </summary>
-		/// <param name="lives">Lives.</param>
-		public virtual void GainLives(int lives)
-		{
-			CurrentLives += lives;
-			if (CurrentLives > MaximumLives)
-			{
-				CurrentLives = MaximumLives;
-			}
-		}
-
-		/// <summary>
-		/// Use this method to increase the max amount of lives, and optionnally the current amount as well
-		/// </summary>
-		/// <param name="lives">Lives.</param>
-		/// <param name="increaseCurrent">If set to <c>true</c> increase current.</param>
-		public virtual void AddLives(int lives, bool increaseCurrent)
-		{
-			MaximumLives += lives;
-			if (increaseCurrent)
-			{
-				CurrentLives += lives;
-			}
-		}
-
-		/// <summary>
-		/// Resets the number of lives to their initial values.
-		/// </summary>
-		public virtual void ResetLives()
-		{
-			CurrentLives = _initialCurrentLives;
-			MaximumLives = _initialMaximumLives;
 		}
 
 		/// <summary>
@@ -509,7 +464,8 @@ namespace MoreMountains.TopDownEngine
 		{
 			switch (engineEvent.EventType)
 			{
-				case TopDownEngineEventTypes.TogglePause:
+                case TopDownEngineEventTypes.ToggleInventory:
+                case TopDownEngineEventTypes.TogglePause:
 					if (Paused)
 					{
 						TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
@@ -519,7 +475,7 @@ namespace MoreMountains.TopDownEngine
 						TopDownEngineEvent.Trigger(TopDownEngineEventTypes.Pause, null);
 					}
 					break;
-				case TopDownEngineEventTypes.Pause:
+                case TopDownEngineEventTypes.Pause:
 					Pause ();
 					break;
 
