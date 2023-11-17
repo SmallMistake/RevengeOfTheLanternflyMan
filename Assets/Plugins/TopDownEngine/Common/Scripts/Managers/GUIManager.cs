@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using MoreMountains.Tools;
 using UnityEngine.EventSystems;
 
@@ -207,18 +206,35 @@ namespace MoreMountains.TopDownEngine
 		/// <param name="state">If set to <c>true</c>, sets the pause.</param>
 		public virtual void SetDeathScreen(bool state)
 		{
+			// Replaced by Quick load system
+			/*
+            TransitionEvent.Trigger(TransitionEventTypes.PlayIn, "Circle");
+            /*
 			if (DeathScreen != null)
 			{
 				DeathScreen.SetActive(state);
 				EventSystem.current.sendNavigationEvents = state;
-			}
-		}
+			}*/
+        }
 
-		/// <summary>
-		/// Sets the jetpackbar active or not.
-		/// </summary>
-		/// <param name="state">If set to <c>true</c>, sets the pause.</param>
-		public virtual void SetDashBar(bool state, string playerID)
+        /// <summary>
+        /// Sets the pause screen on or off.
+        /// </summary>
+        /// <param name="state">If set to <c>true</c>, sets the pause.</param>
+        public virtual void SetLevelFinishScreen(bool state)
+        {
+            if (PauseScreen != null)
+            {
+                PauseScreen.SetActive(state);
+                EventSystem.current.sendNavigationEvents = state;
+            }
+        }
+
+        /// <summary>
+        /// Sets the jetpackbar active or not.
+        /// </summary>
+        /// <param name="state">If set to <c>true</c>, sets the pause.</param>
+        public virtual void SetDashBar(bool state, string playerID)
 		{
 			if (DashBars == null)
 			{

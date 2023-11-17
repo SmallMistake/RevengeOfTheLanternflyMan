@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FooWater2DMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 0a29f18c2886250419f9c05b67b30213,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CausticHighlightTexture:
+        m_Texture: {fileID: 2800000, guid: 07775e3349a9044439dc8bb62ffa4101, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CausticSubGraph_cd4567a08f924bc583dfa82d78f468a4_CausticTexture_3496026359:
+        m_Texture: {fileID: 2800000, guid: b78261149f9f7d54ab9580179295eb56, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CausticTexture:
+        m_Texture: {fileID: 2800000, guid: 07775e3349a9044439dc8bb62ffa4101, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTexture:
+        m_Texture: {fileID: 2800000, guid: 07775e3349a9044439dc8bb62ffa4101, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FooCausticSubGraph_cd7df6f074224672b77c5ac831f7f987_CausticHighlightTexture_1767016977:
+        m_Texture: {fileID: 2800000, guid: 674fa731cad68014d88b9e7c74f12912, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 7f0f86c9c894fb8418fb73f0ff7a7967, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: f67a70ff2bdf1a34a9a9351ab56ebb87, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CausticBottomGradientMovementAmount: 0.17
+    - _CausticBottomNoiseScale: 1.03
+    - _CausticFaderMovementSpeed: 1
+    - _CausticFaderMultiplier: 1
+    - _CausticFaderScale: 1
+    - _CausticMovementAmount: 0.86
+    - _CausticMovementScale: 3.6
+    - _CausticScale: 0.5
+    - _CausticStepAmount: 0.87
+    - _CausticTeStepAmount: 0
+    - _CausticTopGradientMovementAmount: 0.17
+    - _CausticTopNoiseScale: 1.03
+    - _DepthNoiseScale: 1
+    - _EdgeDepthBlurAmount: 18.9
+    - _EdgeNoiseScale: 0.52
+    - _EdgeNoiseSpeed: 1.95
+    - _Edge_GradientColorDistance: 0.24
+    - _EnableExternalAlpha: 0
+    - _FoamBorderBlurAmount: 8.04
+    - _FoamScale: 0.5
+    - _NoiseScale: 10
+    - _Pixelation: 32
+    - _Pixelization: 32
+    - _ScrollSpeed: 0.05
+    - _SpecularScale: 3
+    - _SpecularScale2: 10
+    - _SpecularScrollSpeed: 1
+    - _SpecularThreshold: -0.89
+    - _YSquashAmount: 1.4
+    m_Colors:
+    - _CausticBottomColor: {r: 0.11372518, g: 0.34901932, b: 0.63529414, a: 0}
+    - _CausticBottomFlowDirection: {r: -1, g: 1, b: 0, a: 0}
+    - _CausticColor: {r: 0.5372549, g: 0.7019608, b: 0.8000001, a: 0}
+    - _CausticFlowDirection: {r: 1, g: 1, b: 0, a: 0}
+    - _CausticHighlightColor: {r: 0.34509793, g: 0.5882353, b: 0.7529412, a: 1}
+    - _CausticTopFlowDirection: {r: 1, g: 1, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 1, g: 0, b: 0, a: 1}
+    - _EdgeLineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainWaterColor: {r: 0.14117648, g: 0.46666667, b: 0.69803923, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShallowColor: {r: 0.5518868, g: 1, b: 0.9423292, a: 0.8235294}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

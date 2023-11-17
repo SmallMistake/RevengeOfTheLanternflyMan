@@ -32,10 +32,12 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("the split camera rig")]
 		public GameObject SplitCameraRig;
 
+		/*
 		[Header("GUI Manager")]
 		/// the multiplayer GUI Manager
 		[Tooltip("the multiplayer GUI Manager")]
 		public MultiplayerGUIManager MPGUIManager;
+		*/
 
 		/// <summary>
 		/// On awake we handle our different camera modes
@@ -51,6 +53,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void HandleCameraModes()
 		{
+			/*
 			if (CameraMode == CameraModes.Split)
 			{
 				if (GroupCameraRig != null) { GroupCameraRig.SetActive(false); }
@@ -73,6 +76,7 @@ namespace MoreMountains.TopDownEngine
 					MPGUIManager.SplittersGUI?.SetActive(false);
 				}
 			}
+			*/
 		}
 
 		/// <summary>

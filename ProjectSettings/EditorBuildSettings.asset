@@ -23,9 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Scn_AssetLibrary_Level.unity
     guid: 09a4f66a7ebd1834687bcc960fc33d24
+  - enabled: 1
+    path: Assets/Scenes/Levels/Scn_SimplistLevel_Level.unity
+    guid: 7d5144dfe44a1b748b4dc53a8f142e2e
   - enabled: 0
-    path: Assets/Plugins/TopDownEngine/Demos/StartScreen/StartScreen.unity
-    guid: 52360e1567e3fee418407abdfd132d73
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Plugins/TopDownEngine/Demos/Koala2D/KoalaDungeon.unity
     guid: 84badc9c6b6e65a45be4824a7dc1a865
