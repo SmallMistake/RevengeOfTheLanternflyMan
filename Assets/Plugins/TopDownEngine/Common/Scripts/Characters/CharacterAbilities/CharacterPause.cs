@@ -45,14 +45,19 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (_inputManager.PauseButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
 			{
-				TriggerPause();
+				TriggerPause(TopDownEngineEventTypes.TogglePause);
 			}
+			else if (_inputManager.ToggleInventoryButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
+			{
+                //TriggerPause(TopDownEngineEventTypes.TogglePause); // Replace this with the below to allow it to change which one it opens.
+                TriggerPause(TopDownEngineEventTypes.ToggleInventory);
+            }
 		}
 
 		/// <summary>
 		/// If the pause button has been pressed, we change the pause state
 		/// </summary>
-		protected virtual void TriggerPause()
+		protected virtual void TriggerPause(TopDownEngineEventTypes pauseType)
 		{
 			if (_condition.CurrentState == CharacterStates.CharacterConditions.Dead)
 			{
@@ -64,7 +69,7 @@ namespace MoreMountains.TopDownEngine
 			}
 			PlayAbilityStartFeedbacks();
 			// we trigger a Pause event for the GameManager and other classes that could be listening to it too
-			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.TogglePause, null);
+			TopDownEngineEvent.Trigger(pauseType, null);
 		}
 
 		/// <summary>

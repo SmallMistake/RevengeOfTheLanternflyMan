@@ -16,8 +16,22 @@ namespace IntronDigital
 		public string SceneName;
 		public bool LevelComplete = false;
 		public bool LevelUnlocked = false;
-		public int MaxStars;
-		public bool[] CollectedStars;
+		public bool[] CollectedCurrency;
+
+		//Calculate Number of Coins Collected
+		public int CollectedCurrencyCount { 
+			get {
+				int i = 0;
+				foreach (bool item in CollectedCurrency)
+				{
+					if (item)
+					{
+						i++;
+					}
+				}
+				return i;
+			} 
+		}
 	}
 
 	[System.Serializable]
@@ -27,7 +41,8 @@ namespace IntronDigital
 	public class GameProgress
 	{
 		public string playerName;
-		public GameScene[] Scenes;
+        public int commonCurrency;
+        public GameScene[] Scenes;
 		public string[] Collectibles;
 	}
 
@@ -36,10 +51,13 @@ namespace IntronDigital
 	/// There's no general class for that in the engine, for the simple reason that no two games will want to save the exact same things.
 	/// But this should show you how it's done, and you can then copy and paste that into your own class (or extend this one, whatever you prefer).
 	/// </summary>
-	public class ProgressManager : MMSingleton<ProgressManager>, MMEventListener<TopDownEngineEvent>, MMEventListener<TopDownEngineStarEvent>
+	public class ProgressManager : MMSingleton<ProgressManager>, MMEventListener<TopDownEngineEvent>, MMEventListener<AreaCurrencyEvent>
 	{
 		public int currentSaveFile = 1;
 		public string playerName;
+
+        [Tooltip("the common currency of the game")]
+        public int commonCurrency;
 
 		/// the list of scenes that we'll want to consider for our game
 		[Tooltip("the list of scenes that we'll want to consider for our game")]
@@ -53,11 +71,10 @@ namespace IntronDigital
         /// A test button to test creating the save file
         public bool LoadSaveGameBtn;
 
-        /// the current amount of collected stars
-        public int CurrentStars { get; protected set; }
-
 		public UnityEvent onSaveStarted;
 		public UnityEvent onSaveFinished;
+
+		private int initAreaCurrencyAmount = 100;
 		
 		public List<string> FoundCollectibles { get; protected set; }
 
@@ -83,7 +100,7 @@ namespace IntronDigital
 		{
 			base.Awake ();
 			LoadSavedProgress ();
-			InitializeStars ();
+			//InitializeStars (); Replace this with Init Level Specific Currency
 			if (FoundCollectibles == null)
 			{
 				FoundCollectibles = new List<string> ();
@@ -110,32 +127,13 @@ namespace IntronDigital
 		}
 
 		/// <summary>
-		/// Goes through all the scenes in our progress list, and updates the collected stars counter
-		/// </summary>
-		protected virtual void InitializeStars()
-		{
-			foreach (GameScene scene in Scenes)
-			{
-				if (scene.SceneName == SceneManager.GetActiveScene().name)
-				{
-					int stars = 0;
-					foreach (bool star in scene.CollectedStars)
-					{
-						if (star) { stars++; }
-					}
-					CurrentStars = stars;
-				}
-			}
-		}
-
-		/// <summary>
 		/// Saves the progress to a file
 		/// </summary>
 		protected virtual void SaveProgress(int saveFileIndex)
 		{
 			onSaveStarted?.Invoke();
             GameProgress progress = new GameProgress ();
-			progress.playerName = LanternflyGameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
+			progress.playerName = GameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
 			progress.Scenes = Scenes;
 			if (FoundCollectibles != null)
 			{
@@ -153,7 +151,7 @@ namespace IntronDigital
 		public virtual void CreateSaveGame(int saveFileIndex, string playerName = "Test")
 		{
 			this.playerName = playerName;
-			LanternflyGameManager.Instance.playerName = playerName;
+			GameManager.Instance.playerName = playerName;
 			SaveProgress(saveFileIndex);
 		}
 
@@ -175,7 +173,7 @@ namespace IntronDigital
 			GameProgress progress = (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName());
 			if (progress != null)
 			{
-				LanternflyGameManager.Instance.playerName = progress.playerName;
+				GameManager.Instance.playerName = progress.playerName;
 				/*
 				GameManager.Instance.CurrentLives = progress.CurrentLives;
 				InitialMaximumLives = progress.InitialMaximumLives;
@@ -189,7 +187,7 @@ namespace IntronDigital
 			}
 			else
 			{
-				playerName = LanternflyGameManager.Instance.playerName;
+				playerName = GameManager.Instance.playerName;
 				//InitialCurrentLives = GameManager.Instance.CurrentLives;
 			}
             TopDownEngineSaveFilesChangedEvent.Trigger();
@@ -201,23 +199,26 @@ namespace IntronDigital
             return (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName(saveFileIndex));
         }
 
-		public virtual void FindCollectible(string collectibleName)
+        public virtual void FindCollectible(string collectibleName)
 		{
 			FoundCollectibles.Add(collectibleName);
 		}
 
 		/// <summary>
-		/// When we grab a star event, we update our scene status accordingly
+		/// When we grab a currency event, we update our scene status accordingly
 		/// </summary>
 		/// <param name="deadlineStarEvent">Deadline star event.</param>
-		public virtual void OnMMEvent(TopDownEngineStarEvent deadlineStarEvent)
+		public virtual void OnMMEvent(AreaCurrencyEvent areaCurrencyEvent)
 		{
 			foreach (GameScene scene in Scenes)
 			{
-				if (scene.SceneName == deadlineStarEvent.SceneName)
+				if (scene.SceneName == LevelManager.Instance.areaName)
 				{
-					scene.CollectedStars [deadlineStarEvent.StarID] = true;
-					CurrentStars++;
+					if(scene.CollectedCurrency == null || scene.CollectedCurrency.Length <= areaCurrencyEvent.CurrencyID)
+					{
+						scene.CollectedCurrency = new bool[initAreaCurrencyAmount]; //Later on change this to be more variable.
+					}
+                    scene.CollectedCurrency[areaCurrencyEvent.CurrencyID] = true;
 				}
 			}
 		}
@@ -262,7 +263,7 @@ namespace IntronDigital
 		/// </summary>
 		protected virtual void OnEnable()
 		{
-			this.MMEventStartListening<TopDownEngineStarEvent>();
+			this.MMEventStartListening<AreaCurrencyEvent>();
 			this.MMEventStartListening<TopDownEngineEvent>();
 		}
 
@@ -271,7 +272,7 @@ namespace IntronDigital
 		/// </summary>
 		protected virtual void OnDisable()
 		{
-			this.MMEventStopListening<TopDownEngineStarEvent>();
+			this.MMEventStopListening<AreaCurrencyEvent>();
 			this.MMEventStopListening<TopDownEngineEvent>();
 		}		
 	}

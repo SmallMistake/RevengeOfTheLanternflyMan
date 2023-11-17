@@ -100,14 +100,16 @@ namespace MoreMountains.TopDownEngine
 		protected const string _speedAnimationParameterName = "Speed";
 		protected const string _walkingAnimationParameterName = "Walking";
 		protected const string _idleAnimationParameterName = "Idle";
+		protected const string _movingAnimationParameterName = "Moving"; //This is a bool that can be used by any animator state to see if the characters movement is non zero.
 		protected int _speedAnimationParameter;
 		protected int _walkingAnimationParameter;
 		protected int _idleAnimationParameter;
+        protected int _movingAnimationParameter;
 
-		/// <summary>
-		/// On Initialization, we set our movement speed to WalkSpeed.
-		/// </summary>
-		protected override void Initialization()
+        /// <summary>
+        /// On Initialization, we set our movement speed to WalkSpeed.
+        /// </summary>
+        protected override void Initialization()
 		{
 			base.Initialization ();
 			ResetAbility();
@@ -592,7 +594,8 @@ namespace MoreMountains.TopDownEngine
 			RegisterAnimatorParameter (_speedAnimationParameterName, AnimatorControllerParameterType.Float, out _speedAnimationParameter);
 			RegisterAnimatorParameter (_walkingAnimationParameterName, AnimatorControllerParameterType.Bool, out _walkingAnimationParameter);
 			RegisterAnimatorParameter (_idleAnimationParameterName, AnimatorControllerParameterType.Bool, out _idleAnimationParameter);
-		}
+            RegisterAnimatorParameter(_movingAnimationParameterName, AnimatorControllerParameterType.Bool, out _movingAnimationParameter);
+        }
 
 		/// <summary>
 		/// Sends the current speed and the current value of the Walking state to the animator
@@ -602,6 +605,7 @@ namespace MoreMountains.TopDownEngine
 			MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _speedAnimationParameter, Mathf.Abs(_controller.CurrentMovement.magnitude),_character._animatorParameters, _character.RunAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(_animator, _walkingAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.Walking),_character._animatorParameters, _character.RunAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(_animator, _idleAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.Idle),_character._animatorParameters, _character.RunAnimatorSanityChecks);
-		}
+            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _movingAnimationParameter, (_controller.CurrentMovement.magnitude > IdleThreshold), _character._animatorParameters, _character.RunAnimatorSanityChecks);
+        }
 	}
 }

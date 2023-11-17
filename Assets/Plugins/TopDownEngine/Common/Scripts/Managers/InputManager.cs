@@ -78,8 +78,10 @@ namespace MoreMountains.TopDownEngine
 		public MMInput.IMButton DashButton { get; protected set; }
 		/// the crouch button
 		public MMInput.IMButton CrouchButton { get; protected set; }
-		/// the shoot button
-		public MMInput.IMButton ShootButton { get; protected set; }
+        /// the shield button
+        public MMInput.IMButton ShieldButton { get; protected set; }
+        /// the shoot button
+        public MMInput.IMButton ShootButton { get; protected set; }
 		/// the activate button, used for interactions with zones
 		public MMInput.IMButton InteractButton { get; protected set; }
 		/// the shoot button
@@ -94,8 +96,10 @@ namespace MoreMountains.TopDownEngine
 		public MMInput.IMButton SwitchCharacterButton { get; protected set; }
 		/// the switch weapon button
 		public MMInput.IMButton SwitchWeaponButton { get; protected set; }
-		/// the shoot axis, used as a button (non analogic)
-		public MMInput.ButtonStates ShootAxis { get; protected set; }
+		// the toggle inventory button
+        public MMInput.IMButton ToggleInventoryButton { get; protected set; }
+        /// the shoot axis, used as a button (non analogic)
+        public MMInput.ButtonStates ShootAxis { get; protected set; }
 		/// the shoot axis, used as a button (non analogic)
 		public MMInput.ButtonStates SecondaryShootAxis { get; protected set; }
 		/// the primary movement value (used to move the character around)
@@ -206,11 +210,13 @@ namespace MoreMountains.TopDownEngine
 			ButtonList.Add(InteractButton = new MMInput.IMButton(PlayerID, "Interact", InteractButtonDown, InteractButtonPressed, InteractButtonUp));
 			ButtonList.Add(DashButton  = new MMInput.IMButton (PlayerID, "Dash", DashButtonDown, DashButtonPressed, DashButtonUp));
 			ButtonList.Add(CrouchButton  = new MMInput.IMButton (PlayerID, "Crouch", CrouchButtonDown, CrouchButtonPressed, CrouchButtonUp));
-			ButtonList.Add(SecondaryShootButton = new MMInput.IMButton(PlayerID, "SecondaryShoot", SecondaryShootButtonDown, SecondaryShootButtonPressed, SecondaryShootButtonUp));
+            ButtonList.Add(ShieldButton = new MMInput.IMButton(PlayerID, "Shield", ShieldButtonDown, ShieldButtonPressed, ShieldButtonUp));
+            ButtonList.Add(SecondaryShootButton = new MMInput.IMButton(PlayerID, "SecondaryShoot", SecondaryShootButtonDown, SecondaryShootButtonPressed, SecondaryShootButtonUp));
 			ButtonList.Add(ShootButton = new MMInput.IMButton (PlayerID, "Shoot", ShootButtonDown, ShootButtonPressed, ShootButtonUp)); 
 			ButtonList.Add(ReloadButton = new MMInput.IMButton (PlayerID, "Reload", ReloadButtonDown, ReloadButtonPressed, ReloadButtonUp));
 			ButtonList.Add(SwitchWeaponButton = new MMInput.IMButton (PlayerID, "SwitchWeapon", SwitchWeaponButtonDown, SwitchWeaponButtonPressed, SwitchWeaponButtonUp));
-			ButtonList.Add(PauseButton = new MMInput.IMButton(PlayerID, "Pause", PauseButtonDown, PauseButtonPressed, PauseButtonUp));
+            ButtonList.Add(ToggleInventoryButton = new MMInput.IMButton(PlayerID, "ToggleInventory", ToggleInventoryButtonDown, ToggleInventoryButtonPressed, ToggleInventoryButtonUp));
+            ButtonList.Add(PauseButton = new MMInput.IMButton(PlayerID, "Pause", PauseButtonDown, PauseButtonPressed, PauseButtonUp));
 			ButtonList.Add(TimeControlButton = new MMInput.IMButton(PlayerID, "TimeControl", TimeControlButtonDown, TimeControlButtonPressed, TimeControlButtonUp));
 			ButtonList.Add(SwitchCharacterButton = new MMInput.IMButton(PlayerID, "SwitchCharacter", SwitchCharacterButtonDown, SwitchCharacterButtonPressed, SwitchCharacterButtonUp));
 		}
@@ -537,7 +543,11 @@ namespace MoreMountains.TopDownEngine
 		public virtual void CrouchButtonPressed()	{ CrouchButton.State.ChangeState (MMInput.ButtonStates.ButtonPressed); }
 		public virtual void CrouchButtonUp()		{ CrouchButton.State.ChangeState (MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void RunButtonDown()			{ RunButton.State.ChangeState (MMInput.ButtonStates.ButtonDown); }
+        public virtual void ShieldButtonDown() { ShieldButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+        public virtual void ShieldButtonPressed() { ShieldButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+        public virtual void ShieldButtonUp() { ShieldButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+        public virtual void RunButtonDown()			{ RunButton.State.ChangeState (MMInput.ButtonStates.ButtonDown); }
 		public virtual void RunButtonPressed()		{ RunButton.State.ChangeState (MMInput.ButtonStates.ButtonPressed); }
 		public virtual void RunButtonUp()			{ RunButton.State.ChangeState (MMInput.ButtonStates.ButtonUp); }
 
@@ -569,7 +579,11 @@ namespace MoreMountains.TopDownEngine
 		public virtual void SwitchWeaponButtonPressed()		{ SwitchWeaponButton.State.ChangeState (MMInput.ButtonStates.ButtonPressed); }
 		public virtual void SwitchWeaponButtonUp()			{ SwitchWeaponButton.State.ChangeState (MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void SwitchCharacterButtonDown() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+        public virtual void ToggleInventoryButtonDown() { ToggleInventoryButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+        public virtual void ToggleInventoryButtonPressed() { ToggleInventoryButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+        public virtual void ToggleInventoryButtonUp() { ToggleInventoryButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+        public virtual void SwitchCharacterButtonDown() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void SwitchCharacterButtonPressed() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void SwitchCharacterButtonUp() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 	}

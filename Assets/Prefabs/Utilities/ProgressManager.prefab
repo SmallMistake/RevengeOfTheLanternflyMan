@@ -46,22 +46,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSaveFile: 1
+  playerName: 
+  commonCurrency: 0
   Scenes:
-  - SceneName: Level1
+  - SceneName: Green Forest
     LevelComplete: 0
     LevelUnlocked: 0
-    MaxStars: 3
-    CollectedStars: 
-  - SceneName: Level2
+    CollectedCurrency: 
+  - SceneName: Sagging Swamp
     LevelComplete: 0
     LevelUnlocked: 0
-    MaxStars: 2
-    CollectedStars: 
-  - SceneName: Level3
+    CollectedCurrency: 
+  - SceneName: Tree Top Tumble
     LevelComplete: 0
     LevelUnlocked: 0
-    MaxStars: 10
-    CollectedStars: 
+    CollectedCurrency: 
+  - SceneName: Underground Hive
+    LevelComplete: 0
+    LevelUnlocked: 0
+    CollectedCurrency: 
+  - SceneName: Occupied City of Peace
+    LevelComplete: 0
+    LevelUnlocked: 0
+    CollectedCurrency: 
+  - SceneName: Magical Forge
+    LevelComplete: 0
+    LevelUnlocked: 0
+    CollectedCurrency: 
+  - SceneName: Reawakening Battle Field
+    LevelComplete: 0
+    LevelUnlocked: 0
+    CollectedCurrency: 
   CreateSaveGameBtn: 0
   LoadSaveGameBtn: 0
   onSaveStarted:

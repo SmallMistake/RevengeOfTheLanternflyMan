@@ -11,15 +11,18 @@ namespace MoreMountains.TopDownEngine
 	public struct CheckPointEvent
 	{
 		public int Order;
-		public CheckPointEvent(int order)
+		public CheckPoint NewCheckpoint;
+		public CheckPointEvent(int order, CheckPoint checkpoint)
 		{
 			Order = order;
+			NewCheckpoint = checkpoint;
 		}
 
 		static CheckPointEvent e;
-		public static void Trigger(int order)
+		public static void Trigger(int order, CheckPoint checkpoint)
 		{
 			e.Order = order;
+			e.NewCheckpoint = checkpoint;
 			MMEventManager.TriggerEvent(e);
 		}
 	}
@@ -97,7 +100,7 @@ namespace MoreMountains.TopDownEngine
 			if (character.CharacterType != Character.CharacterTypes.Player) { return; }
 			if (!LevelManager.HasInstance) { return; }
 			LevelManager.Instance.SetCurrentCheckpoint(this);
-			CheckPointEvent.Trigger(CheckPointOrder);
+			CheckPointEvent.Trigger(CheckPointOrder, this);
 		}
 
 		/// <summary>

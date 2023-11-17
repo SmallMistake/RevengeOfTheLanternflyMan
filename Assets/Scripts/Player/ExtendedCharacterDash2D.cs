@@ -9,6 +9,9 @@ public class ExtendedCharacterDash2D : CharacterDash2D
     protected ExtendedCharacterButtonActivation _characterButtonActivation;
 
 
+    protected const string _dodgeRollingObjectAnimationParameterName = "DodgeRolling";
+    protected int _dodgeRollingObjectAnimationParameter;
+
     /// <summary>
     /// On init we grab other components
     /// </summary>
@@ -27,5 +30,18 @@ public class ExtendedCharacterDash2D : CharacterDash2D
         {
             base.HandleInput();
         }
+    }
+
+    protected override void InitializeAnimatorParameters()
+    {
+        RegisterAnimatorParameter(_dodgeRollingObjectAnimationParameterName, AnimatorControllerParameterType.Bool, out _dodgeRollingObjectAnimationParameter);
+    }
+
+    /// <summary>
+    /// Sends the current speed and the current value of the Walking state to the animator
+    /// </summary>
+    public override void UpdateAnimator()
+    {
+        MMAnimatorExtensions.UpdateAnimatorBool(_animator, _dodgeRollingObjectAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.Dashing), _character._animatorParameters, _character.RunAnimatorSanityChecks);
     }
 }

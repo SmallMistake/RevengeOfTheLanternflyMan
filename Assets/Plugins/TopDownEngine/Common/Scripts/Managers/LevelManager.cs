@@ -6,6 +6,7 @@ using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using MoreMountains.Tools;
+using UnityEngine.UIElements;
 
 
 namespace MoreMountains.TopDownEngine
@@ -75,10 +76,12 @@ namespace MoreMountains.TopDownEngine
 		/// if this is true, this level will use the level bounds defined on this LevelManager. Set it to false when using the Rooms system.
 		[Tooltip("if this is true, this level will use the level bounds defined on this LevelManager. Set it to false when using the Rooms system.")]
 		public bool UseLevelBounds = true;
-        
+
 		[Header("Scene Loading")]
-		/// the method to use to load the destination level
-		[Tooltip("the method to use to load the destination level")]
+		[Tooltip("fill this in to set the scene's friendly name")]
+		public string areaName;
+        /// the method to use to load the destination level
+        [Tooltip("the method to use to load the destination level")]
 		public MMLoadScene.LoadingSceneModes LoadingSceneMode = MMLoadScene.LoadingSceneModes.MMSceneLoadingManager;
 		/// the name of the MMSceneLoadingManager scene you want to use
 		[Tooltip("the name of the MMSceneLoadingManager scene you want to use")]
@@ -120,13 +123,23 @@ namespace MoreMountains.TopDownEngine
 			_initialSpawnPointPosition = (InitialSpawnPoint == null) ? Vector3.zero : InitialSpawnPoint.transform.position;
 		}
 
-		/// <summary>
-		/// On Start we grab our dependencies and initialize spawn
-		/// </summary>
-		protected virtual void Start()
+        private void OnEnable()
+        {
+            this.MMEventStartListening<TopDownEngineEvent>();
+        }
+
+        private void OnDisable()
+        {
+            this.MMEventStopListening<TopDownEngineEvent>();
+        }
+
+        /// <summary>
+        /// On Start we grab our dependencies and initialize spawn
+        /// </summary>
+        protected virtual void Start()
 		{
 			StartCoroutine(InitializationCoroutine());
-		}
+        }
 
 		protected virtual IEnumerator InitializationCoroutine()
 		{
@@ -386,8 +399,7 @@ namespace MoreMountains.TopDownEngine
 		protected virtual IEnumerator PlayerDeadCo()
 		{
 			yield return new WaitForSeconds(DelayBeforeDeathScreen);
-
-			GUIManager.Instance.SetDeathScreen(true);
+            GUIManager.Instance.SetDeathScreen(true); //THis is being replace by fade out and back in
 		}
 
 		/// <summary>
@@ -412,20 +424,12 @@ namespace MoreMountains.TopDownEngine
 				yield break;
 			}
 
-			// if we've setup our game manager to use lives (meaning our max lives is more than zero)
-			if (GameManager.Instance.MaximumLives > 0)
+			// we lose a life
+			//GameManager.Instance.LoseLife(); Removed because we do not have a life system
+			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.GameOver, null);
+			if ((GameManager.Instance.GameOverScene != null) && (GameManager.Instance.GameOverScene != ""))
 			{
-				// we lose a life
-				GameManager.Instance.LoseLife();
-				// if we're out of lives, we check if we have an exit scene, and move there
-				if (GameManager.Instance.CurrentLives <= 0)
-				{
-					TopDownEngineEvent.Trigger(TopDownEngineEventTypes.GameOver, null);
-					if ((GameManager.Instance.GameOverScene != null) && (GameManager.Instance.GameOverScene != ""))
-					{
-						MMSceneLoadingManager.LoadScene(GameManager.Instance.GameOverScene);
-					}
-				}
+				MMSceneLoadingManager.LoadScene(GameManager.Instance.GameOverScene);
 			}
 
 			MMCameraEvent.Trigger(MMCameraEventTypes.StopFollowing);
@@ -551,23 +555,11 @@ namespace MoreMountains.TopDownEngine
 				case TopDownEngineEventTypes.RespawnStarted:
 					Respawn();
 					break;
-			}
-		}
-
-		/// <summary>
-		/// OnDisable, we start listening to events.
-		/// </summary>
-		protected virtual void OnEnable()
-		{
-			this.MMEventStartListening<TopDownEngineEvent>();
-		}
-
-		/// <summary>
-		/// OnDisable, we stop listening to events.
-		/// </summary>
-		protected virtual void OnDisable()
-		{
-			this.MMEventStopListening<TopDownEngineEvent>();
+                case TopDownEngineEventTypes.RespawnComplete:
+                    //Done because there is a but where the respawner stops working if the listener is not flushed out
+                    this.MMEventStartListening<TopDownEngineEvent>();
+					break;
+            }
 		}
 	}
 }
