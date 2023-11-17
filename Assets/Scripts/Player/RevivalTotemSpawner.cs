@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//This class is called when the player dies to store lost currency
+/// <summary>
+/// This script is added to a player to spawn revival totems when the player dies.
+/// </summary>
 public class RevivalTotemSpawner : MonoBehaviour, MMEventListener<TopDownEngineEvent>
 {
     [SerializeField]
+    [Tooltip("The prefab for the revival totem")]
     private GameObject revivalTotemObject;
 
     void OnEnable()
@@ -21,6 +23,9 @@ public class RevivalTotemSpawner : MonoBehaviour, MMEventListener<TopDownEngineE
         this.MMEventStopListening<TopDownEngineEvent>();
     }
 
+    /// <summary>
+    /// When the player dies, spawn a revival totem.
+    /// </summary>
     public void OnMMEvent(TopDownEngineEvent engineEvent)
     {
         if(engineEvent.EventType ==TopDownEngineEventTypes.PlayerDeath)
@@ -28,9 +33,13 @@ public class RevivalTotemSpawner : MonoBehaviour, MMEventListener<TopDownEngineE
             SpawnRevivalTotem();
         }
     }
+
+    /// <summary>
+    /// Spawn a revival totem at this objects location.
+    /// </summary>
     public void SpawnRevivalTotem()
     {
         GameObject spawnedObject = Instantiate(revivalTotemObject);
-        spawnedObject.transform.position =transform.position;
+        spawnedObject.transform.position = transform.position;
     }
 }
