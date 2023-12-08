@@ -16,7 +16,7 @@ public class AreaSpecificCurrency : PickableItem
     private void OnEnable()
     {
         string areaName = ExpandedLevelManager.Instance.areaName;
-        GameScene? scene = ProgressManager.Instance.Scenes.Where(scene => scene.SceneName == areaName).FirstOrDefault();
+        GameScene? scene = ProgressManager.Instance.scenes.Where(scene => scene.SceneName == areaName).FirstOrDefault();
         if (scene != null && scene.CollectedCurrency.Length != 0)
         {
             if (scene.CollectedCurrency[CurrencyID])

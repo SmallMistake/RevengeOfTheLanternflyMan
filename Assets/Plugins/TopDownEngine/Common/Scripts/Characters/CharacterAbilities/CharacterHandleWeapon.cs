@@ -32,7 +32,10 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("a feedback that gets triggered at the character level everytime the weapon is used")]
 		public MMFeedbacks WeaponUseFeedback;
 
-		[Header("Binding")]
+		[Tooltip("a feedback that gets triggered when ever a character fails to use a weapon")]
+		public MMFeedbacks WeaponUseFailedFeedback;
+
+        [Header("Binding")]
 		/// the position the weapon will be attached to. If left blank, will be this.transform.
 		[Tooltip("the position the weapon will be attached to. If left blank, will be this.transform.")]
 		public Transform WeaponAttachment;
@@ -226,14 +229,27 @@ namespace MoreMountains.TopDownEngine
 		protected override void HandleInput()
 		{
 			if (!AbilityAuthorized
-			    || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal)
-			    || (CurrentWeapon == null))
+			    || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))
 			{
 				return;
 			}
 
-			bool inputAuthorized = true;
-			if (CurrentWeapon != null)
+            if (CurrentWeapon == null
+                && AbilityAuthorized
+                && _condition.CurrentState == CharacterStates.CharacterConditions.Normal
+                && ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonDown)))
+            {
+                WeaponUseFailedFeedback?.PlayFeedbacks();
+            }
+            // Seperate call is used to allow for playing failed feedback
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+
+            bool inputAuthorized = true;
+
+            if (CurrentWeapon != null)
 			{
 				inputAuthorized = CurrentWeapon.InputAuthorized;
 			}
@@ -248,11 +264,11 @@ namespace MoreMountains.TopDownEngine
 				ShootStart();
 			}
 
-			bool buttonPressed =
-				(_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed) ||
-				(_inputManager.ShootAxis == MMInput.ButtonStates.ButtonPressed); 
-                
-			if (inputAuthorized && ContinuousPress && (CurrentWeapon.TriggerMode == Weapon.TriggerModes.Auto) && buttonPressed)
+            bool buttonPressed =
+                (_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed) ||
+                (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonPressed);
+
+            if (inputAuthorized && ContinuousPress && (CurrentWeapon.TriggerMode == Weapon.TriggerModes.Auto) && buttonPressed)
 			{
 				ShootStart();
 			}

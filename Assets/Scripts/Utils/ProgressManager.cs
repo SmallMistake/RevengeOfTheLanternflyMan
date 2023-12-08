@@ -4,6 +4,7 @@ using MoreMountains.Tools;
 using UnityEngine.SceneManagement;
 using MoreMountains.TopDownEngine;
 using UnityEngine.Events;
+using MoreMountains.InventoryEngine;
 
 namespace IntronDigital
 {	
@@ -32,6 +33,13 @@ namespace IntronDigital
 				return i;
 			} 
 		}
+
+		public void ResetSceneData()
+		{
+			LevelComplete = false;
+			LevelUnlocked = false;
+			CollectedCurrency = null;
+		}
 	}
 
 	[System.Serializable]
@@ -44,7 +52,7 @@ namespace IntronDigital
         public int commonCurrency;
         public GameScene[] Scenes;
 		public string[] Collectibles;
-	}
+    }
 
 	/// <summary>
 	/// The DeadlineProgressManager class acts as an example of how you can implement progress management in your game.
@@ -59,24 +67,16 @@ namespace IntronDigital
         [Tooltip("the common currency of the game")]
         public int commonCurrency;
 
-		/// the list of scenes that we'll want to consider for our game
-		[Tooltip("the list of scenes that we'll want to consider for our game")]
-		public GameScene[] Scenes;
-
-		[MMInspectorButton("CreateSaveGame")]
-		/// A test button to test creating the save file
-		public bool CreateSaveGameBtn;
-
-        [MMInspectorButton("LoadSaveGame")]
-        /// A test button to test creating the save file
-        public bool LoadSaveGameBtn;
+        /// the list of scenes that we'll want to consider for our game
+        [Tooltip("the list of scenes that we'll want to consider for our game")]
+		public GameScene[] scenes;
 
 		public UnityEvent onSaveStarted;
 		public UnityEvent onSaveFinished;
 
 		private int initAreaCurrencyAmount = 100;
 		
-		public List<string> FoundCollectibles { get; protected set; }
+		public List<string> foundCollectibles { get; protected set; }
 
 		protected const string _saveFolderName = "ProgressData";
 
@@ -101,9 +101,9 @@ namespace IntronDigital
 			base.Awake ();
 			LoadSavedProgress ();
 			//InitializeStars (); Replace this with Init Level Specific Currency
-			if (FoundCollectibles == null)
+			if (foundCollectibles == null)
 			{
-				FoundCollectibles = new List<string> ();
+				foundCollectibles = new List<string> ();
 			}
 		}
 
@@ -112,15 +112,15 @@ namespace IntronDigital
 		/// </summary>
 		protected virtual void LevelComplete()
 		{
-			for (int i = 0; i < Scenes.Length; i++)
+			for (int i = 0; i < scenes.Length; i++)
 			{
-				if (Scenes[i].SceneName == SceneManager.GetActiveScene().name)
+				if (scenes[i].SceneName == SceneManager.GetActiveScene().name)
 				{
-					Scenes[i].LevelComplete = true;
-					Scenes[i].LevelUnlocked = true;
-					if (i < Scenes.Length - 1)
+					scenes[i].LevelComplete = true;
+					scenes[i].LevelUnlocked = true;
+					if (i < scenes.Length - 1)
 					{
-						Scenes [i + 1].LevelUnlocked = true;
+						scenes [i + 1].LevelUnlocked = true;
 					}
 				}
 			}
@@ -134,10 +134,10 @@ namespace IntronDigital
 			onSaveStarted?.Invoke();
             GameProgress progress = new GameProgress ();
 			progress.playerName = GameManager.Instance.playerName; // GameManager.Instance.StoredCharacter.name;
-			progress.Scenes = Scenes;
-			if (FoundCollectibles != null)
+			progress.Scenes = scenes;
+			if (foundCollectibles != null)
 			{
-				progress.Collectibles = FoundCollectibles.ToArray();	
+				progress.Collectibles = foundCollectibles.ToArray();	
 			}
 
 			MMSaveLoadManager.Save(progress, _saveFileName, getCurrentSaveFolderName(saveFileIndex));
@@ -155,13 +155,17 @@ namespace IntronDigital
 			SaveProgress(saveFileIndex);
 		}
 
-        /// <summary>
-        /// A test method to create a test save file at any time from the inspector
-        /// </summary>
-        protected virtual void LoadSaveGame()
-        {
-			print("TODO Load Test Button");
-            //SaveProgress();
+		/// <summary>
+		/// Used for testing, can reset a save file to start
+		/// </summary>
+		protected virtual void ResetSaveFile()
+		{
+			foreach(GameScene scene in scenes)
+			{
+				scene.ResetSceneData();
+            }
+			commonCurrency = 0;
+			SaveProgress(1);
         }
 
         /// <summary>
@@ -169,7 +173,7 @@ namespace IntronDigital
         /// </summary>
         public virtual void LoadSavedProgress(int playerIndex = 1)
 		{
-			currentSaveFile = playerIndex;
+            currentSaveFile = playerIndex;
 			GameProgress progress = (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName());
 			if (progress != null)
 			{
@@ -179,10 +183,10 @@ namespace IntronDigital
 				InitialMaximumLives = progress.InitialMaximumLives;
 				InitialCurrentLives = progress.InitialCurrentLives;
 				*/
-				Scenes = progress.Scenes;
+				scenes = progress.Scenes;
 				if (progress.Collectibles != null)
 				{
-					FoundCollectibles = new List<string>(progress.Collectibles);	
+					foundCollectibles = new List<string>(progress.Collectibles);	
 				}
 			}
 			else
@@ -201,16 +205,21 @@ namespace IntronDigital
 
         public virtual void FindCollectible(string collectibleName)
 		{
-			FoundCollectibles.Add(collectibleName);
+			foundCollectibles.Add(collectibleName);
 		}
 
-		/// <summary>
-		/// When we grab a currency event, we update our scene status accordingly
-		/// </summary>
-		/// <param name="deadlineStarEvent">Deadline star event.</param>
-		public virtual void OnMMEvent(AreaCurrencyEvent areaCurrencyEvent)
+        protected virtual Inventory GetInventory(string inventoryName)
+        {
+            return Inventory.FindInventory(inventoryName, "Player1");
+        }
+
+        /// <summary>
+        /// When we grab a currency event, we update our scene status accordingly
+        /// </summary>
+        /// <param name="deadlineStarEvent">Deadline star event.</param>
+        public virtual void OnMMEvent(AreaCurrencyEvent areaCurrencyEvent)
 		{
-			foreach (GameScene scene in Scenes)
+			foreach (GameScene scene in scenes)
 			{
 				if (scene.SceneName == LevelManager.Instance.areaName)
 				{
@@ -232,19 +241,20 @@ namespace IntronDigital
 			switch (gameEvent.EventType)
 			{
 				case TopDownEngineEventTypes.LevelComplete:
-					LevelComplete ();
-					SaveProgress (currentSaveFile);
+					LevelComplete();
+                    MMGameEvent.Trigger("Save");
+                    SaveProgress (currentSaveFile);
 					break;
 				case TopDownEngineEventTypes.GameOver:
 					GameOver ();
 					break;
 			}
-		} 
+		}
 
-		/// <summary>
-		/// This method describes what happens when the player loses all lives. In this case, we reset its progress and all lives will be reset.
-		/// </summary>
-		protected virtual void GameOver()
+        /// <summary>
+        /// This method describes what happens when the player loses all lives. In this case, we reset its progress and all lives will be reset.
+        /// </summary>
+        protected virtual void GameOver()
 		{
 			ResetProgress ();
 		}

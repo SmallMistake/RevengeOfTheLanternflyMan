@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
@@ -5,15 +6,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// Summary <summary>
+/// This script is used to change the floor of the object it is attached to.
+///</summary>
+
 public class CheckpointController : MonoBehaviour,
     MMEventListener<CheckPointEvent>
 {
     [SerializeField]
-    private Animator animator;
+    [Tooltip("Feedback called when Checkpoint Activated")]
+    public MMF_Player checkpointActivatedFeedback;
+
     [SerializeField]
+    [Tooltip("Feedback called when Checkpoint Deactivated")]
+    public MMFeedbacks checkpointDeactivatedFeedback;
+
+    [SerializeField]
+    [Tooltip("Checkpoint script that is activated when this checkpoint is activated")]
     private CheckPoint checkpointToUse;
-    
-    private bool activated = false;
 
     protected void OnEnable()
     {
@@ -26,9 +36,12 @@ public class CheckpointController : MonoBehaviour,
     }
 
 
+    /// <summary>
+    /// Activated by an external force like a button activated area. When called it triggers a checkpoint event
+    /// </summary>
     public void ActivateCheckpoint()
     {
-        animator.SetTrigger("Activated");
+        checkpointActivatedFeedback.PlayFeedbacks();
         LevelManager.Instance.SetCurrentCheckpoint(checkpointToUse);
         CheckPointEvent.Trigger(checkpointToUse.CheckPointOrder, checkpointToUse);
     }
@@ -41,7 +54,7 @@ public class CheckpointController : MonoBehaviour,
     {
         if (checkPointEvent.NewCheckpoint != checkpointToUse)
         {
-            animator.SetTrigger("Deactivated");
+            checkpointDeactivatedFeedback.PlayFeedbacks();
         }
     }
 }

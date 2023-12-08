@@ -7,7 +7,7 @@ using MoreMountains.Feedbacks;
 namespace MoreMountains.TopDownEngine
 {
     /// <summary>
-    ///
+    /// This ability allows the character to climb objects
     /// </summary>
     [AddComponentMenu("TopDown Engine/Character/Abilities/Character Climb 2D")]
     public class CharacterClimb2D : CharacterAbility
@@ -23,11 +23,6 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("the script that is attacted to the interaction trigger area to get the climb point the player is going to attach to")]
         [SerializeField]
         private CharacterClimbingInteractor characterClimbingInteractor;
-
-        //protected const string _jumpingAnimationParameterName = "Jumping";
-        //protected const string _hitTheGroundAnimationParameterName = "HitTheGround";
-        //protected int _jumpingAnimationParameter;
-        //protected int _hitTheGroundAnimationParameter;
 
         /// <summary>
         /// On init we grab our components
@@ -57,6 +52,9 @@ namespace MoreMountains.TopDownEngine
                 HandleButtonPress();
             }
         }
+        /// <summary>
+        /// On Button Press, check if there is a climbable point in range and if so, start or stop climbing
+        /// </summary>
         public void HandleButtonPress()
         {
             ClimbablePoint climbableInRange = characterClimbingInteractor.GetClimbableInRange();
@@ -64,19 +62,17 @@ namespace MoreMountains.TopDownEngine
             {
                  if (_movement.CurrentState != CharacterStates.MovementStates.Climbing)
                 {
-                    print("Start Climb");
                     StartClimb(climbableInRange);
                 }
                 else
                 {
-                    print("Stop Climb");
                     StopClimb(climbableInRange);
                 }
             }
         }
 
         /// <summary>
-        /// 
+        /// Put the character on the climbable
         /// </summary>
         public virtual void StartClimb(ClimbablePoint climbableInRange)
         {
@@ -85,13 +81,13 @@ namespace MoreMountains.TopDownEngine
             ClimbStartFeedback?.PlayFeedbacks(this.transform.position);
             PlayAbilityStartFeedbacks();
 
-            /*
+            /* TODO make this send out a climb trigger event
             MMCharacterEvent.Trigger(_character, MMCharacterEventTypes.Jump);
             */
         }
 
         /// <summary>
-        /// Stops the jump
+        /// Stops the Climb
         /// </summary>
         public virtual void StopClimb(ClimbablePoint climbableInRange)
         {
@@ -100,24 +96,6 @@ namespace MoreMountains.TopDownEngine
             ClimbStopFeedback?.PlayFeedbacks(this.transform.position);
             StopStartFeedbacks();
             PlayAbilityStopFeedbacks();
-        }
-
-        /// <summary>
-        /// Adds required animator parameters to the animator parameters list if they exist
-        /// </summary>
-        protected override void InitializeAnimatorParameters()
-        {
-            //RegisterAnimatorParameter(_jumpingAnimationParameterName, AnimatorControllerParameterType.Bool, out _jumpingAnimationParameter);
-            //RegisterAnimatorParameter(_hitTheGroundAnimationParameterName, AnimatorControllerParameterType.Bool, out _hitTheGroundAnimationParameter);
-        }
-
-        /// <summary>
-        /// At the end of each cycle, sends Jumping states to the Character's animator
-        /// </summary>
-        public override void UpdateAnimator()
-        {
-            //MMAnimatorExtensions.UpdateAnimatorBool(_animator, _jumpingAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.Jumping), _character._animatorParameters, _character.RunAnimatorSanityChecks);
-            //MMAnimatorExtensions.UpdateAnimatorBool(_animator, _hitTheGroundAnimationParameter, _controller.JustGotGrounded, _character._animatorParameters, _character.RunAnimatorSanityChecks);
         }
     }
 }
