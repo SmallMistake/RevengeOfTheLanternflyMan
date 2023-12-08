@@ -12,7 +12,7 @@ public class CurrencyRowController : MonoBehaviour
 
     private void OnEnable()
     {
-        GameScene[] scenes = ProgressManager.Instance.Scenes;
+        GameScene[] scenes = ProgressManager.Instance.scenes;
         bool foundCurrency = false;
         foreach (GameScene scene in scenes)
         {

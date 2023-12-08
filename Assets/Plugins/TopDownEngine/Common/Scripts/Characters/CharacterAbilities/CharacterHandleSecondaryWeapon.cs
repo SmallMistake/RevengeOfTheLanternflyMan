@@ -23,13 +23,25 @@ namespace MoreMountains.TopDownEngine
 		protected override void HandleInput()
 		{
 			if (!AbilityAuthorized
-			    || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal)
-			    || (CurrentWeapon == null))
+			    || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))
 			{
 				return;
 			}
 
-			bool inputAuthorized = true;
+            if (CurrentWeapon == null
+                && AbilityAuthorized
+                && _condition.CurrentState == CharacterStates.CharacterConditions.Normal
+                && ((_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.SecondaryShootAxis == MMInput.ButtonStates.ButtonDown)))
+            {
+                WeaponUseFailedFeedback?.PlayFeedbacks();
+            }
+            // Seperate call is used to allow for playing failed feedback
+            if (CurrentWeapon == null)
+            {
+                return;
+            }
+
+            bool inputAuthorized = true;
 			if (CurrentWeapon != null)
 			{
 				inputAuthorized = CurrentWeapon.InputAuthorized;

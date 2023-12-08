@@ -1,76 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
-using UnityEngine.Events;
 
+/// <summary>
+/// Switch type interactables can be made by extending ISwitch
+/// </summary>
 public class ISwitch : MonoBehaviour
 {
-    public bool pressed;
+    [Tooltip("Is the switch pressed")]
+    private bool pressed = false;
+    [Tooltip("Called when the switch is pressed")]
+    public MMF_Player onActivatedPlayer;
+    [Tooltip("Called when the switch is un pressed")]
+    public MMF_Player onDeactivatedPlayer;
 
-    public Sprite onSprite;
-    public Sprite offSprite;
-    internal SpriteRenderer spriteRenderer;
-
-    public List<GameObject> targetObjects;
-    private List<Triggerable> triggersToCall = new List<Triggerable>();
-
-    private UnityEvent<bool> SwitchTriggered = new UnityEvent<bool>();
-
-    // Start is called before the first frame update
     void Start()
     {
-        if(targetObjects != null)
-        {
-            foreach (GameObject item in targetObjects)
-            {
-                triggersToCall.Add(item.GetComponent<Triggerable>());
-            }
-        }
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        SetSprite();
+        HandleCurrentState();
     }
 
-    public UnityEvent<bool> GetTriggerEvent()
-    {
-        return SwitchTriggered;
-    }
-
-    public void SetState(bool newState)
-    {
-        pressed = newState;
-        SetSprite();
-    }
-
-
+    /// <summary>
+    /// Flip the current state of the switch
+    /// </summary>
     internal void TriggerSwitch()
     {
         pressed = !pressed;
-        SwitchTriggered.Invoke(pressed);
+        HandleCurrentState();
     }
 
+    /// <summary>
+    /// Set the current state specifically
+    /// </summary>
+    /// <param name="state"></param>
     internal void TriggerSwitch(bool state)
     {
         pressed = state;
-        SwitchTriggered.Invoke(pressed);
+        HandleCurrentState();
     }
 
-
-    internal void SetSprite()
+    /// <summary>
+    /// Check to see what the switches current state is. Then, call the correct feedback
+    /// </summary>
+    private void HandleCurrentState()
     {
         if (pressed)
         {
-            spriteRenderer.sprite = onSprite;
-            if (targetObjects != null)
-            {
-                foreach (Triggerable triggerable in triggersToCall)
-                {
-                    triggerable.trigger();
-                }
-            }
+            onActivatedPlayer.PlayFeedbacks();
+        } else { 
+            onDeactivatedPlayer.PlayFeedbacks();
         }
-        else
-        {
-            spriteRenderer.sprite = offSprite;
-        }
+    }
+    
+    public bool GetPressedState()
+    {
+        return pressed;
     }
 }
