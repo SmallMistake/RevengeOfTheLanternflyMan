@@ -110,12 +110,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4867340190984364657}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stopBurn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4867340192109613270}
         m_TargetAssemblyTypeName: HeatEmitter, Assembly-CSharp
         m_MethodName: StopEmitting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4867340190984364657}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,62 +294,103 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4867340192109613274}
     m_Modifications:
-    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: burnableToListenTo
       value: 
+      objectReference: {fileID: 4867340192109613268}
+    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
+      propertyPath: onBurn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4867340190984364657}
+    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
+      propertyPath: stopBurn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
+      propertyPath: onBurn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750658669546198258, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
+      propertyPath: onBurn.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.ParticleSystem, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.8512694
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.524729
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 63.3
       objectReference: {fileID: 0}
-    - target: {fileID: 8750658669546198260, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+    - target: {fileID: 8750658669546198260, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+        type: 3}
       propertyPath: m_Name
       value: SmokeParticleSystem
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8750658669546198223, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+--- !u!198 &4867340190984364657 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8750658669546198256, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 4250502701645084289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4867340190984364658 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8750658669546198259, guid: c2cfbc2cc73e5d04bb42664e69b33d41,
+    type: 3}
   m_PrefabInstance: {fileID: 4250502701645084289}
   m_PrefabAsset: {fileID: 0}

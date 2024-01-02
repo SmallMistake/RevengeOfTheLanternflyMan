@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d468ae2c-8e46-46e6-9607-85c3cff31043}">
+		<property name="assetPath">
+			<value>KoalaLocked.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.40770833333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a1685784-457c-48db-b92e-b5379c907559}</destination>
+		</relationship>
+	</object>
+</objects>

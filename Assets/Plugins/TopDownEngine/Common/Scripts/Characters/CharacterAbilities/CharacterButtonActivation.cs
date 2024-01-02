@@ -12,7 +12,7 @@ namespace MoreMountains.TopDownEngine
 	/// </summary>
 	[MMHiddenProperties("AbilityStopFeedbacks")]
 	[AddComponentMenu("TopDown Engine/Character/Abilities/Character Button Activation")] 
-	public class CharacterButtonActivation : CharacterAbility 
+	public class CharacterButtonActivation : CallableCharacterAbility 
 	{
 		/// This method is only used to display a helpbox text at the beginning of the ability's inspector
 		public override string HelpBoxText() { return "This component allows your character to interact with button powered objects (dialogue zones, switches...). "; }

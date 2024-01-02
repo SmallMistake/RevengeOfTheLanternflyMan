@@ -40,7 +40,8 @@ namespace MoreMountains.TopDownEngine
 			FallingDownHole,
 			CarryingObject,
 			Climbing,
-			Shielding
+			Shielding,
+			Dragging
 		}
 	}
 }

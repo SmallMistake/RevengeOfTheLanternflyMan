@@ -111,8 +111,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -132,8 +132,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,6 +141,27 @@ TextureImporter:
       bones: []
       spriteID: 5681b5edfd677ec4a951a8ac16cdd06b
       internalID: -1256418643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bush_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc9044d005f02a4d8d4b5aae1b7c5be
+      internalID: -197240501
       vertices: []
       indices: 
       edges: []
@@ -156,6 +177,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      bush_2: -197240501
       bush_0: -1696400748
       bush_1: -1256418643
   spritePackingTag: 

@@ -12,6 +12,7 @@ namespace MoreMountains.TopDownEngine
 	[AddComponentMenu("TopDown Engine/Environment/Button Activated Zone")]
 	public class ButtonActivatedZone : ButtonActivated
 	{
-
+		[Tooltip("")]
+		private string interactName;
 	}
 }

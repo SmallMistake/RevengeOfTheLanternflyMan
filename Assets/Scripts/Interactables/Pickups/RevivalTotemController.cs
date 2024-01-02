@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 using System.Collections;
@@ -10,8 +11,9 @@ using UnityEngine;
 /// </summary>
 public class RevivalTotemController : MonoBehaviour, MMEventListener<TopDownEngineEvent>
 {
+
     [SerializeField]
-    private GameObject revivalTotemObject;
+    private MMF_Player onCollectionFeedbacks;
 
     /// <summary>
     /// Take currency from the player when the totem is spawned.
@@ -51,6 +53,7 @@ public class RevivalTotemController : MonoBehaviour, MMEventListener<TopDownEngi
             Character characterController = collision.gameObject.GetComponent<Character>();
             if (characterController != null && characterController.ConditionState.CurrentState != CharacterStates.CharacterConditions.Dead) {
                 ReturnCurrencyToPlayer();
+                onCollectionFeedbacks?.PlayFeedbacks();
                 Destroy(gameObject);
             }
         }

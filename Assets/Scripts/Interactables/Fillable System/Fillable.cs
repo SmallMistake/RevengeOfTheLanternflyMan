@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,10 @@ public class Fillable : MonoBehaviour
     [SerializeField]
     [Tooltip("What is currently filling the fillable")]
     private string currentFiller;
+
+    [Header("Feedbacks")]
+    [SerializeField]
+    protected MMF_Player pourOutFeedbacks;
 
     /// <summary>
     /// When entering an area that has a container filler, fill the fillable
@@ -57,16 +62,23 @@ public class Fillable : MonoBehaviour
     /// <param name="collision"></param>
     public void PourOutContents(List<GameObject> objectsInRange)
     {
-        foreach(GameObject obj in objectsInRange)
+        if (currentFiller != "" && currentFiller.ToLower() != "empty")
         {
-            Fillable fillable = obj.GetComponent<Fillable>();
-            if(fillable != null)
+            pourOutFeedbacks?.PlayFeedbacks();
+            foreach (GameObject obj in objectsInRange)
             {
-                fillable.ChangeFillStatus(currentFiller);
-                break;
+                Fillable fillable = obj.GetComponent<Fillable>();
+                fillable?.ChangeFillStatus(currentFiller);
+                /* Optional way to only fill one fillable in range if desired in the future
+                if (fillable != null)
+                {
+                    fillable.ChangeFillStatus(currentFiller);
+                    break;
+                }
+                */
             }
+            ChangeFillStatus("empty");
         }
-        ChangeFillStatus("empty");
     }
 
 

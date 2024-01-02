@@ -584,6 +584,7 @@ Transform:
   - {fileID: 8804641066566429152}
   - {fileID: 8804641067934977874}
   - {fileID: 8836632354282139165}
+  - {fileID: 8442904493840801290}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -747,4 +748,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1890697580769087370, guid: b39382fe82766904ebab86d33eda795b,
     type: 3}
   m_PrefabInstance: {fileID: 2689516610254325788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8442904493840425142
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8804641067544822881}
+    m_Modifications:
+    - target: {fileID: 125852, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_Name
+      value: Custom Dialogue Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426072, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: displaySettings.dialogueUI
+      value: 
+      objectReference: {fileID: 101180, guid: e7d4e65443341ff4691a8aa87882b1de, type: 3}
+    - target: {fileID: 11426072, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+      propertyPath: displaySettings.cameraSettings.alternateCameraObject
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81b60610a3c6c6945b454f2293def1e1, type: 3}
+--- !u!4 &8442904493840801290 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 425660, guid: 81b60610a3c6c6945b454f2293def1e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8442904493840425142}
   m_PrefabAsset: {fileID: 0}

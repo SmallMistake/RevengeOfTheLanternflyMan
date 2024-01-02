@@ -14,6 +14,7 @@ TagManager:
   - Weighted
   - MovingGround
   - BattleLock
+  - Trigger
   layers:
   - Default
   - TransparentFX

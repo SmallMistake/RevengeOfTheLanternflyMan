@@ -36,6 +36,6 @@ public class Holdable : MonoBehaviour
 
     public virtual void Use(List<GameObject> objectsInRange)
     {
-        onUse?.Invoke(objectsInRange);
+        onUse?.Invoke(objectsInRange); 
     }
 }

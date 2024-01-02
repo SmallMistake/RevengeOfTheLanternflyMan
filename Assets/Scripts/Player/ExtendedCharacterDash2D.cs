@@ -6,30 +6,29 @@ using UnityEngine;
 
 public class ExtendedCharacterDash2D : CharacterDash2D
 {
-    protected ExtendedCharacterButtonActivation _characterButtonActivation;
-
 
     protected const string _dodgeRollingObjectAnimationParameterName = "DodgeRolling";
     protected int _dodgeRollingObjectAnimationParameter;
 
     /// <summary>
-    /// On init we grab other components
-    /// </summary>
-    protected override void Initialization()
-    {
-        base.Initialization();
-        _characterButtonActivation = _character?.FindAbility<ExtendedCharacterButtonActivation>();
-    }
-
-    /// <summary>
-    /// Watches for dash inputs
+    /// Overriden
     /// </summary>
     protected override void HandleInput()
     {
-        if (_characterButtonActivation == null || (_characterButtonActivation.PreventDashInButtonActivatedZone && !_characterButtonActivation.InButtonActivatedZone))
-        {
-            base.HandleInput();
-        }
+        //Overriden by Try
+    }
+
+    /// <summary>
+    /// If called try to dash
+    /// </summary>
+    public override bool IsAbilityActivatable()
+    {
+        return true;
+    }
+
+    public override void Activate()
+    {
+        base.HandleInput();
     }
 
     protected override void InitializeAnimatorParameters()

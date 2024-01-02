@@ -10,7 +10,7 @@ namespace MoreMountains.TopDownEngine
     /// This ability allows the character to climb objects
     /// </summary>
     [AddComponentMenu("TopDown Engine/Character/Abilities/Character Climb 2D")]
-    public class CharacterClimb2D : CharacterAbility
+    public class CharacterClimb2D : CallableCharacterAbility
     {
         [Tooltip("the feedback to play when the climb starts")]
         public MMFeedbacks ClimbStartFeedback;
@@ -35,23 +35,26 @@ namespace MoreMountains.TopDownEngine
             ClimbStopFeedback?.Initialization(this.gameObject);
         }
 
-        /// <summary>
-        /// On HandleInput we watch for climb input and attachedToLadderIfSo
-        /// </summary>
-        protected override void HandleInput()
+        public override bool IsAbilityActivatable()
         {
-            base.HandleInput();
             // if movement is prevented, or if the character is dead/frozen/can't move, we exit and do nothing
             if (!AbilityAuthorized
                 || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))
             {
-                return;
+                return false;
             }
             if (_inputManager.InteractButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
-                HandleButtonPress();
+                return true;
             }
+            return false;
         }
+
+        public override void Activate()
+        {
+            HandleButtonPress();
+        }
+
         /// <summary>
         /// On Button Press, check if there is a climbable point in range and if so, start or stop climbing
         /// </summary>

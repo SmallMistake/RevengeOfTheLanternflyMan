@@ -198,6 +198,12 @@ namespace IntronDigital
 
         }
 
+		public void AddToHeldCurrency(int amountToChangeBy)
+		{
+            commonCurrency += amountToChangeBy;
+
+        }
+
 		public GameProgress GetSaveFile(int saveFileIndex)
 		{
             return (GameProgress)MMSaveLoadManager.Load(typeof(GameProgress), _saveFileName, getCurrentSaveFolderName(saveFileIndex));

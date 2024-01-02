@@ -16,7 +16,7 @@ namespace MoreMountains.TopDownEngine
 	/// DashingDirectionY : the y component of the dash direction, normalized
 	/// </summary>
 	[AddComponentMenu("TopDown Engine/Character/Abilities/Character Dash 2D")]
-	public class CharacterDash2D : CharacterAbility 
+	public class CharacterDash2D : CallableCharacterAbility 
 	{
 		/// the possible dash modes (fixed : always the same direction)
 		public enum DashModes { Fixed, MainMovement, SecondaryMovement, MousePosition }

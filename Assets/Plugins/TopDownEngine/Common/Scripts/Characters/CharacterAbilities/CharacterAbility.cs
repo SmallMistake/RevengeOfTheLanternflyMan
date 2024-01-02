@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using System.Linq;
+using System;
 
 namespace MoreMountains.TopDownEngine
-{	
+{
 	/// <summary>
 	/// A class meant to be overridden that handles a character's ability. 
 	/// </summary>
 	//[RequireComponent(typeof(Character))]
+	[Serializable]
 	public class CharacterAbility : TopDownMonoBehaviour 
 	{
 		/// the sound fx to play when the ability starts
@@ -121,8 +123,10 @@ namespace MoreMountains.TopDownEngine
 		protected bool _startFeedbackIsPlaying = false;
 		protected List<CharacterHandleWeapon> _handleWeaponList;
 
-		/// This method is only used to display a helpbox text at the beginning of the ability's inspector
-		public virtual string HelpBoxText() { return ""; }
+		
+
+        /// This method is only used to display a helpbox text at the beginning of the ability's inspector
+        public virtual string HelpBoxText() { return ""; }
 
 		/// <summary>
 		/// On awake we proceed to pre initializing our ability
@@ -223,10 +227,10 @@ namespace MoreMountains.TopDownEngine
 
 		}
 
-		/// <summary>
-		/// Resets all input for this ability. Can be overridden for ability specific directives
-		/// </summary>
-		public virtual void ResetInput()
+        /// <summary>
+        /// Resets all input for this ability. Can be overridden for ability specific directives
+        /// </summary>
+        public virtual void ResetInput()
 		{
 			_horizontalInput = 0f;
 			_verticalInput = 0f;

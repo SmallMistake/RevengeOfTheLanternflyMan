@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPickupObject : CharacterAbility
+public class CharacterPickupObject : CallableCharacterAbility
 {
 
     [Tooltip("Object Holder Object that represents where the object is physically held. Usually a child in object")]
@@ -27,26 +27,40 @@ public class CharacterPickupObject : CharacterAbility
     }
 
     /// <summary>
-    /// On HandleInput we watch for jump input and trigger a jump if needed
+    /// Try to interact with objects
     /// </summary>
-    protected override void HandleInput()
+    public override bool IsAbilityActivatable()
     {
-        base.HandleInput();
+        if (!AbilityAuthorized)
+        {
+            return false;
+        }
+        if (InButtonActivatedZone && (ButtonActivatedZone != null))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public override void Activate()
+    {
         //Listen for input and make desision;
         // if movement is prevented, or if the character is dead/frozen/can't move, we exit and do nothing
         if (!AbilityAuthorized || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))
         {
             return;
         }
-        if (_inputManager.JumpButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
+        if (_inputManager.InteractButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
         {
             bool? holdingObject = objectHolder.HandleButtonPress();
             if (holdingObject == null)
-            {}
-            else if (holdingObject == true) { 
+            { }
+            else if (holdingObject == true)
+            {
                 _movement.ChangeState(CharacterStates.MovementStates.CarryingObject);
                 HideWeaponVisuals();
-            } else
+            }
+            else
             {
                 _movement.ChangeState(CharacterStates.MovementStates.Idle);
                 ShowWeaponVisuals();
@@ -93,5 +107,10 @@ public class CharacterPickupObject : CharacterAbility
     public override void UpdateAnimator()
     {
         MMAnimatorExtensions.UpdateAnimatorBool(_animator, _carryingObjectAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.CarryingObject), _character._animatorParameters, _character.RunAnimatorSanityChecks);
+    }
+
+    public override bool IsStillActive()
+    {
+        return true;
     }
 }

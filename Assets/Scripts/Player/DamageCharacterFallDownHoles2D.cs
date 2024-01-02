@@ -24,7 +24,7 @@ public class DamageCharacterFallDownHoles2D : CharacterFallDownHoles2D
             return;
         }
 
-        if (_controller2D.OverHole && !_controller2D.Grounded)
+        if (_controller2D.OverHole && !_controller2D.Grounded && _movement.CurrentState != CharacterStates.MovementStates.FallingDownHole)
         {
             if ((_movement.CurrentState != CharacterStates.MovementStates.Jumping)
                 && (_movement.CurrentState != CharacterStates.MovementStates.Dashing)
@@ -33,6 +33,7 @@ public class DamageCharacterFallDownHoles2D : CharacterFallDownHoles2D
                 _movement.ChangeState(CharacterStates.MovementStates.FallingDownHole);
                 FallingFeedback?.PlayFeedbacks(this.transform.position);
                 PlayAbilityStartFeedbacks();
+                DamagePlayer();
             }
         }
     }

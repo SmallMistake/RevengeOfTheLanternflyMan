@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using PixelCrushers;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ public class TeleportPointController : MonoBehaviour
     public TeleportPointController destination;
     private bool onCooldown;
 
+    public MMF_Player teleportationFeedbacks;
+
     public UnityEvent preTeleportEvents;
     public UnityEvent postTeleportEvents;
 
@@ -20,6 +23,7 @@ public class TeleportPointController : MonoBehaviour
         if (mask.IsInTagMask(collision.tag) && teleportable && destination){
             if (!onCooldown) {
                 preTeleportEvents?.Invoke();
+                teleportationFeedbacks?.PlayFeedbacks();
                 destination.TeleportToThisPoint(teleportable.getObjectToTeleport());
 
             }

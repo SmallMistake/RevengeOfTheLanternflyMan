@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 8750658669546198259}
   - component: {fileID: 8750658669546198256}
   - component: {fileID: 8750658669546198257}
-  - component: {fileID: 8750658669546198258}
-  - component: {fileID: 8750658669546198223}
   m_Layer: 13
   m_Name: SmokeParticleSystem
   m_TagString: Untagged
@@ -4814,59 +4812,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8750658669546198258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8750658669546198260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c7db9f509e2f144a71c1d47d5f1574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burnableToListenTo: {fileID: 0}
-  onBurn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8750658669546198223}
-        m_TargetAssemblyTypeName: ParticleEffectSystemController, Assembly-CSharp
-        m_MethodName: StartSystem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  stopBurn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8750658669546198223}
-        m_TargetAssemblyTypeName: ParticleEffectSystemController, Assembly-CSharp
-        m_MethodName: StopSystem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8750658669546198223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8750658669546198260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2047f63daba40b4bacde8418b760e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystem: {fileID: 8750658669546198256}
