@@ -35,10 +35,12 @@ public class CharacterPickupObject : CallableCharacterAbility
         {
             return false;
         }
+        /* Broken readd later
         if (InButtonActivatedZone && (ButtonActivatedZone != null))
         {
             return true;
         }
+        */
         return false;
     }
 
