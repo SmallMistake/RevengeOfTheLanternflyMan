@@ -38,7 +38,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Name
-      value: The Gardener
+      value: Player
       type: 0
       typeString: 
     - title: Pictures
@@ -127,28 +127,6 @@ MonoBehaviour:
     fields:
     - title: Name
       value: Restrantuer
-      type: 0
-      typeString: 
-    - title: Pictures
-      value: '[]'
-      type: 3
-      typeString: CustomFieldType_Files
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-    - title: IsPlayer
-      value: False
-      type: 2
-      typeString: CustomFieldType_Boolean
-    portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
-    alternatePortraits: []
-    spritePortraits: []
-  - id: 6
-    fields:
-    - title: Name
-      value: New Actor 6
       type: 0
       typeString: 
     - title: Pictures
@@ -1272,7 +1250,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: 'Zoom2D(Player, 3, 1);
+
+          Delay({{end}});'
         type: 0
         typeString: 
       conversationID: 5
@@ -1351,7 +1331,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 1.2399998
   syncInfo:
     syncActors: 0
     syncItems: 0
