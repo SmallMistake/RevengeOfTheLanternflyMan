@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Quests/QuestDatabase.asset.meta
+guid: d4bf160d15db9c14b871b0299b8ade0f
+NativeFormatImporter:
+========
+guid: 140b5279c3fe40b428ab9feaf7099535
+TextScriptImporter:
+>>>>>>>> 5b70cf5b85d4adc40c61e626d5ef0f141cfea4f1:Assets/FMOD/GBJAM_Project/Metadata/EventFolder/{57b9f3d7-d160-46e6-9980-556c6e2ac3c2}.xml.meta
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
