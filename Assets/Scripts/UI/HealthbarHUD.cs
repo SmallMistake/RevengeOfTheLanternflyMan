@@ -30,10 +30,17 @@ public class HealthbarHUD : MonoBehaviour,
         {
             if (heartsList == null)
             {
+                clearHeartsHUD();
                 buildHeartsList(healthChangeInfo.AffectedHealth.MaximumHealth);
             }
             updateCurrentDisplay(healthChangeInfo);
         }
+    }
+
+    public void clearHeartsHUD()
+    {
+        rowOne.MMDestroyAllChildren();
+        rowTwo.MMDestroyAllChildren();
     }
 
     private void updateCurrentDisplay(HealthChangeEvent healthChangeInfo)

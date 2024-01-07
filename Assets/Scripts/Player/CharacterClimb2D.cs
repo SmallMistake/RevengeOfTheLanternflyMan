@@ -45,6 +45,7 @@ namespace MoreMountains.TopDownEngine
             }
             if (_inputManager.InteractButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
+                return false;
                 return true;
             }
             return false;
