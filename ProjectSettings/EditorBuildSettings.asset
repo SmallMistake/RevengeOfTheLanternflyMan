@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Scn_LevelSelect_Menu.unity
     guid: b363d4a3897b8d74eba3bdfb497dfe0d
   - enabled: 1
-    path: Assets/Scenes/Loading/MMAdditiveLoadingScreen.unity
+    path: Assets/Scenes/Loading/AdditiveLoadingScreen.unity
     guid: 992654b159fb1aa47a2b013c3a74eaa4
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Scn_OpeningCutscene_Cutscene.unity
