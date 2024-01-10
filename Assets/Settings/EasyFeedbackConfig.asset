@@ -19,10 +19,12 @@ MonoBehaviour:
     ListNames:
     - Feedback (EF)
     - Bugs (EF)
+    - Investigating
     - Resolved
     ListIds:
     - 64aefb3639e3327029211456
     - 64aefb3639e3327029211457
+    - 64caa4c3d963032243064adb
     - 64aefb3639e3327029211458
     CategoryNames:
     - 'Feedback '

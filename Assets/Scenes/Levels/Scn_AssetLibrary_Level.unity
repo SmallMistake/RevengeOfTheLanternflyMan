@@ -17239,12 +17239,12 @@ PrefabInstance:
     - target: {fileID: 7046368557447327591, guid: 9a6996031f43f624ebb607b191974e11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.66
+      value: -14.65
       objectReference: {fileID: 0}
     - target: {fileID: 7046368557447327591, guid: 9a6996031f43f624ebb607b191974e11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.46
+      value: 16.17
       objectReference: {fileID: 0}
     - target: {fileID: 7046368557447327591, guid: 9a6996031f43f624ebb607b191974e11,
         type: 3}
@@ -18021,10 +18021,9 @@ MonoBehaviour:
         PlayEvents:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: PixelCrushers.DialogueSystem.DialogueSystemTrigger,
-                Assembly-CSharp-firstpass
-              m_MethodName: OnUse
+            - m_Target: {fileID: 1370570747}
+              m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestGiver, Assembly-CSharp-firstpass
+              m_MethodName: StartDialogueWithPlayer
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -49473,19 +49472,7 @@ MonoBehaviour:
   ExitFeedback: {fileID: 0}
   OnActivation:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1370570747}
-        m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestGiver, Assembly-CSharp-firstpass
-        m_MethodName: StartDialogueWithPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnExit:
     m_PersistentCalls:
       m_Calls: []
@@ -50585,15 +50572,14 @@ MonoBehaviour:
   m_addNewQuestsSinceSavedGame: 0
   m_questList:
   - {fileID: 11400000, guid: 78dfdd32878118d4c98dc0b231c9fca3, type: 2}
-  - {fileID: 11400000, guid: bed8e78f321d87047bb5def3a5b7ff73, type: 2}
   m_deletedStaticQuests: []
   m_id:
-    m_text: 
+    m_text: chef
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_displayName:
-    m_text: 
+    m_text: Chef
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -51475,7 +51461,6 @@ GameObject:
   - component: {fileID: 1471730044}
   - component: {fileID: 1471730043}
   - component: {fileID: 1471730042}
-  - component: {fileID: 1471730054}
   m_Layer: 13
   m_Name: NPC Test
   m_TagString: Untagged
@@ -51855,80 +51840,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.01, y: 0.31}
   m_Size: {x: 0.42, y: 0.57}
   m_Direction: 0
---- !u!114 &1471730054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471730040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2185d538298c73f418ba252c3e3e01ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_key: 
-  m_appendSaverTypeToKey: 0
-  m_saveAcrossSceneChanges: 1
-  m_restoreStateOnStart: 0
-  m_forwardEventsToListeners: 1
-  m_includeInSavedGameData: 1
-  m_addNewQuestsSinceSavedGame: 0
-  m_questList:
-  - {fileID: 11400000, guid: 78dfdd32878118d4c98dc0b231c9fca3, type: 2}
-  - {fileID: 11400000, guid: bed8e78f321d87047bb5def3a5b7ff73, type: 2}
-  m_deletedStaticQuests: []
-  m_id:
-    m_text: Demo Quest Giver
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_displayName:
-    m_text: Restraunter
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_image: {fileID: 0}
-  m_textTable: {fileID: 0}
-  m_noQuestsUIContents:
-    m_icon: {fileID: 0}
-    m_headingText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    m_bodyText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-  m_offerableQuestsUIContents:
-    m_icon: {fileID: 0}
-    m_headingText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    m_bodyText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-  m_activeQuestsUIContents:
-    m_icon: {fileID: 0}
-    m_headingText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    m_bodyText:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-  m_completedQuestDialogueMode: 0
-  m_questDialogueUI: {fileID: 0}
-  m_cooldownCheckFrequency: 0
 --- !u!213 &1475465010
 Sprite:
   m_ObjectHideFlags: 0
