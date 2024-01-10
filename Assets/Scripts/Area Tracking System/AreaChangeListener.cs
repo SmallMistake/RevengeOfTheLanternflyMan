@@ -1,4 +1,5 @@
 using MoreMountains.Tools;
+using MoreMountains.TopDownEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,16 @@ public class AreaChangeListener : MonoBehaviour,
 {
     [SerializeField]
     private UnityEvent<string> onAreaChange;
+
+    protected void OnEnable()
+    {
+        this.MMEventStartListening<AreaChangeEvent>();
+    }
+
+    protected void OnDisable()
+    {
+        this.MMEventStopListening<AreaChangeEvent>();
+    }
 
     public void OnMMEvent(AreaChangeEvent areaChangeInfo)
     {
