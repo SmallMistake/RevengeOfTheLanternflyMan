@@ -68,6 +68,7 @@ public class RoomSwitcherController : MonoBehaviour
         tempHolder?.ClearTempHolder();
         activeRoom?.ExitRoom();
         activeRoom = roomToChangeTo;
+        RoomChangeEvent.Trigger(roomToChangeTo.name);
         activeRoom?.EnterRoom();
     }
 }

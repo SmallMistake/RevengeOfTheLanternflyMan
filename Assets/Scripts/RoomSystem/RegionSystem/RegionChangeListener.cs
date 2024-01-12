@@ -7,24 +7,24 @@ using UnityEngine.Events;
 
 
 // This class can be attached to any object that needs to track when the player changes area
-public class AreaChangeListener : MonoBehaviour,
-    MMEventListener<AreaChangeEvent>
+public class RegionChangeListener : MonoBehaviour,
+    MMEventListener<RegionChangeEvent>
 {
     [SerializeField]
-    private UnityEvent<string> onAreaChange;
+    private UnityEvent<string> onRegionChange;
 
     protected void OnEnable()
     {
-        this.MMEventStartListening<AreaChangeEvent>();
+        this.MMEventStartListening<RegionChangeEvent>();
     }
 
     protected void OnDisable()
     {
-        this.MMEventStopListening<AreaChangeEvent>();
+        this.MMEventStopListening<RegionChangeEvent>();
     }
 
-    public void OnMMEvent(AreaChangeEvent areaChangeInfo)
+    public void OnMMEvent(RegionChangeEvent areaChangeInfo)
     {
-        onAreaChange?.Invoke(areaChangeInfo.newAreaName);
+        onRegionChange?.Invoke(areaChangeInfo.newRegionName);
     }
 }
