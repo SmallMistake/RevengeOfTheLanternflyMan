@@ -1,9 +1,12 @@
-using MoreMountains.Tools;
+ using MoreMountains.Tools;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Used to display a duplicate of a character that is hidden by another object. Ex) The player being obscured by a second floor
+/// </summary>
 public class HiddenDuplicateController : MonoBehaviour
 {
     public SpriteRenderer rendererToDuplicate;

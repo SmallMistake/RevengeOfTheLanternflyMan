@@ -30813,18 +30813,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 846586523}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &846586525 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7242511636612947856, guid: a904b31c6d1e2544a81b9f646254b388,
-    type: 3}
-  m_PrefabInstance: {fileID: 846586523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707e91cc761dd74fbda8c01323239a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!213 &852977079
 Sprite:
   m_ObjectHideFlags: 0
@@ -39787,7 +39775,7 @@ MonoBehaviour:
   onRoomLock:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279592321}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
         m_MethodName: Lock
         m_Mode: 1
@@ -39799,7 +39787,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 846586525}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
         m_MethodName: Lock
         m_Mode: 1
@@ -39814,7 +39802,7 @@ MonoBehaviour:
   onRoomUnlock:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279592321}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
         m_MethodName: Unlock
         m_Mode: 1
@@ -39826,7 +39814,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 846586525}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
         m_MethodName: Unlock
         m_Mode: 1
@@ -39890,19 +39878,19 @@ CompositeCollider2D:
   - m_Collider: {fileID: 1088159001}
     m_ColliderPaths:
     - - X: 120000000
-        Y: 280000000
-      - X: -30000000
-        Y: 280000000
-      - X: -30000000
-        Y: 190000100
+        Y: 190000000
       - X: 120000000
-        Y: 190000100
+        Y: 280000000
+      - X: -30000000
+        Y: 280000000
+      - X: -30000000
+        Y: 190000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 11.99997, y: 19.00001}
+    - - {x: 11.99997, y: 19}
       - {x: 11.99997, y: 28}
       - {x: -3, y: 27.999971}
-      - {x: -2.999971, y: 19.00001}
+      - {x: -2.999971, y: 19}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1088159000
@@ -49273,18 +49261,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1279592319}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1279592321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7242511636612947856, guid: a904b31c6d1e2544a81b9f646254b388,
-    type: 3}
-  m_PrefabInstance: {fileID: 1279592319}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707e91cc761dd74fbda8c01323239a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1296829757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51360,18 +51336,6 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
---- !u!114 &1443040422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7242511636612947856, guid: a904b31c6d1e2544a81b9f646254b388,
-    type: 3}
-  m_PrefabInstance: {fileID: 1138025121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707e91cc761dd74fbda8c01323239a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1455783196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125063,7 +125027,6 @@ GameObject:
   - component: {fileID: 1803548085}
   - component: {fileID: 1803548084}
   - component: {fileID: 1803548083}
-  - component: {fileID: 1803548088}
   - component: {fileID: 1803548089}
   m_Layer: 0
   m_Name: Enemy Arena Room
@@ -125105,19 +125068,7 @@ MonoBehaviour:
   roomBounds: {fileID: 1803548084}
   onRoomEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1803548088}
-        m_TargetAssemblyTypeName: LockRoomEvent, Assembly-CSharp
-        m_MethodName: LockRoom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onRoomExit:
     m_PersistentCalls:
       m_Calls: []
@@ -127208,73 +127159,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1803548088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803548081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4253774a8e2d534ebf9161890e0c9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recurring: 0
-  onRoomLock:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1885924775302212340}
-        m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
-        m_MethodName: Lock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1443040422}
-        m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
-        m_MethodName: Lock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onRoomUnlock:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1885924775302212340}
-        m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
-        m_MethodName: Unlock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1443040422}
-        m_TargetAssemblyTypeName: RoomLock, Assembly-CSharp
-        m_MethodName: Unlock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1803548089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127292,7 +127176,7 @@ MonoBehaviour:
   onEnemiesDefeated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1803548088}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LockRoomEvent, Assembly-CSharp
         m_MethodName: UnlockRoom
         m_Mode: 1
@@ -138374,18 +138258,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a904b31c6d1e2544a81b9f646254b388, type: 3}
---- !u!114 &1885924775302212340 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7242511636612947856, guid: a904b31c6d1e2544a81b9f646254b388,
-    type: 3}
-  m_PrefabInstance: {fileID: 1885924775302212339}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8707e91cc761dd74fbda8c01323239a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!210 &2306528168016989380
 SortingGroup:
   m_ObjectHideFlags: 0
