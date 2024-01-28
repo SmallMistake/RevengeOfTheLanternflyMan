@@ -10,22 +10,40 @@ using UnityEngine.Events;
 public class RoomChangeListener : MonoBehaviour,
     MMEventListener<RoomChangeEvent>
 {
+    [Tooltip("Fire off Event when room entered has a matching ID")]
     [SerializeField]
-    private UnityEvent onRoomEnter;
+    protected RoomController roomToListenFor;
 
-    protected void Awake()
+    [SerializeField]
+    protected UnityEvent onRoomEnter;
+
+    [SerializeField]
+    protected UnityEvent onRoomExit;
+
+    protected virtual void Awake()
     {
         this.MMEventStartListening<RoomChangeEvent>();
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         this.MMEventStopListening<RoomChangeEvent>();
     }
 
     public void OnMMEvent(RoomChangeEvent regionLockInfo)
     {
-            print("TODO Room Changed");
-            //RegionChangeEvent.Invoke();
+        if(regionLockInfo.roomID == roomToListenFor.name)
+        {
+            if(regionLockInfo.entered)
+            {
+                //print($"TODO Room Changed {regionLockInfo.roomID}");
+                onRoomEnter.Invoke();
+            }
+            else
+            {
+                //print($"TODO Room Left {regionLockInfo.roomID}");
+                onRoomExit.Invoke();
+            }
+        }
     }
 }

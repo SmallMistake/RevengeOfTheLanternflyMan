@@ -6,16 +6,19 @@ using UnityEngine;
 public struct RoomChangeEvent
 {
     public string roomID;
+    public bool entered;
 
-    public RoomChangeEvent(string roomID)
+    public RoomChangeEvent(string roomID, bool entered)
     {
         this.roomID = roomID;
+        this.entered = entered;
     }
 
     static RoomChangeEvent e;
-    public static void Trigger(string roomID)
+    public static void Trigger(string roomID, bool entered)
     {
         e.roomID = roomID;
+        e.entered = entered;
         MMEventManager.TriggerEvent(e);
     }
 }

@@ -15,7 +15,8 @@ public class RegionController : MonoBehaviour,
     public string activateID;
     [Tooltip("Human Friendly Area Name")]
     public string regionName;
-    //Can be extended to add on extra area info
+
+    public List<RoomController> roomsToListenForToNotifyOfNewRegion;
 
     protected void OnEnable()
     {
@@ -29,9 +30,17 @@ public class RegionController : MonoBehaviour,
 
     public void OnMMEvent(RoomChangeEvent regionLockInfo)
     {
-        if (regionLockInfo.roomID == activateID)
+        foreach (RoomController room in roomsToListenForToNotifyOfNewRegion)
         {
-            //RegionChangeEvent.Invoke();
+            if (room.name == regionLockInfo.roomID)
+            {
+                if(regionLockInfo.entered)
+                {
+                    print("D");
+                    RegionChangeEvent.Trigger(activateID, regionName);
+                    break;
+                }
+            }
         }
     }
 }

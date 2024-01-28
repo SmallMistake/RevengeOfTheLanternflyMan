@@ -53,7 +53,7 @@ public class RoomSwitcherController : MonoBehaviour
 
     private bool NeedToSwitchRoom()
     {
-        if(roomsIn.Count == 1)
+        if(roomsIn.Count == 1 && roomsIn[0] != activeRoom)
         {
             return true;
         }
@@ -67,8 +67,9 @@ public class RoomSwitcherController : MonoBehaviour
     {
         tempHolder?.ClearTempHolder();
         activeRoom?.ExitRoom();
+        RoomChangeEvent.Trigger(activeRoom?.name, false);
         activeRoom = roomToChangeTo;
-        RoomChangeEvent.Trigger(roomToChangeTo.name);
+        RoomChangeEvent.Trigger(activeRoom?.name, true);
         activeRoom?.EnterRoom();
     }
 }

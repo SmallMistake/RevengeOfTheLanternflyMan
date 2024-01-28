@@ -22,7 +22,7 @@ TagManager:
   - AllFloors
   - Water
   - UI
-  - 
+  - MiniMap
   - 
   - Obstacles
   - Ground
@@ -84,4 +84,7 @@ TagManager:
     locked: 0
   - name: 2FAbove
     uniqueID: 3705494803
+    locked: 0
+  - name: Minimap
+    uniqueID: 3950714245
     locked: 0

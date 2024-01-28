@@ -9,9 +9,13 @@ public class RoomController : MonoBehaviour
 {
 
     public Collider2D roomBounds;
+    [SerializeField]
+    private List<GameObject> gameObjectsToNotControl = new List<GameObject>();
     public UnityEvent onRoomEnter;
     public UnityEvent onRoomExit;
     GameObject virtualCamera;
+
+    private bool isRoomActive = false;
 
 
     private void Start()
@@ -27,23 +31,43 @@ public class RoomController : MonoBehaviour
 
     public void EnterRoom()
     {
+        isRoomActive = true;
         virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.FindGameObjectWithTag("Player").transform;
         //Turn on Children
-        foreach (Transform child in transform)
-        {
-            child.gameObject.SetActive(true);
-        }
+        ChangeGameObjectStatuses(true);
         onRoomEnter?.Invoke();
     }
 
     public void ExitRoom()
     {
+        isRoomActive = false;
         onRoomExit?.Invoke();
 
         //Turn off Children
+        ChangeGameObjectStatuses(false);
+    }
+
+    /// <summary>
+    /// Turn on or off child game objects unless otherwise specified
+    /// </summary>
+    /// <param name="newStatus"></param>
+    private void ChangeGameObjectStatuses(bool newStatus)
+    {
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActive(false);
+            if (gameObjectsToNotControl.Contains(child.gameObject))
+            {
+                continue;
+            }
+            else
+            {
+                child.gameObject.SetActive(newStatus);
+            }
         }
+    }
+
+    public bool IsRoomActive()
+    {
+        return isRoomActive;
     }
 }
