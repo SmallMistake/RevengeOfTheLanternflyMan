@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{3a0d04df-ace6-4009-91a7-068e2934708c}">
+		<property name="assetPath">
+			<value>sx_all_npc_hurt_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.88735416666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{41b313e5-2979-44b1-baac-e8ae20af9504}</destination>
+		</relationship>
+	</object>
+</objects>
