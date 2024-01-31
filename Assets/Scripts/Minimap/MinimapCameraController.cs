@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// This is the main controller that controls the Minimap Virtual Camera
@@ -17,6 +18,9 @@ public class MinimapCameraController : MonoBehaviour
 
     private MinimapCursorController minimapCursor;
 
+    [SerializeField]
+    private InputActionReference zoomAxisInputReference;
+
     private void Awake()
     {
         minimapCursor = GameObject.FindObjectOfType<MinimapCursorController>();
@@ -30,19 +34,23 @@ public class MinimapCameraController : MonoBehaviour
         }
     }
 
-    //TODO Add Zooming Listening
-
-    private void FixedUpdate()
+    private void OnEnable()
     {
-        HandleZoomControls();
+        zoomAxisInputReference.action.performed += HandleZoomControls;
     }
 
-    private void HandleZoomControls()
+    private void OnDisable()
     {
-        if (Input.GetButton("Player1_Shoot"))
+        zoomAxisInputReference.action.performed -= HandleZoomControls;
+    }
+
+    private void HandleZoomControls(InputAction.CallbackContext actionContext)
+    {
+        //TODO make this increase and decrease as an axis
+        if (actionContext.ReadValueAsButton())
         {
             print("TODO ZOOM IN");
-        } else if (Input.GetButton("Player1_SecondaryShoot"))
+        } else
         {
             print("TODO ZOOM OUT");
         }

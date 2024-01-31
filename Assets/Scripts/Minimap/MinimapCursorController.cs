@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class MinimapCursorController : CharacterAbility
 {
@@ -15,6 +16,9 @@ public class MinimapCursorController : CharacterAbility
 
     private GameObject playerGameObject;
 
+    [SerializeField]
+    private InputActionReference placeMarkerInputReference;
+
     //Animation Parameters
     protected const string _hoveringAnimationParameterName = "Hovering";
     protected int _hoveringAnimationParameter;
@@ -25,31 +29,27 @@ public class MinimapCursorController : CharacterAbility
         base.Awake();
     }
 
-    /* Change this to make it activate when map is opened
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        ResetCursorPositionToPlayerPosition();
+        placeMarkerInputReference.action.performed += UseMarker;
         base.OnEnable();
     }
-    */
+
+    protected override void OnDisable()
+    {
+        placeMarkerInputReference.action.performed -= UseMarker;
+        base.OnEnable();
+    }
 
     private void ResetCursorPositionToPlayerPosition()
     {
         transform.position = playerGameObject.transform.position;
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Player1_Shoot"))
-        {
-            UseMarker();
-        }
-    }
-
     /// <summary>
     /// When the player uses a marker place it on the map.
     /// </summary>
-    private void UseMarker()
+    private void UseMarker(InputAction.CallbackContext actionContext)
     {
         if(markersInCursor.Count > 0)
         {
