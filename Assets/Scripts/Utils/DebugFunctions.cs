@@ -27,9 +27,4 @@ public class DebugFunctions : MonoBehaviour
         Character character = LevelManager.Instance.Players[0];
         TopDownEngineEvent.Trigger(TopDownEngineEventTypes.LevelComplete, character);
     }
-
-    public void FixedUpdate()
-    {
-        print("Testing Pause");
-    }
 }

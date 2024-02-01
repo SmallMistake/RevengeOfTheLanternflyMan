@@ -310,8 +310,8 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void HandleMovement()
 		{
-			// if we're not walking anymore, we stop our walking sound
-			if ((_movement.CurrentState != CharacterStates.MovementStates.Walking) && _startFeedbackIsPlaying)
+            // if we're not walking anymore, we stop our walking sound
+            if ((_movement.CurrentState != CharacterStates.MovementStates.Walking) && _startFeedbackIsPlaying)
 			{
 				StopStartFeedbacks();
 			}
@@ -376,12 +376,11 @@ namespace MoreMountains.TopDownEngine
 				PlayAbilityStopSfx();
 				PlayAbilityStopFeedbacks();
 			}
-
-			if (ShouldSetMovement)
+            if (ShouldSetMovement)
 			{
 				SetMovement ();	
 			}
-		}
+        }
 
 		/// <summary>
 		/// Describes what happens when the character is in the frozen state

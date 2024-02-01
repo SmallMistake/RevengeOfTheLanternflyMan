@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class MinimapCursorController : CharacterAbility
+public class MinimapCursorController : MonoBehaviour
 {
 
     [SerializeField]
@@ -19,26 +19,42 @@ public class MinimapCursorController : CharacterAbility
     [SerializeField]
     private InputActionReference placeMarkerInputReference;
 
+    [SerializeField]
+    private InputActionReference primaryMovementInputReference;
+
+    private Rigidbody2D rb;
+    [SerializeField]
+    private float speed;
+
     //Animation Parameters
     protected const string _hoveringAnimationParameterName = "Hovering";
     protected int _hoveringAnimationParameter;
 
-    protected override void Awake()
+    protected void Awake()
     {
         playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        base.Awake();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    protected override void OnEnable()
+    protected void OnEnable()
     {
         placeMarkerInputReference.action.performed += UseMarker;
-        base.OnEnable();
+        primaryMovementInputReference.action.performed += OnMovement;
+        primaryMovementInputReference.action.Enable();
     }
 
-    protected override void OnDisable()
+    protected void OnDisable()
     {
         placeMarkerInputReference.action.performed -= UseMarker;
-        base.OnEnable();
+        primaryMovementInputReference.action.performed -= OnMovement;
+        primaryMovementInputReference.action.Disable();
+    }
+
+    private void OnMovement(InputAction.CallbackContext actionContext)
+    {
+        Vector2 _moveInput = actionContext.action.ReadValue<Vector2>();
+        print(_moveInput);
+        rb.transform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * speed;
     }
 
     private void ResetCursorPositionToPlayerPosition()
@@ -83,21 +99,5 @@ public class MinimapCursorController : CharacterAbility
         {
             markersInCursor.Remove(markerController);
         }
-    }
-
-    /// <summary>
-    /// Adds required animator parameters to the animator parameters list if they exist
-    /// </summary>
-    protected override void InitializeAnimatorParameters()
-    {
-        RegisterAnimatorParameter(_hoveringAnimationParameterName, AnimatorControllerParameterType.Bool, out _hoveringAnimationParameter);
-    }
-
-    /// <summary>
-    /// Sends the current speed and the current value of the Walking state to the animator
-    /// </summary>
-    public override void UpdateAnimator()
-    {
-        MMAnimatorExtensions.UpdateAnimatorBool(_animator, _hoveringAnimationParameter, (markersInCursor.Count > 0), _character._animatorParameters, _character.RunAnimatorSanityChecks);
     }
 }
