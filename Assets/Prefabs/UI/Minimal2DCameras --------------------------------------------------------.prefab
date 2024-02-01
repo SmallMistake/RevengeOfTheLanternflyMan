@@ -8105,7 +8105,7 @@ MonoBehaviour:
   AxisPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetHorizontalMovement
         m_Mode: 0
@@ -8604,7 +8604,7 @@ MonoBehaviour:
   ButtonPressedFirstTime:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: DashButtonDown
         m_Mode: 1
@@ -8619,7 +8619,7 @@ MonoBehaviour:
   ButtonReleased:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: DashButtonUp
         m_Mode: 1
@@ -8634,7 +8634,7 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: DashButtonPressed
         m_Mode: 1
@@ -9435,7 +9435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5725809318609397906}
   - component: {fileID: 5725809318609397908}
-  - component: {fileID: 5725809318609397909}
+  - component: {fileID: 4035782045824851742}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -9473,7 +9473,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
---- !u!114 &5725809318609397909
+--- !u!114 &4035782045824851742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9482,17 +9482,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 5725809318609397907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Player1_Horizontal
-  m_VerticalAxis: Player1_Vertical
-  m_SubmitButton: Player1_Jump
-  m_CancelButton: Player1_Pause
-  m_InputActionsPerSecond: 4
-  m_RepeatDelay: 0.25
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &5725809318623584912
 GameObject:
   m_ObjectHideFlags: 0
@@ -10430,7 +10451,6 @@ GameObject:
   - component: {fileID: 5725809318792995998}
   - component: {fileID: 5725809318792995984}
   - component: {fileID: 5725809318792995989}
-  - component: {fileID: 5725809318792995985}
   - component: {fileID: 5725809318792995991}
   - component: {fileID: 5725809318792995987}
   - component: {fileID: 5725809318792995990}
@@ -10511,30 +10531,6 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5725809318792995999}
   m_Enabled: 1
---- !u!114 &5725809318792995985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5725809318792995999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281595ba54132634bbe48b336e62e2c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputDetectionActive: 1
-  ResetButtonStatesOnFocusLoss: 1
-  PlayerID: Player1
-  AutoMobileDetection: 1
-  InputForcedMode: 0
-  ForceWeaponMode: 0
-  WeaponForcedMode: 0
-  HideMobileControlsInEditor: 0
-  MovementControl: 0
-  SmoothMovement: 1
-  Threshold: {x: 0.1, y: 0.4}
-  RotateInputBasedOnCameraDirection: 0
 --- !u!114 &5725809318792995991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10554,26 +10550,210 @@ MonoBehaviour:
   OverlayInactiveOpacity: 0
   HideContainerOnStart: 1
   InputOnlyWhenOpen: 1
-  ToggleInventoryKey: 105
-  ToggleInventoryAltKey: 356
-  OpenInventoryKey: 0
-  CloseInventoryKey: 0
-  CancelKey: 27
-  CancelKeyAlt: 357
-  MoveKey: insert
-  MoveAltKey: joystick button 2
-  EquipKey: home
-  EquipAltKey: home
-  UseKey: end
-  UseAltKey: end
-  EquipOrUseKey: space
-  EquipOrUseAltKey: joystick button 0
-  DropKey: delete
-  DropAltKey: joystick button 1
-  NextInvKey: page down
-  NextInvAltKey: joystick button 4
-  PrevInvKey: page up
-  PrevInvAltKey: joystick button 5
+  ToggleInventoryKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Toggle
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: b132759c-46a3-4ed7-9798-36da9fd599da
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 3007b60a-d1fe-4b71-a35e-eb6b6431c348
+        m_Path: Keyboard/I
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Toggle
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  OpenInventoryKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Open
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: a8152805-bf56-414e-af18-3bdc8105a1dc
+      m_Processors: 
+      m_Interactions: Press(behavior=2)
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  CloseInventoryKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Close
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: d6d6c72a-de92-48e8-ae41-d6b9c7bbfb39
+      m_Processors: 
+      m_Interactions: Press(behavior=2)
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  CancelKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Cancel
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: 2ad8496e-28b3-4c68-8ddb-443fd4ee5817
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 8050c6e9-0eed-4b54-b11b-b7d322b36927
+        m_Path: Keyboard/escape
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Cancel
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  MoveKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Move
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: 61d8198a-e128-44b1-9b48-5e54755c6ade
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 48031963-ee03-4469-9fc2-e5a354159f02
+        m_Path: Keyboard/insert
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Move
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  EquipKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Equip
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: 98f362cd-f467-43eb-a62d-9eeec58457d3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: eebc0546-2b0d-4545-855b-a840fe2854f4
+        m_Path: Keyboard/home
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Equip
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  UseKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Use
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: b692543d-1a5f-4aec-b65a-25e4e1bae3ca
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: bc56c5d5-60ae-477a-8008-cdedb530dedb
+        m_Path: Keyboard/end
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Use
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  EquipOrUseKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_EquipOrUse
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: 98991393-f034-462a-980b-88962f21ca6e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 4bb6401f-7465-4c6f-922c-e066e572f36e
+        m_Path: Keyboard/space
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_EquipOrUse
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  DropKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_Drop
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: d7061289-1d37-4150-9b4b-549afc86cae3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: ffae4044-2bdf-4b54-b51a-e256c5c4fe65
+        m_Path: Keyboard/delete
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_Drop
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  NextInvKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_NextInv
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: 3df46368-d06d-4f42-9cc9-a0d23c4ee0b7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: c352ce9e-12e5-488d-9602-4c0d96be4823
+        m_Path: Keyboard/pageDown
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_NextInv
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  PrevInvKey:
+    m_UseReference: 0
+    m_Action:
+      m_Name: IM_PrevInv
+      m_Type: 1
+      m_ExpectedControlType: 
+      m_Id: b047c1ec-86b7-48e4-948e-0b891bea8c58
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 6aff97ca-d684-4dd2-ab71-38dfc0626f71
+        m_Path: Keyboard/pageUp
+        m_Interactions: Press(behavior=2)
+        m_Processors: 
+        m_Groups: 
+        m_Action: IM_PrevInv
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: 0}
   CloseList: []
   ManageButtons: 0
   ManageButtonsMode: 1
@@ -11450,7 +11630,7 @@ MonoBehaviour:
   ButtonPressedFirstTime:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SwitchWeaponButtonDown
         m_Mode: 1
@@ -11465,7 +11645,7 @@ MonoBehaviour:
   ButtonReleased:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SwitchWeaponButtonUp
         m_Mode: 1
@@ -11480,7 +11660,7 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SwitchWeaponButtonPressed
         m_Mode: 1
@@ -12542,7 +12722,7 @@ MonoBehaviour:
   AxisPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetHorizontalMovement
         m_Mode: 0
@@ -13885,7 +14065,7 @@ MonoBehaviour:
   AxisPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetVerticalMovement
         m_Mode: 0
@@ -14992,7 +15172,7 @@ MonoBehaviour:
   AxisPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetVerticalMovement
         m_Mode: 0
@@ -15344,7 +15524,7 @@ MonoBehaviour:
   JoystickValue:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: SetMovement
         m_Mode: 0
@@ -15486,7 +15666,7 @@ MonoBehaviour:
   ButtonPressedFirstTime:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: RunButtonDown
         m_Mode: 1
@@ -15501,7 +15681,7 @@ MonoBehaviour:
   ButtonReleased:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: RunButtonUp
         m_Mode: 1
@@ -15516,7 +15696,7 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: RunButtonPressed
         m_Mode: 1
@@ -16201,7 +16381,7 @@ MonoBehaviour:
   ButtonPressedFirstTime:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: JumpButtonDown
         m_Mode: 1
@@ -16213,7 +16393,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InteractButtonDown
         m_Mode: 1
@@ -16228,7 +16408,7 @@ MonoBehaviour:
   ButtonReleased:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: JumpButtonUp
         m_Mode: 1
@@ -16240,7 +16420,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InteractButtonUp
         m_Mode: 1
@@ -16255,7 +16435,7 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: JumpButtonPressed
         m_Mode: 1
@@ -17694,7 +17874,7 @@ MonoBehaviour:
   ButtonPressedFirstTime:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ShootButtonDown
         m_Mode: 1
@@ -17709,7 +17889,7 @@ MonoBehaviour:
   ButtonReleased:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ShootButtonUp
         m_Mode: 1
@@ -17724,7 +17904,7 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5725809318792995985}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ShootButtonPressed
         m_Mode: 1

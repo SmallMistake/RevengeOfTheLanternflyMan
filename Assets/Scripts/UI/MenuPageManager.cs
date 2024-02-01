@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MenuPageManager : MonoBehaviour
@@ -46,11 +47,6 @@ public class MenuPageManager : MonoBehaviour
         else
         {
             EventSystem.current.SetSelectedGameObject(previouslySelectedButton);
-        }
-        if (Input.GetButtonDown("Player1_Shoot"))
-        //if (Input.GetButtonDown("Select") || Input.GetButtonDown("Start") || Input.GetButtonDown("Primary"))
-        {
-            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
     }
 }

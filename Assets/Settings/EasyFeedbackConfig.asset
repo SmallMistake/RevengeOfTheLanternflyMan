@@ -37,7 +37,7 @@ MonoBehaviour:
       idBoard: 64aefb3639e332702921144f
       name: Low Priority
       color: green
-      uses: 4
+      uses: 5
       order: 0
     - id: 64aefb3639e3327029211470
       idBoard: 64aefb3639e332702921144f
