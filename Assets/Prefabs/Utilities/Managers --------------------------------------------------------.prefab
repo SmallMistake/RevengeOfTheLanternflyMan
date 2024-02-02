@@ -162,9 +162,10 @@ GameObject:
   - component: {fileID: 4855222708055395912}
   - component: {fileID: 6826831463624460897}
   - component: {fileID: 9021472749824453277}
+  - component: {fileID: 7333165790798796134}
   m_Layer: 0
   m_Name: InputManager
-  m_TagString: Untagged
+  m_TagString: InputManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,6 +374,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a9f35505-4364-40a6-86e6-a8d23b812aca
     m_ActionName: Debugging/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 359497c5-2bc6-4ff4-9693-16d4abf163b6
+    m_ActionName: Debugging/DebugButton2[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1f5a82f-ad81-4c95-a665-180e001a0d74
+    m_ActionName: Debugging/DebugButton4[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 85ab0ca3-f7fa-446e-848a-f729e543eea0
+    m_ActionName: Debugging/DebugButton3[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d8564d6-1ce1-4aaf-80b3-ad289885d25e
+    m_ActionName: PausedControls/PrimaryMovement[/SwitchProControllerHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -402,6 +419,19 @@ MonoBehaviour:
   SmoothMovement: 1
   Threshold: {x: 0.1, y: 0.4}
   RotateInputBasedOnCameraDirection: 0
+--- !u!114 &7333165790798796134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777241484023240451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f176a3ba7b47f0445b235fd884ca6949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInput: {fileID: 6826831463624460897}
 --- !u!1 &8668883437264305690
 GameObject:
   m_ObjectHideFlags: 0

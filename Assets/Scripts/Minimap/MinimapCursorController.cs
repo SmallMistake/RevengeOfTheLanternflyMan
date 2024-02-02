@@ -53,7 +53,6 @@ public class MinimapCursorController : MonoBehaviour
     private void OnMovement(InputAction.CallbackContext actionContext)
     {
         Vector2 _moveInput = actionContext.action.ReadValue<Vector2>();
-        print(_moveInput);
         rb.transform.position += new Vector3(_moveInput.x, _moveInput.y, 0) * speed;
     }
 

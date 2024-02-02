@@ -15,6 +15,7 @@ TagManager:
   - MovingGround
   - BattleLock
   - Trigger
+  - InputManager
   layers:
   - Default
   - TransparentFX

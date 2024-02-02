@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5264c7ae90c5a05499454276b08302c1, type: 3}
   m_Name: SpriteAssetDefinitions
   m_EditorClassIdentifier: 
-  spriteAssets: []
+  spriteAssets:
+  - {fileID: 11400000, guid: bb438594e5b27244d86f79e4f087100e, type: 2}
+  - {fileID: 11400000, guid: 6be0692fdaeb17a4cb9cf40ef7a8aaff, type: 2}

@@ -259,8 +259,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             void CleanUp()
             {
                 m_RebindOperation?.Dispose();
+                action.Enable();
                 m_RebindOperation = null;
             }
+            action.Disable();
 
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
