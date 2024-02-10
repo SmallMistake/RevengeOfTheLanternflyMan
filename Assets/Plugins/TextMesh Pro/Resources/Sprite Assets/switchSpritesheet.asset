@@ -127,14 +127,14 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 14
     m_Scale: 1
-    m_Name: Switch_Home
-    m_HashCode: 1271500226
+    m_Name: Switch_home
+    m_HashCode: 1270139106
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 15
     m_Scale: 1
-    m_Name: Switch_LB
-    m_HashCode: 1495926467
+    m_Name: Switch_leftShoulder
+    m_HashCode: 1827969544
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 16
@@ -157,8 +157,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 19
     m_Scale: 1
-    m_Name: Switch_Minus
-    m_HashCode: -1002849567
+    m_Name: Switch_minus
+    m_HashCode: -1038566719
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 20

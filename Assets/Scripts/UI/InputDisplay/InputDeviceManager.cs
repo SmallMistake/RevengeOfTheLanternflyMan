@@ -1,5 +1,4 @@
 using BehaviorDesigner.Runtime.Tasks;
-using IntronDigital;
 using MoreMountains.Tools;
 using System;
 using System.Collections;
@@ -11,7 +10,6 @@ using UnityEngine.InputSystem.Switch;
 /// <summary>
 /// Provides device data to listeners
 /// </summary>
-[CreateAssetMenu(fileName = "InputManager", menuName = "InputDeviceManager", order = 0)]
 public class InputDeviceManager : MMSingleton<InputDeviceManager>
 {
     private DynamicDeviceType activeDevice = DynamicDeviceType.Keyboard;
@@ -82,8 +80,33 @@ public class InputDeviceManager : MMSingleton<InputDeviceManager>
 
     public InputBinding GetBinding(string actionName, DynamicDeviceType deviceType, PlayerInput _playerInput)
     {
+        string[] actionParts = actionName.Split('/');
+        string direction = "";
+        // Handle Composte Actions
+        if (actionParts.Length >= 3 ) { 
+            direction = actionParts[2];
+            actionName = $"{actionParts[0]}/{actionParts[1]}";
+        }
+        int bindingKey = (int)deviceType;
+        // Handle Keyboard Composite
+        switch (direction)
+        {
+            case "Up":
+                bindingKey += 1;
+                break;
+            case "Down":
+                bindingKey += 2;
+                break;
+            case "Left":
+                bindingKey += 3;
+                break;
+            case "Right":
+                bindingKey += 4;
+                break;
+        }
+
         InputAction action = _playerInput.actions[actionName];
-        InputBinding deviceBinding = action.bindings[(int)deviceType];
+        InputBinding deviceBinding = action.bindings[bindingKey];
         return deviceBinding;
     }
 }

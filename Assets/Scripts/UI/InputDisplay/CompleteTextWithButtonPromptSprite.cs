@@ -2,6 +2,7 @@ using MoreMountains.TopDownEngine;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public static class CompleteTextWithButtonPromptSprite
@@ -40,7 +41,6 @@ public static class CompleteTextWithButtonPromptSprite
         {
             var withBraces = match.Groups[0].Captures[0].Value;
             var innerPart = match.Groups[1].Captures[0].Value;
-
             var tagText = GetSpriteTag(innerPart, deviceType, inputDeviceManager, spriteAssetDefinitions);
 
             replacedText = replacedText.Replace(withBraces, tagText);
@@ -74,9 +74,11 @@ public static class CompleteTextWithButtonPromptSprite
         stringButtonName = stringButtonName.Replace(
             "<Keyboard>/", "Key_");
         stringButtonName = stringButtonName.Replace(
-            "<Gamepad>/", "Gamepad_");
+            "<Mouse>/", "Mouse_");
         stringButtonName = stringButtonName.Replace(
             "<SwitchProControllerHID>/", "Switch_");
+        stringButtonName = stringButtonName.Replace(
+            "<Gamepad>/", "Gamepad_");
         return stringButtonName;
     }
 }

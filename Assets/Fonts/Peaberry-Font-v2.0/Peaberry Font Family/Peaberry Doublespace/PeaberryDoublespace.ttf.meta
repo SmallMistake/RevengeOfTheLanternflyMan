@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 0838837a6c16b444e81055b0b991b812
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Peaberry
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a71e8516ed34bbf46b9d497013517b55, type: 3}
+  - {fileID: 12800000, guid: e7bfd672c6b62a3469e82ebd74acee68, type: 3}
+  - {fileID: 12800000, guid: 561f8d291f9e7a04dace48651793b1ff, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
