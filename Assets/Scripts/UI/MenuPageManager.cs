@@ -49,4 +49,5 @@ public class MenuPageManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(previouslySelectedButton);
         }
     }
+
 }

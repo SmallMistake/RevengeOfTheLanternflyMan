@@ -300,8 +300,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shoot
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4310afe27649bbe4294e62844f5188ee, type: 2}
-  m_sharedMaterial: {fileID: 3421663795754581385, guid: 4310afe27649bbe4294e62844f5188ee,
+  m_fontAsset: {fileID: 11400000, guid: b702d16613b047b45a5e033928414f52, type: 2}
+  m_sharedMaterial: {fileID: 4051691689638953811, guid: b702d16613b047b45a5e033928414f52,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -538,6 +538,8 @@ GameObject:
   - component: {fileID: 6919696410272648695}
   - component: {fileID: 6919696410272648692}
   - component: {fileID: 9059754518520721111}
+  - component: {fileID: 8454013258092157021}
+  - component: {fileID: 2463407124027271855}
   m_Layer: 5
   m_Name: RebindUIPrefab
   m_TagString: Untagged
@@ -661,6 +663,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2463407124027271855}
+        m_TargetAssemblyTypeName: FMODButtonHelper, Assembly-CSharp
+        m_MethodName: PlaySelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6919696410272648692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +723,47 @@ MonoBehaviour:
   m_RebindStopEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8454013258092157021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919696410272648690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2463407124027271855}
+          m_TargetAssemblyTypeName: FMODButtonHelper, Assembly-CSharp
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2463407124027271855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919696410272648690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5086775adcf591408993457245d03d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7642293010324749928
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +975,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -997,6 +1052,8 @@ MonoBehaviour:
     type: 2}
   inputDeviceManager: {fileID: 0}
   _textBox: {fileID: 0}
+  shouldForceDeviceType: 1
+  deviceTypeToUse: 0
 --- !u!1 &8403157722758233712
 GameObject:
   m_ObjectHideFlags: 0

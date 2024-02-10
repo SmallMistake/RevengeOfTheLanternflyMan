@@ -1,6 +1,6 @@
 public enum DynamicDeviceType
 {
-    Keyboard = 0,
-    Switch = 1,
+    Switch = 0,
+    Keyboard = 1,
     Gamepad = 2
 }

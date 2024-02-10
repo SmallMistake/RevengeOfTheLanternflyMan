@@ -1005,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Machine
       objectReference: {fileID: 0}
+    - target: {fileID: 145072, guid: f907b1416ebdbf645a73183ab47aa2b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 424526, guid: f907b1416ebdbf645a73183ab47aa2b8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1058,6 +1062,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d4bf160d15db9c14b871b0299b8ade0f,
         type: 2}
+    - target: {fileID: 11451116, guid: f907b1416ebdbf645a73183ab47aa2b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22400238, guid: f907b1416ebdbf645a73183ab47aa2b8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
