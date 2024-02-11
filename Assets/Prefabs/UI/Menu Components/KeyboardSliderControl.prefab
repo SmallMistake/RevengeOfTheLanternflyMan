@@ -148,8 +148,6 @@ GameObject:
   - component: {fileID: 4555680619155383530}
   - component: {fileID: 4555680619155383524}
   - component: {fileID: 4555680619155383527}
-  - component: {fileID: 3056822780788814158}
-  - component: {fileID: 9012111741797286844}
   - component: {fileID: 2487116055941564357}
   m_Layer: 5
   m_Name: KeyboardSliderControl
@@ -231,7 +229,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9012111741797286844}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FMODButtonHelper, Assembly-CSharp
         m_MethodName: PlaySelect
         m_Mode: 1
@@ -263,47 +261,6 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &3056822780788814158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555680619155383521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9012111741797286844}
-          m_TargetAssemblyTypeName: FMODButtonHelper, Assembly-CSharp
-          m_MethodName: PlayHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &9012111741797286844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555680619155383521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5086775adcf591408993457245d03d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2487116055941564357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,12 +273,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1736894afa52b7d4fb9413dce50a14a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navigationActionReference: {fileID: -3302374778456504787, guid: 342a556e0a069bd499a48af2f8300ce2,
-    type: 3}
-  buttonToListenTo: {fileID: 4555680619155383524}
   stepAmount: 0.1
   slider: {fileID: 6863121189260985739}
+  buttonToListenTo: {fileID: 4555680619155383524}
+  navigationActionReference: {fileID: -3302374778456504787, guid: 342a556e0a069bd499a48af2f8300ce2,
+    type: 3}
   optionalTextMesh: {fileID: 7470415776313503907}
+  OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5432821042488531509
 GameObject:
   m_ObjectHideFlags: 0

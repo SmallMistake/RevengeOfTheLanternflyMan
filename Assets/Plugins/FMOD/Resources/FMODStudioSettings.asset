@@ -283,8 +283,9 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets/FMOD/GBJAM_Project/GBJAM_Project.fspro
-  sourceBankPath: Assets/FMOD/GBJAM_Project/Build
+  sourceProjectPath: Assets/FMOD/Audio_Development/Revenge of the Lanternfly/Revenge
+    of the Lanternfly.fspro
+  sourceBankPath: Assets/FMOD/Audio_Development/Revenge of the Lanternfly/Build
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -309,7 +310,9 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - Test Bank
+  - music
+  - sfx
+  - ui
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
