@@ -18,4 +18,9 @@ public class FMODBusHelper : MonoBehaviour
     {
         bus.stopAllEvents(stopMode);
     }
+
+    public void ChangeBusVolumeLevel(float newVolumeLevel)
+    {
+        bus.setVolume(newVolumeLevel);
+    }
 }
